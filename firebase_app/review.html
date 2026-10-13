@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review — Manju's UK Job Board</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: #0a0d16;
+            --bg-secondary: #111524;
+            --bg-card: rgba(17, 21, 37, 0.7);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --color-yes: #10b981;
+            --color-no: #ef4444;
+            --color-pending: #f59e0b;
+            --color-maybe: #60a5fa;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.15) transparent; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+        header {
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+            padding: 1rem 2rem; background: var(--bg-secondary); border-bottom: 1px solid var(--border-color);
+            position: sticky; top: 0; z-index: 10;
+        }
+        .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+        .logo-icon {
+            width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700; font-size: 1.1rem;
+        }
+        .logo-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem; }
+        .back-link {
+            color: var(--text-secondary); text-decoration: none; font-size: 0.875rem; display: flex; align-items: center; gap: 0.4rem;
+        }
+        .back-link:hover { color: var(--text-primary); }
+        #auth-container {
+            display: flex; gap: 1rem; align-items: center; background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-color); border-radius: 2rem; padding: 0.25rem 0.25rem 0.25rem 1.25rem;
+        }
+        #user-email { font-size: 0.875rem; color: var(--text-secondary); display: none; }
+        #login-btn, #logout-btn {
+            border: none; padding: 0.5rem 1rem; border-radius: 2rem; cursor: pointer;
+            font-family: 'Space Grotesk', sans-serif; font-weight: 600; color: white;
+        }
+        #login-btn { background: #6366f1; }
+        #logout-btn { background: #ef4444; display: none; }
+
+        .tabs { display: flex; gap: 0.5rem; padding: 1.5rem 2rem 0; flex-wrap: wrap; }
+        .tab-btn {
+            background: none; border: 1px solid var(--border-color); color: var(--text-secondary);
+            padding: 0.6rem 1.25rem; border-radius: 0.75rem 0.75rem 0 0; cursor: pointer;
+            font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 0.9rem;
+        }
+        .tab-btn.active { color: var(--text-primary); background: var(--bg-card); border-bottom-color: var(--bg-card); }
+        .tab-btn .count { color: var(--text-secondary); font-weight: 400; margin-left: 0.35rem; }
+
+        main { padding: 0 2rem 3rem; }
+        .panel { display: none; }
+        .panel.active { display: block; }
+
+        .empty-state { text-align: center; padding: 4rem 1rem; color: var(--text-secondary); }
+
+        .table-container {
+            width: 100%;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 1.25rem 1.25rem 0 0;
+            padding: 1.5rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            margin-top: 1.5rem;
+        }
+        .table-scroll-area {
+            overflow-x: auto;
+            overflow-y: auto;
+            max-height: calc(100vh - 250px);
+            margin: 0 -1.5rem; margin-bottom: 0;
+            padding: 0 1.5rem;
+        }
+        table {
+            width: 100%;
+            min-width: 1000px;
+            border-collapse: separate;
+            border-spacing: 0;
+            text-align: left;
+            font-size: 0.925rem;
+        }
+        thead {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background-color: #121727;
+        }
+        th, td {
+            padding: 1rem 0.75rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        th {
+            color: #ffffff;
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            cursor: pointer;
+            user-select: none;
+            transition: background-color 0.2s;
+        }
+        th:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        tr:hover td {
+            background-color: rgba(255, 255, 255, 0.015);
+        }
+        .resizable-header {
+            resize: horizontal;
+            overflow: auto;
+            min-width: 60px;
+            padding: 1rem 0.75rem;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        th.resizable-th {
+            padding: 0;
+        }
+
+        .action-type-badge {
+            display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase;
+            padding: 0.25rem 0.65rem; border-radius: 1rem; color: white; white-space: nowrap;
+        }
+        .action-type-badge.create_login { background: var(--color-pending); }
+        .action-type-badge.upload_video { background: var(--color-maybe); }
+        .action-type-badge.email_application { background: #8b5cf6; }
+
+        tr.done td { opacity: 0.6; }
+
+        .btn {
+            border: none; border-radius: 0.6rem; padding: 0.55rem 1rem; cursor: pointer;
+            font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 0.85rem; color: white;
+            display: inline-flex; align-items: center; gap: 0.4rem; margin-right: 0.5rem;
+        }
+        .btn.apply { background: var(--color-yes); }
+        .btn.delete { background: var(--color-no); }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .section-label {
+            font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem; text-transform: uppercase;
+            letter-spacing: 0.04em; color: var(--text-primary); margin: 1.75rem 0 1rem; padding-left: 0.5rem;
+        }
+        .section-label:first-child { margin-top: 0; }
+
+        a { color: #60a5fa; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .action-check input { width: 18px; height: 18px; cursor: pointer; }
+
+        .chart-container {
+            background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 1.25rem;
+            padding: 1.5rem; margin-top: 1.5rem; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); backdrop-filter: blur(12px);
+            overflow-x: auto;
+        }
+        .chart-title {
+            font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: 1rem;
+        }
+        .bar-chart-svg text { fill: var(--text-secondary); font-size: 0.7rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .bar-chart-bar { fill: var(--color-pending); transition: fill 0.15s; }
+        .bar-chart-bar:hover { fill: #fbbf24; }
+        .bar-chart-gridline { stroke: rgba(255, 255, 255, 0.08); stroke-width: 1; }
+        .bar-chart-tooltip {
+            position: fixed; background: #1e243b; border: 1px solid var(--border-color); border-radius: 0.5rem;
+            padding: 0.5rem 0.75rem; font-size: 0.8rem; color: var(--text-primary); pointer-events: none;
+            z-index: 1000; display: none; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); white-space: nowrap;
+        }
+
+        .spinner-container { text-align: center; padding: 4rem 1rem; color: var(--text-secondary); }
+        .spinner {
+            width: 36px; height: 36px; border: 3px solid var(--border-color); border-top-color: #6366f1;
+            border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 1rem;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .filter-row th { position: relative; overflow: visible; padding: 0; }
+        .ms-btn {
+            width: 100%; padding: 0.5rem; background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color); border-radius: 0.375rem;
+            color: var(--text-primary); font-size: 0.8rem; text-align: left;
+            cursor: pointer; display: flex; justify-content: space-between; align-items: center; white-space: nowrap;
+        }
+        .ms-btn:hover { background: rgba(255, 255, 255, 0.08); }
+        .ms-dropdown {
+            position: absolute; top: 100%; left: 0; width: 100%; min-width: 180px; max-height: 250px;
+            overflow-y: auto; background: #1e243b; border: 1px solid var(--border-color);
+            border-radius: 0.375rem; z-index: 100; display: none; padding: 0.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .ms-dropdown.show { display: block; }
+        .ms-option {
+            display: flex; align-items: center; gap: 0.5rem; padding: 0.3rem;
+            cursor: pointer; border-radius: 0.25rem; font-size: 0.85rem; color: #d1d5db;
+        }
+        .ms-option:hover { background: rgba(255, 255, 255, 0.05); color: white; }
+        .ms-option input[type="checkbox"] { cursor: pointer; }
+
+        /* Chart aggregation switch (Day / Week / Month) */
+        .chart-gran {
+            display: inline-flex; gap: 2px; padding: 2px; border-radius: 999px;
+            background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .chart-gran button {
+            padding: 3px 11px; border: none; border-radius: 999px; background: none;
+            color: rgba(255, 255, 255, 0.55); font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.72rem; font-weight: 600; cursor: pointer;
+        }
+        .chart-gran button:hover { color: #fff; }
+        .chart-gran button.active { background: rgba(99, 102, 241, 0.35); color: #fff; }
+
+        /* =====================================================================
+           MOBILE APP SHELL — additive only; no desktop rule above is edited.
+           Applies to portrait phones AND short landscape phones. Table rows
+           render as cards; cells are labelled from their column header by
+           labelMobileCells() (data-label / data-role attributes).
+           ===================================================================== */
+        .mobile-app-bottom-nav,
+        .mobile-subnav {
+            display: none;
+        }
+
+        @media (max-width: 768px), (max-height: 550px) and (orientation: landscape) {
+            :root {
+                --hdr-h: 52px;
+                --subnav-h: 40px;
+                --mnav-h: 58px;
+                --mobile-accent: #a5b4fc;
+            }
+
+            /* --- Viewport lock (body: clip, not hidden, so sticky bars work). */
+            html {
+                width: 100% !important;
+                max-width: 100vw !important;
+                overflow-x: hidden !important;
+            }
+            body {
+                width: 100% !important;
+                max-width: 100vw !important;
+                overflow-x: clip !important;
+                padding-bottom: calc(var(--mnav-h) + env(safe-area-inset-bottom, 0px)) !important;
+            }
+
+            /* --- Compact sticky app bar. */
+            header {
+                flex-wrap: nowrap !important;
+                gap: 0.5rem !important;
+                height: var(--hdr-h);
+                padding: 0 0.75rem !important;
+                z-index: 300;
+                background: rgba(17, 21, 36, 0.96);
+                backdrop-filter: blur(18px);
+                -webkit-backdrop-filter: blur(18px);
+            }
+            .logo-area { flex: 1 1 auto; min-width: 0; gap: 0.5rem; }
+            .logo-icon { width: 2rem; height: 2rem; flex-shrink: 0; }
+            .logo-title { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+            #auth-container { flex-shrink: 0; gap: 0.5rem; padding: 0.2rem !important; }
+            #login-btn, #logout-btn { min-height: 38px; font-size: 0.85rem; }
+
+            /* --- Clutter removal: the tab row and back link live in the bottom
+               nav; the account email and the resize handles are desktop detail. */
+            .back-link,
+            .tab-btn,
+            #user-email,
+            thead tr:first-child,
+            .filter-row th:empty {
+                display: none !important;
+            }
+
+            /* The Clear All Filters button (appended into .tabs) stays. */
+            .tabs { padding: 0.6rem 0.75rem 0 !important; justify-content: flex-end; }
+            .tabs:not(:has(#clear-filters-btn)) { display: none; }
+            #clear-filters-btn { margin: 0 !important; min-height: 40px; }
+
+            main { padding: 0 0.6rem 1rem !important; }
+            /* Panels keep their loading "spinner-container" class (4rem/1rem
+               padding, centred text) after rendering — drop it once filled. */
+            main .spinner-container:has(table, .section-label, .chart-container) {
+                padding: 0 !important;
+                text-align: left;
+            }
+            #clear-filters-btn { font-size: 0.8rem; padding: 0.45rem 0.9rem; }
+            .section-label { margin: 1.1rem 0 0.6rem; font-size: 0.95rem; }
+
+            /* --- Width-safe containers; tables become card stacks. */
+            .table-container,
+            .chart-container {
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 0 !important;
+                margin-top: 0.75rem;
+                padding: 0 !important;
+                border: none;
+                border-radius: 0;
+                background: transparent;
+                box-shadow: none;
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+                overflow: visible !important;
+            }
+            .table-container[style*="margin-bottom"] { margin-bottom: 0.5rem !important; }
+            .chart-container {
+                padding: 0.9rem !important;
+                background: var(--bg-card);
+                border: 1px solid var(--border-color);
+                border-radius: 0.9rem;
+                overflow-x: auto !important;
+            }
+            .table-scroll-area {
+                overflow: visible !important;
+                max-height: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            table, thead, tbody { display: block; width: 100%; min-width: 0 !important; }
+
+            /* Filter row -> horizontally scrolling strip of labelled chips. */
+            thead { position: static; background: transparent; margin-bottom: 0.6rem; }
+            .filter-row {
+                display: flex;
+                gap: 0.4rem;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                padding-bottom: 2px;
+            }
+            .filter-row::-webkit-scrollbar { display: none; }
+            .filter-row th { display: block; flex: 0 0 auto; padding: 0 !important; border: none; background: none !important; }
+            .filter-row .ms-btn {
+                width: auto;
+                min-height: 40px;
+                gap: 0.4rem;
+                padding: 0.4rem 0.8rem;
+                border-radius: 999px;
+                font-size: 0 !important;       /* hides "Filter..."; label comes from ::before */
+            }
+            .filter-row .ms-btn::before { content: attr(data-label); font-size: 0.8rem; }
+            .filter-row .ms-btn > span { font-size: 0.6rem !important; }
+            /* Dropdowns are absolutely positioned at the button's x by JS; pin
+               them to the screen edges instead so they can never overflow. */
+            .ms-dropdown {
+                left: 8px !important;
+                right: 8px;
+                width: auto !important;
+                min-width: 0;
+                max-height: 50vh;
+            }
+            .ms-option { padding: 0.6rem 0.5rem; font-size: 0.9rem; }
+
+            tbody tr {
+                display: grid;   /* no !important: applyTableFilters() hides rows inline */
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 0.5rem 0.75rem;
+                padding: 0.8rem 0.85rem;
+                margin-bottom: 0.65rem;
+                background: var(--bg-card);
+                border: 1px solid var(--border-color);
+                border-radius: 0.9rem;
+            }
+            tbody td {
+                display: block;
+                min-width: 0;
+                padding: 0 !important;
+                border: none !important;
+                font-size: 0.85rem;
+                overflow-wrap: anywhere;
+            }
+            tr:hover td { background: none; }
+            tbody td::before {
+                content: attr(data-label);
+                display: block;
+                margin-bottom: 0.15rem;
+                font-size: 0.6rem;
+                font-weight: 700;
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
+                color: var(--text-secondary);
+            }
+            tbody td[data-role="title"] { grid-column: 1 / -1; order: -3; font-size: 1rem; font-weight: 600; line-height: 1.3; }
+            tbody td[data-role="company"] { order: -2; font-weight: 600; }
+            tbody td[data-role="id"] { order: -1; text-align: right; font-size: 0.72rem; color: var(--text-secondary); align-self: center; }
+            tbody td[data-role="title"]::before,
+            tbody td[data-role="company"]::before,
+            tbody td[data-role="id"]::before,
+            tbody td[data-role="actions"]::before { display: none; }
+            tbody td[data-role="wide"],
+            tbody td[data-role="actions"] { grid-column: 1 / -1; }
+            tbody td[data-role="wide"] > div { max-height: none !important; overflow: visible !important; font-size: 0.82rem; line-height: 1.4; color: #d1d5db; }
+            tbody td[data-role="actions"] { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
+            tbody td[data-role="actions"] .btn { flex: 1 1 0; justify-content: center; min-height: 44px; margin: 0; }
+            tbody td[data-role="actions"] .action-check { min-height: 44px; margin-right: 0.5rem !important; }
+
+            /* --- Contents bar (tabs with more than one section). */
+            .mobile-subnav {
+                display: flex;
+                position: sticky;
+                top: var(--hdr-h);
+                z-index: 280;
+                align-items: center;
+                gap: 0.4rem;
+                height: var(--subnav-h);
+                padding: 0 0.75rem;
+                overflow-x: auto;
+                scrollbar-width: none;
+                background: rgba(10, 13, 22, 0.94);
+                backdrop-filter: blur(14px);
+                -webkit-backdrop-filter: blur(14px);
+                border-bottom: 1px solid var(--border-color);
+            }
+            .mobile-subnav::-webkit-scrollbar { display: none; }
+            .mobile-subnav:empty { display: none; }
+            [data-page] { scroll-margin-top: calc(var(--hdr-h) + var(--subnav-h) + 8px); }
+            .subnav-chip {
+                position: relative;
+                flex: 0 0 auto;
+                padding: 0.32rem 0.75rem;
+                border-radius: 999px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                background: rgba(255, 255, 255, 0.06);
+                color: #cbd5e1;
+                font-family: inherit;
+                font-size: 0.72rem;
+                font-weight: 600;
+                white-space: nowrap;
+                cursor: pointer;
+                touch-action: manipulation;
+                user-select: none;
+                -webkit-user-select: none;
+            }
+            .subnav-chip::after { content: ''; position: absolute; inset: -7px -3px; }
+            .subnav-chip.active {
+                background: linear-gradient(135deg, #6366f1, #8b5cf6);
+                border-color: transparent;
+                color: #fff;
+                font-weight: 700;
+            }
+
+            /* --- Fixed bottom navigation. */
+            .mobile-app-bottom-nav {
+                display: flex !important;
+                position: fixed !important;
+                bottom: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                width: 100vw !important;
+                height: calc(var(--mnav-h) + env(safe-area-inset-bottom, 0px)) !important;
+                padding: 0 0.35rem env(safe-area-inset-bottom, 0px) !important;
+                justify-content: space-around !important;
+                align-items: center !important;
+                background: rgba(10, 13, 22, 0.96) !important;
+                backdrop-filter: blur(24px) !important;
+                -webkit-backdrop-filter: blur(24px) !important;
+                border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+                box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.6) !important;
+                transform: translateZ(0) !important;
+                -webkit-transform: translateZ(0) !important;
+                will-change: transform !important;
+                z-index: 99999 !important;
+                user-select: none;
+                -webkit-user-select: none;
+            }
+            .mobile-nav-item {
+                position: relative;
+                display: flex !important;
+                flex: 1 !important;
+                max-width: 80px !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+                gap: 3px !important;
+                min-height: 44px;
+                padding: 0.3rem 0.2rem !important;
+                background: none !important;
+                border: none !important;
+                border-radius: 8px !important;
+                color: var(--text-secondary) !important;
+                font-family: inherit !important;
+                text-decoration: none !important;
+                cursor: pointer !important;
+                touch-action: manipulation;
+                transition: transform 0.15s ease, color 0.15s ease !important;
+            }
+            .mobile-nav-item:active { transform: scale(0.92) !important; }
+            .mobile-nav-item.active { color: var(--mobile-accent) !important; }
+            .mobile-nav-item.active .mobile-nav-icon { filter: drop-shadow(0 0 8px rgba(129, 140, 248, 0.7)); }
+            .mobile-nav-icon { font-size: 1.05rem; line-height: 1; }
+            .mobile-nav-label { font-size: 0.66rem; font-weight: 700; white-space: nowrap; }
+            .mobile-nav-badge {
+                position: absolute;
+                top: 2px;
+                left: calc(50% + 6px);
+                min-width: 16px;
+                padding: 0 4px;
+                border-radius: 999px;
+                background: #6366f1;
+                color: #fff;
+                font-size: 0.6rem;
+                font-weight: 700;
+                line-height: 16px;
+                text-align: center;
+            }
+            .mobile-nav-badge:empty { display: none; }
+
+            /* --- iOS focus-zoom guard. */
+            input, select, textarea { font-size: 16px !important; max-width: 100%; }
+            button { touch-action: manipulation; }
+        }
+
+        /* Landscape phones: shorter bars, icon beside label, two card columns. */
+        @media (max-height: 550px) and (orientation: landscape) {
+            :root {
+                --hdr-h: 44px;
+                --subnav-h: 34px;
+                --mnav-h: 46px;
+            }
+            .logo-icon { width: 1.6rem; height: 1.6rem; font-size: 0.95rem; }
+            .mobile-nav-item {
+                flex-direction: row !important;
+                gap: 6px !important;
+                max-width: none !important;
+            }
+            .mobile-nav-label { font-size: 0.72rem; }
+            .mobile-nav-badge { position: static; }
+            .subnav-chip { padding: 0.24rem 0.6rem; font-size: 0.66rem; }
+            tbody {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 0.6rem;
+                align-items: start;
+            }
+            tbody tr { margin-bottom: 0; }
+        }
+    </style>
+    <!-- Firebase Compat SDKs -->
+    <script src="/__/firebase/10.7.1/firebase-app-compat.js"></script>
+    <script src="/__/firebase/10.7.1/firebase-auth-compat.js"></script>
+    <script src="/__/firebase/10.7.1/firebase-firestore-compat.js"></script>
+</head>
+<body>
+
+<header>
+    <div class="logo-area">
+        <div class="logo-icon">P</div>
+        <div class="logo-title">Review Queue</div>
+        <a class="back-link" href="index.html"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
+    </div>
+    <div id="auth-container">
+        <span id="user-email"></span>
+        <button id="login-btn">Sign in with Google</button>
+        <button id="logout-btn">Sign Out</button>
+    </div>
+</header>
+
+<!-- Mobile contents bar (hidden on desktop; filled by buildSubnav) -->
+<nav class="mobile-subnav" id="mobile-subnav" aria-label="Sections"></nav>
+
+<div class="tabs">
+    <button class="tab-btn active" id="tab-btn-weak" onclick="switchTab('weak')">Weak Matches <span class="count" id="weak-count"></span></button>
+    <button class="tab-btn" id="tab-btn-actions" onclick="switchTab('actions')">Action Items <span class="count" id="actions-count"></span></button>
+    <button class="tab-btn" id="tab-btn-filled" onclick="switchTab('filled')">Filled Forms <span class="count" id="filled-count"></span></button>
+    <button class="tab-btn" id="tab-btn-autosubmitted" onclick="switchTab('autosubmitted')">Auto-Submitted <span class="count" id="autosubmitted-count"></span></button>
+</div>
+
+<main>
+    <div class="panel active" id="panel-weak">
+        <div id="weak-content" class="spinner-container"><div class="spinner"></div><div>Loading jobs…</div></div>
+    </div>
+    <div class="panel" id="panel-actions">
+        <div id="actions-content" class="spinner-container"><div class="spinner"></div><div>Loading jobs…</div></div>
+    </div>
+    <div class="panel" id="panel-filled">
+        <div id="filled-content" class="spinner-container"><div class="spinner"></div><div>Loading jobs…</div></div>
+    </div>
+    <div class="panel" id="panel-autosubmitted">
+        <div id="autosubmitted-content" class="spinner-container"><div class="spinner"></div><div>Loading jobs…</div></div>
+    </div>
+</main>
+
+<!-- Mobile bottom navigation (hidden on desktop) -->
+<nav class="mobile-app-bottom-nav" aria-label="Main">
+    <button class="mobile-nav-item active" id="mnav-weak" onclick="switchTab('weak')">
+        <span class="mobile-nav-icon"><i class="fas fa-scale-balanced"></i></span>
+        <span class="mobile-nav-label">Weak</span>
+        <span class="mobile-nav-badge" data-count-from="weak-count"></span>
+    </button>
+    <button class="mobile-nav-item" id="mnav-actions" onclick="switchTab('actions')">
+        <span class="mobile-nav-icon"><i class="fas fa-bolt"></i></span>
+        <span class="mobile-nav-label">Actions</span>
+        <span class="mobile-nav-badge" data-count-from="actions-count"></span>
+    </button>
+    <button class="mobile-nav-item" id="mnav-filled" onclick="switchTab('filled')">
+        <span class="mobile-nav-icon"><i class="fas fa-file-signature"></i></span>
+        <span class="mobile-nav-label">Filled</span>
+        <span class="mobile-nav-badge" data-count-from="filled-count"></span>
+    </button>
+    <button class="mobile-nav-item" id="mnav-autosubmitted" onclick="switchTab('autosubmitted')">
+        <span class="mobile-nav-icon"><i class="fas fa-paper-plane"></i></span>
+        <span class="mobile-nav-label">Auto</span>
+        <span class="mobile-nav-badge" data-count-from="autosubmitted-count"></span>
+    </button>
+    <a class="mobile-nav-item" href="index.html">
+        <span class="mobile-nav-icon"><i class="fas fa-table-list"></i></span>
+        <span class="mobile-nav-label">Board</span>
+    </a>
+</nav>
+
+<script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyDPOUS4idXHAxQuijO0ghi7ucRgZadkujw",
+        authDomain: "manju-uk-jobs.firebaseapp.com",
+        projectId: "manju-uk-jobs",
+        storageBucket: "manju-uk-jobs.firebasestorage.app",
+        messagingSenderId: "759293601676",
+        appId: "1:759293601676:web:db93b4183a5182e57c18a9"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    const ALLOWED_EMAILS = ['munchnambiar@gmail.com', 'vineethkaimal1989@gmail.com'];
+
+    let currentUser = null;
+    let isAuthorized = false;
+    let sharedJobsState = {};
+    let firestoreUnsubscribe = null;
+    let allJobs = [];
+    let deletedJobsData = [];
+    let dataLoaded = false;
+
+    const ACTION_TYPE_LABELS = {
+        create_login: 'Create Login',
+        upload_video: 'Upload Video',
+        email_application: 'Email Application',
+    };
+
+    // Local-calendar YYYY-MM-DD; the dashboard's "applied today" card compares
+    // applied_date against the local date, so a UTC date would miscount after midnight.
+    function localDateStr(d) {
+        return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+    }
+
+    function escapeHtml(str) {
+        const div = document.createElement('div');
+        div.textContent = str == null ? '' : String(str);
+        return div.innerHTML;
+    }
+
+    function switchTab(tab) {
+        document.getElementById('tab-btn-weak').classList.toggle('active', tab === 'weak');
+        document.getElementById('tab-btn-actions').classList.toggle('active', tab === 'actions');
+        document.getElementById('tab-btn-filled').classList.toggle('active', tab === 'filled');
+        document.getElementById('tab-btn-autosubmitted').classList.toggle('active', tab === 'autosubmitted');
+        document.getElementById('panel-weak').classList.toggle('active', tab === 'weak');
+        document.getElementById('panel-actions').classList.toggle('active', tab === 'actions');
+        document.getElementById('panel-filled').classList.toggle('active', tab === 'filled');
+        document.getElementById('panel-autosubmitted').classList.toggle('active', tab === 'autosubmitted');
+        if (window.onMobileTabChange) onMobileTabChange(tab);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const loginBtn = document.getElementById('login-btn');
+        const logoutBtn = document.getElementById('logout-btn');
+        const userEmail = document.getElementById('user-email');
+
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                currentUser = user;
+                isAuthorized = ALLOWED_EMAILS.includes(user.email);
+                loginBtn.style.display = 'none';
+                logoutBtn.style.display = 'block';
+                userEmail.style.display = 'block';
+                userEmail.textContent = user.email + (isAuthorized ? '' : ' (Read-Only)');
+
+                fetchJobsData();
+
+                if (firestoreUnsubscribe) firestoreUnsubscribe();
+                firestoreUnsubscribe = db.collection('shared_state').doc('job_status').onSnapshot(doc => {
+                    sharedJobsState = doc.exists ? doc.data() : {};
+                    if (dataLoaded) renderAll();
+                });
+            } else {
+                currentUser = null;
+                isAuthorized = false;
+                loginBtn.style.display = 'block';
+                logoutBtn.style.display = 'none';
+                userEmail.style.display = 'none';
+                userEmail.textContent = '';
+                sharedJobsState = {};
+                if (firestoreUnsubscribe) { firestoreUnsubscribe(); firestoreUnsubscribe = null; }
+                document.getElementById('weak-content').innerHTML = '<div class="empty-state">Please sign in with Google to view the review queue.</div>';
+                document.getElementById('actions-content').innerHTML = '<div class="empty-state">Please sign in with Google to view the review queue.</div>';
+                document.getElementById('filled-content').innerHTML = '<div class="empty-state">Please sign in with Google to view the review queue.</div>';
+                document.getElementById('autosubmitted-content').innerHTML = '<div class="empty-state">Please sign in with Google to view the review queue.</div>';
+            }
+        });
+
+        loginBtn.addEventListener('click', () => {
+            const provider = new firebase.auth.GoogleAuthProvider();
+            auth.signInWithPopup(provider).catch(err => {
+                console.error(err);
+                alert('Login Error: ' + err.message);
+            });
+        });
+
+        logoutBtn.addEventListener('click', () => auth.signOut().catch(console.error));
+    });
+
+    function fetchJobsData() {
+        Promise.all([
+            fetch('https://vinchess1989.github.io/manju-uk-jobs-dashboard/jobs.json?nocache=' + Date.now()),
+            fetch('https://vinchess1989.github.io/manju-uk-jobs-dashboard/deleted.json?nocache=' + Date.now()).catch(() => null)
+        ]).then(responses => Promise.all([
+            responses[0].json(),
+            responses[1] && responses[1].ok ? responses[1].json() : Promise.resolve([])
+        ])).then(([jobs, deleted]) => {
+            allJobs = jobs;
+            deletedJobsData = deleted || [];
+            dataLoaded = true;
+            renderAll();
+        }).catch(err => {
+            console.error('Failed to load jobs data', err);
+            document.getElementById('weak-content').innerHTML = '<div class="empty-state">Could not load jobs.json.</div>';
+            document.getElementById('actions-content').innerHTML = '<div class="empty-state">Could not load jobs.json.</div>';
+            document.getElementById('filled-content').innerHTML = '<div class="empty-state">Could not load jobs.json.</div>';
+            document.getElementById('autosubmitted-content').innerHTML = '<div class="empty-state">Could not load jobs.json.</div>';
+        });
+    }
+
+    function renderAll() {
+        renderWeakMatches();
+        renderActionItems();
+        renderFilledForms();
+        renderAutoSubmitted();
+    }
+
+    // ── Weak Matches tab ──────────────────────────────────────────────
+
+
+        // Global storage for filters
+        if (!window._tableFilters) window._tableFilters = new Map();
+
+        function clearAllFilters() {
+            document.querySelectorAll('.ms-dropdown input[type="checkbox"]').forEach(cb => {
+                cb.checked = false;
+            });
+            document.querySelectorAll('.ms-dropdown input[type="number"]').forEach(input => {
+                input.value = '';
+            });
+            document.querySelectorAll('.ms-dropdown input[type="text"]').forEach(input => {
+                input.value = '';
+                input.dispatchEvent(new Event('input'));
+            });
+            document.querySelectorAll('.panel.active table').forEach(table => applyTableFilters(table));
+        }
+
+        function setupTableFilters(table) {
+            const thead = table.querySelector('thead');
+            const tbody = table.querySelector('tbody');
+            if (!thead || !tbody) return;
+            const headers = thead.querySelectorAll('tr:first-child th');
+
+            // Add Clear All Filters button if not exists
+            if (!document.getElementById('clear-filters-btn')) {
+                const tabsDiv = document.querySelector('.tabs');
+                if (tabsDiv) {
+                    const clearBtn = document.createElement('button');
+                    clearBtn.id = 'clear-filters-btn';
+                    clearBtn.className = 'btn';
+                    clearBtn.style = 'margin-left: auto; background: var(--bg-card); color: var(--text-secondary); border: 1px solid var(--border-color);';
+                    clearBtn.innerHTML = '<i class="fas fa-times"></i> Clear All Filters';
+                    clearBtn.onclick = clearAllFilters;
+                    tabsDiv.appendChild(clearBtn);
+                }
+            }
+
+            const filterRow = document.createElement('tr');
+            filterRow.className = 'filter-row';
+
+            headers.forEach((th, colIndex) => {
+                const fth = document.createElement('th');
+                const headerText = th.textContent.trim();
+
+                if (headerText === 'Actions' || headerText === 'Status') {
+                    filterRow.appendChild(fth);
+                    return;
+                }
+
+                const uniqueVals = new Set();
+                tbody.querySelectorAll('tr').forEach(tr => {
+                    const td = tr.children[colIndex];
+                    if (td) uniqueVals.add(td.textContent.trim());
+                });
+                const sortedVals = Array.from(uniqueVals).sort((a,b)=>a.localeCompare(b));
+
+                let extraFilterHtml = '';
+                if (headerText === 'Deadline' || headerText === 'Created' || headerText === 'Completed' || headerText === 'Posted Date') {
+                    extraFilterHtml = `
+                        <div style="margin-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
+                            <label style="font-size: 0.8rem; color: var(--text-secondary); display: block; margin-bottom: 4px;">Max days from today:</label>
+                            <input type="number" class="days-filter" placeholder="e.g. 2" style="width: 100%; padding: 4px 8px; border-radius: 4px; background: rgba(0,0,0,0.2); border: 1px solid var(--border-color); color: white; font-size: 0.8rem; box-sizing: border-box;" onchange="applyTableFilters(document.querySelector('.panel.active table'))">
+                        </div>
+                    `;
+                }
+
+                let optionsHtml = `
+                    <div style="position: sticky; top: -8px; background: #1e243b; z-index: 10; padding: 8px 8px 4px 8px; margin: -8px -8px 4px -8px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        ${extraFilterHtml}
+                        <div style="display: flex; gap: 8px; margin-bottom: 4px;">
+                            <button type="button" onclick="const p=this.closest('.ms-dropdown'); p.querySelectorAll('input[type=checkbox]').forEach(cb=>{cb.checked=true;}); applyTableFilters(document.querySelector('.panel.active table'));" style="background:none; border:none; color:#a78bfa; font-size:0.75rem; cursor:pointer; padding:0;">Select All</button>
+                            <button type="button" onclick="const p=this.closest('.ms-dropdown'); p.querySelectorAll('input[type=checkbox]').forEach(cb=>{cb.checked=false;}); applyTableFilters(document.querySelector('.panel.active table'));" style="background:none; border:none; color:var(--text-secondary); font-size:0.75rem; cursor:pointer; padding:0;">Clear</button>
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Search..." oninput="const val=this.value.toLowerCase(); this.closest('.ms-dropdown').querySelectorAll('.ms-option').forEach(opt => { opt.style.display = opt.textContent.toLowerCase().includes(val) ? '' : 'none'; })" onclick="event.stopPropagation()" style="width: 100%; padding: 4px 8px; border-radius: 4px; background: rgba(0,0,0,0.2); border: 1px solid var(--border-color); color: white; font-size: 0.8rem; outline: none; box-sizing: border-box;">
+                        </div>
+                    </div>
+                `;
+                sortedVals.forEach(val => {
+                    optionsHtml += `<label class="ms-option"><input type="checkbox" value="${val.replace(/"/g, '&quot;')}"> ${val}</label>`;
+                });
+
+                // Create the dropdown and append to body
+                const dropdownId = 'filter-col-' + Math.random().toString(36).substr(2, 9);
+                const dropdown = document.createElement('div');
+                dropdown.className = 'ms-dropdown';
+                dropdown.id = dropdownId;
+                dropdown.innerHTML = optionsHtml;
+                document.body.appendChild(dropdown);
+
+                window._tableFilters.set(colIndex, dropdown);
+
+                fth.innerHTML = `
+                    <div class="ms-container" style="position:relative;">
+                        <button class="ms-btn" onclick="
+                            event.stopPropagation();
+                            const d = document.getElementById('${dropdownId}');
+                            const rect = this.getBoundingClientRect();
+                            const show = d.classList.contains('show');
+                            document.querySelectorAll('.ms-dropdown').forEach(x => x.classList.remove('show'));
+                            if (!show) {
+                                d.style.top = (rect.bottom + window.scrollY) + 'px';
+                                d.style.left = rect.left + 'px';
+                                d.classList.add('show');
+                            }
+                        ">Filter... <span style="font-size:0.7em;">▼</span></button>
+                    </div>
+                `;
+                dropdown.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                    cb.addEventListener('change', () => applyTableFilters(table));
+                });
+                filterRow.appendChild(fth);
+            });
+            thead.appendChild(filterRow);
+        }
+
+        function parseDateApprox(str) {
+            if (!str) return null;
+            // finnish DD.MM.YYYY
+            let m = str.match(/(\d{1,2})\.(\d{1,2})\.(\d{4})/);
+            if (m) return new Date(m[3], m[2]-1, m[1]);
+            // finnish without year DD.MM.
+            m = str.match(/^(\d{1,2})\.(\d{1,2})\.?$/);
+            if (m) {
+                const now = new Date();
+                let year = now.getFullYear();
+                if (m[2] < now.getMonth() + 1) year++;
+                return new Date(year, m[2]-1, m[1]);
+            }
+            // standard YYYY-MM-DD
+            m = str.match(/(\d{4})-(\d{2})-(\d{2})/);
+            if (m) return new Date(m[1], m[2]-1, m[3]);
+            // try normal parse
+            const d = new Date(str);
+            return isNaN(d.getTime()) ? null : d;
+        }
+
+        function applyTableFilters(table) {
+            const tbody = table.querySelector('tbody');
+            const thead = table.querySelector('thead');
+            if (!thead || !tbody) return;
+
+            const filterRow = thead.querySelector('.filter-row');
+            if (!filterRow) return;
+            const cols = filterRow.children;
+            const today = new Date();
+            today.setHours(0,0,0,0);
+
+            tbody.querySelectorAll('tr').forEach(tr => {
+                let showRow = true;
+                for (let colIndex = 0; colIndex < cols.length; colIndex++) {
+                    const dropdown = window._tableFilters.get(colIndex);
+                    if (!dropdown) continue;
+
+                    const cellVal = tr.children[colIndex] ? tr.children[colIndex].textContent.trim() : '';
+
+                    // Days filter
+                    const daysInput = dropdown.querySelector('.days-filter');
+                    if (daysInput && daysInput.value) {
+                        const maxDays = parseInt(daysInput.value, 10);
+                        if (!isNaN(maxDays)) {
+                            const d = parseDateApprox(cellVal);
+                            if (d) {
+                                const diffDays = Math.ceil((d.getTime() - today.getTime()) / (1000 * 3600 * 24));
+                                if (diffDays > maxDays) {
+                                    showRow = false;
+                                    break;
+                                }
+                            } else {
+                                // Not a valid date - hide them if days specified
+                                const lower = cellVal.toLowerCase();
+                                if (lower.includes('open') || lower.includes('n/a')) {
+                                    showRow = false;
+                                    break;
+                                } else {
+                                    showRow = false;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+
+                    const checkedBoxes = Array.from(dropdown.querySelectorAll('input[type="checkbox"]:checked'));
+                    if (checkedBoxes.length > 0) {
+                        const allowedVals = checkedBoxes.map(cb => cb.value);
+                        if (!allowedVals.includes(cellVal)) {
+                            showRow = false;
+                            break;
+                        }
+                    }
+                }
+                tr.style.display = showRow ? '' : 'none';
+            });
+        }
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.ms-dropdown') && !e.target.closest('.ms-btn')) {
+                document.querySelectorAll('.ms-dropdown').forEach(d => d.classList.remove('show'));
+            }
+        });
+
+
+
+    function renderWeakMatches() {
+        const container = document.getElementById('weak-content');
+        const weak = allJobs.filter(job => {
+            const state = sharedJobsState[job.url] || {};
+            if (state.deletion_reason) return false;
+            if (state.applied === 'yes' || job.applied === 'yes') return false;
+            const matchVal = state.matches_requirements || job.matches_requirements || 'pending';
+            return matchVal === 'maybe';
+        });
+
+        document.getElementById('weak-count').textContent = weak.length ? `(${weak.length})` : '';
+
+        if (weak.length === 0) {
+            container.innerHTML = '<div class="empty-state">No weak matches waiting for review.</div>';
+            return;
+        }
+
+        container.innerHTML = `
+            <div class="table-container">
+                <div class="table-scroll-area">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="resizable-th"><div class="resizable-header" style="width: 80px">ID</div></th>
+                                <th class="resizable-th"><div class="resizable-header" style="width: 150px">Company</div></th>
+                                <th class="resizable-th"><div class="resizable-header" style="width: 250px">Job Title</div></th>
+                                <th class="resizable-th"><div class="resizable-header" style="width: 150px">Location</div></th>
+                                <th class="resizable-th"><div class="resizable-header" style="width: 120px">Deadline</div></th>
+                                <th class="resizable-th"><div class="resizable-header" style="width: 300px">Reason</div></th>
+                                <th class="resizable-th"><div class="resizable-header" style="width: 220px">Actions</div></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${weak.map(job => {
+                                const reason = escapeHtml(job.reason || '');
+                                return `
+                                    <tr data-url="${escapeHtml(job.url)}">
+                                        <td style="font-family: monospace;">${escapeHtml(job.id || '')}</td>
+                                        <td>${escapeHtml(job.company)}</td>
+                                        <td><a href="${escapeHtml(job.url)}" target="_blank" rel="noopener">${escapeHtml(job.title)}</a></td>
+                                        <td>${escapeHtml(job.location)}</td>
+                                        <td>${escapeHtml(job.deadline || 'N/A')}</td>
+                                        <td><div style="max-height: 80px; overflow-y: auto;">${reason}</div></td>
+                                        <td>
+                                            <button class="btn apply" ${isAuthorized ? '' : 'disabled'} onclick="applyWeakMatch('${escapeHtml(job.url)}', this)"><i class="fas fa-check"></i> Apply</button>
+                                            <button class="btn delete" ${isAuthorized ? '' : 'disabled'} onclick="deleteWeakMatch('${escapeHtml(job.url)}', this)"><i class="fas fa-trash"></i> Delete</button>
+                                        </td>
+                                    </tr>
+                                `;
+                            }).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        `;
+        setupTableFilters(container.querySelector('table'));
+    }
+
+    async function applyWeakMatch(url, btn) {
+        const reason = prompt("Why should this job be promoted to a 'yes' match? (optional)");
+        if (reason === null) return;
+        const finalReason = reason.trim() || 'Promoted from weak match via review dashboard';
+        btn.disabled = true;
+        try {
+            // priority_fill_form_at pushes this to the front of /fill-form auto's queue so it
+            // gets processed on the very next hourly cycle, before the listing can expire out
+            // from under an unprocessed promotion (same mechanism used for resolved login-wall
+            // action items above).
+            await db.collection('shared_state').doc('job_status').update(
+                new firebase.firestore.FieldPath(url, 'matches_requirements'), 'yes',
+                new firebase.firestore.FieldPath(url, 'user_reason'), finalReason,
+                new firebase.firestore.FieldPath(url, 'priority_fill_form_at'), new Date().toISOString(),
+                new firebase.firestore.FieldPath(url, 'user_review'), 'done'
+            );
+        } catch (e) {
+            console.error(e);
+            alert('Failed to save to cloud database.');
+            btn.disabled = false;
+        }
+    }
+
+    async function deleteWeakMatch(url, btn) {
+        const state = sharedJobsState[url] || {};
+        const job = allJobs.find(j => j.url === url) || {};
+        const alreadyApplied = state.applied === 'yes' || job.applied === 'yes';
+        if (alreadyApplied && !confirm('This job is marked as already applied. Delete anyway?')) return;
+
+        const reason = prompt('Reason for deleting this job?', 'No longer accepting applications');
+        if (reason === null) return;
+        btn.disabled = true;
+        try {
+            await db.collection('shared_state').doc('job_status').update(
+                new firebase.firestore.FieldPath(url, 'deletion_reason'), reason.trim() || 'No longer accepting applications'
+            );
+        } catch (e) {
+            console.error(e);
+            alert('Failed to save to cloud database.');
+            btn.disabled = false;
+        }
+    }
+
+    // ── Action Items tab ──────────────────────────────────────────────
+    function renderActionItems() {
+        const container = document.getElementById('actions-content');
+        const items = [];
+        for (const [url, state] of Object.entries(sharedJobsState)) {
+            if (state && state.action_item) {
+                const job = allJobs.find(j => j.url === url) || deletedJobsData.find(j => j.url === url) || {};
+                items.push({ url, job, actionItem: state.action_item });
+            }
+        }
+
+        const outstanding = items.filter(i => i.actionItem.status !== 'done')
+            .sort((a, b) => new Date(b.actionItem.created_at || 0) - new Date(a.actionItem.created_at || 0));
+        const completed = items.filter(i => i.actionItem.status === 'done')
+            .sort((a, b) => new Date(b.actionItem.done_at || 0) - new Date(a.actionItem.done_at || 0));
+
+        document.getElementById('actions-count').textContent = outstanding.length ? `(${outstanding.length})` : '';
+
+        if (items.length === 0) {
+            container.innerHTML = '<div class="empty-state">No action items right now.</div>';
+            return;
+        }
+
+        const renderTable = (itemsList, done) => {
+            if (!itemsList.length) return '<div class="empty-state" style="padding:1.5rem;">Nothing here yet.</div>';
+            return `
+                <div class="table-container" style="margin-bottom: 2rem;">
+                    <div class="table-scroll-area">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="resizable-th"><div class="resizable-header" style="width: 140px">Type</div></th>
+                                    <th class="resizable-th"><div class="resizable-header" style="width: 80px">ID</div></th>
+                                <th class="resizable-th"><div class="resizable-header" style="width: 150px">Company</div></th>
+                                    <th class="resizable-th"><div class="resizable-header" style="width: 250px">Job Title</div></th>
+                                    <th class="resizable-th"><div class="resizable-header" style="width: 300px">Detail</div></th>
+                                    <th class="resizable-th"><div class="resizable-header" style="width: 120px">Posted Date</div></th>
+                                    <th class="resizable-th"><div class="resizable-header" style="width: 120px">Deadline</div></th>
+                                    <th class="resizable-th"><div class="resizable-header" style="width: 150px">${done ? 'Completed' : 'Created'}</div></th>
+                                    <th class="resizable-th"><div class="resizable-header" style="width: 100px">Status</div></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${itemsList.map(item => {
+                                    const title = item.job.title || '(job no longer in jobs.json)';
+                                    const company = item.job.company || '';
+                                    const type = item.actionItem.type || 'unknown';
+                                    const typeLabel = ACTION_TYPE_LABELS[type] || type;
+                                    const detail = escapeHtml(item.actionItem.detail || '');
+                                    const dateStr = done
+                                        ? (item.actionItem.done_at ? new Date(item.actionItem.done_at).toLocaleString() : '')
+                                        : (item.actionItem.created_at ? new Date(item.actionItem.created_at).toLocaleString() : '');
+                                    const titleHtml = item.job.url
+                                        ? `<a href="${escapeHtml(item.job.url)}" target="_blank" rel="noopener">${escapeHtml(title)}</a>`
+                                        : escapeHtml(title);
+                                    return `
+                                        <tr class="${done ? 'done' : ''}" data-url="${escapeHtml(item.url)}">
+                                            <td><span class="action-type-badge ${escapeHtml(type)}">${escapeHtml(typeLabel)}</span></td>
+                                            <td style="font-family: monospace;">${escapeHtml(item.job.id || '')}</td>
+                                            <td>${escapeHtml(company)}</td>
+                                            <td>${titleHtml}</td>
+                                            <td><div style="max-height: 80px; overflow-y: auto;">${detail}</div></td>
+                                            <td>${escapeHtml(item.job.posted_date || 'N/A')}</td>
+                                            <td>${escapeHtml(item.job.deadline || 'N/A')}</td>
+                                            <td>${escapeHtml(dateStr)}</td>
+                                            <td>
+                                                <label class="action-check" style="cursor: pointer; display: flex; align-items: center; gap: 0.5rem;">
+                                                    <input type="checkbox" style="width:18px; height:18px; cursor:pointer;" ${done ? 'checked disabled' : ''} ${isAuthorized ? '' : 'disabled'}
+                                                           onchange="toggleActionItemDone('${escapeHtml(item.url)}', this, '${escapeHtml(type)}')">
+                                                    Done
+                                                </label>
+                                            </td>
+                                        </tr>
+                                    `;
+                                }).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+        };
+
+        let html = '';
+        html += '<div class="section-label">Outstanding</div>';
+        html += renderTable(outstanding, false);
+        html += '<div class="section-label">Completed</div>';
+        html += renderTable(completed, true);
+
+        container.innerHTML = html;
+        container.querySelectorAll('table').forEach(table => setupTableFilters(table));
+    }
+
+    async function toggleActionItemDone(url, checkbox, actionType) {
+        if (!checkbox.checked) return;
+        checkbox.disabled = true;
+        try {
+            const updates = [
+                new firebase.firestore.FieldPath(url, 'action_item', 'status'), 'done',
+                new firebase.firestore.FieldPath(url, 'action_item', 'done_at'), new Date().toISOString()
+            ];
+            if (actionType === 'email_application' || actionType === 'upload_video') {
+                // Emailed applications and video-upload submissions are considered submitted
+                // the moment this is checked.
+                const appliedDate = localDateStr(new Date());
+                updates.push(new firebase.firestore.FieldPath(url, 'applied'), 'yes');
+                updates.push(new firebase.firestore.FieldPath(url, 'applied_date'), appliedDate);
+            } else if (actionType === 'create_login') {
+                // Clear auto_fill_attempted_at so /fill-form auto's candidate filter picks this
+                // job back up now that the login blocker is resolved, and flag it so the next
+                // run's sort puts it ahead of the normal deadline-ascending queue.
+                updates.push(new firebase.firestore.FieldPath(url, 'auto_fill_attempted_at'), firebase.firestore.FieldValue.delete());
+                updates.push(new firebase.firestore.FieldPath(url, 'priority_fill_form_at'), new Date().toISOString());
+            }
+            await db.collection('shared_state').doc('job_status').update(...updates);
+        } catch (e) {
+            console.error(e);
+            alert('Failed to save to cloud database.');
+            checkbox.checked = false;
+            checkbox.disabled = false;
+        }
+    }
+
+    // ── Filled Forms tab ──────────────────────────────────────────────
+    function renderFilledForms() {
+        const container = document.getElementById('filled-content');
+        const filled = [];
+        for (const [url, state] of Object.entries(sharedJobsState)) {
+            if (!state || !state.form_filled || state.form_filled.status !== 'pending_review') continue;
+            if (state.deletion_reason) continue;
+            const appliedVal = state.applied || 'no';
+            if (appliedVal === 'yes') continue;
+            const job = allJobs.find(j => j.url === url) || {};
+            filled.push({ url, job, formFilled: state.form_filled });
+        }
+        filled.sort((a, b) => new Date(b.formFilled.filled_at || 0) - new Date(a.formFilled.filled_at || 0));
+
+        document.getElementById('filled-count').textContent = filled.length ? `(${filled.length})` : '';
+
+        if (filled.length === 0) {
+            container.innerHTML = '<div class="empty-state">No filled forms waiting for review.</div>';
+            return;
+        }
+
+        container.innerHTML = `
+            <div class="table-container">
+                <div class="table-scroll-area">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="resizable-th"><div class="resizable-header" style="width: 80px">ID</div></th>
+                                <th class="resizable-th"><div class="resizable-header" style="width: 150px">Company</div></th>
+                                <th class="resizable-th"><div class="resizable-header" style="width: 250px">Job Title</div></th>
+                                <th class="resizable-th"><div class="resizable-header" style="width: 150px">Location</div></th>
+                                <th class="resizable-th"><div class="resizable-header" style="width: 120px">Deadline</div></th>
+                                <th class="resizable-th"><div class="resizable-header" style="width: 150px">Filled At</div></th>
+                                <th class="resizable-th"><div class="resizable-header" style="width: 220px">Actions</div></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${filled.map(item => {
+                                const title = item.job.title || '(job no longer in jobs.json)';
+                                const titleHtml = item.job.url
+                                    ? `<a href="${escapeHtml(item.job.url)}" target="_blank" rel="noopener">${escapeHtml(title)}</a>`
+                                    : escapeHtml(title);
+                                const filledAtStr = item.formFilled.filled_at ? new Date(item.formFilled.filled_at).toLocaleString() : '';
+                                return `
+                                    <tr data-url="${escapeHtml(item.url)}">
+                                        <td style="font-family: monospace;">${escapeHtml(item.job.id || '')}</td>
+                                        <td>${escapeHtml(item.job.company || '')}</td>
+                                        <td>${titleHtml}</td>
+                                        <td>${escapeHtml(item.job.location || '')}</td>
+                                        <td>${escapeHtml(item.job.deadline || 'N/A')}</td>
+                                        <td>${escapeHtml(filledAtStr)}</td>
+                                        <td>
+                                            <label class="action-check" style="cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; margin-right: 1rem;">
+                                                <input type="checkbox" style="width:18px; height:18px; cursor:pointer;" ${isAuthorized ? '' : 'disabled'}
+                                                       onchange="toggleFormFilledDone('${escapeHtml(item.url)}', this)">
+                                                Done
+                                            </label>
+                                            <button class="btn delete" ${isAuthorized ? '' : 'disabled'} onclick="deleteFilledForm('${escapeHtml(item.url)}', this)"><i class="fas fa-trash"></i> Delete</button>
+                                        </td>
+                                    </tr>
+                                `;
+                            }).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        `;
+        setupTableFilters(container.querySelector('table'));
+    }
+
+    async function toggleFormFilledDone(url, checkbox) {
+        if (!checkbox.checked) return;
+        checkbox.disabled = true;
+        try {
+            const appliedDate = localDateStr(new Date());
+            await db.collection('shared_state').doc('job_status').update(
+                new firebase.firestore.FieldPath(url, 'applied'), 'yes',
+                new firebase.firestore.FieldPath(url, 'applied_date'), appliedDate,
+                new firebase.firestore.FieldPath(url, 'form_filled', 'status'), 'done',
+                new firebase.firestore.FieldPath(url, 'form_filled', 'done_at'), new Date().toISOString()
+            );
+        } catch (e) {
+            console.error(e);
+            alert('Failed to save to cloud database.');
+            checkbox.checked = false;
+            checkbox.disabled = false;
+        }
+    }
+
+    async function deleteFilledForm(url, btn) {
+        const reason = prompt('Reason for deleting this job?', 'No longer accepting applications');
+        if (reason === null) return;
+        btn.disabled = true;
+        try {
+            await db.collection('shared_state').doc('job_status').update(
+                new firebase.firestore.FieldPath(url, 'deletion_reason'), reason.trim() || 'No longer accepting applications'
+            );
+        } catch (e) {
+            console.error(e);
+            alert('Failed to save to cloud database.');
+            btn.disabled = false;
+        }
+    }
+
+    // ── Auto-Submitted Forms in Review tab ──────────────────────────────
+    // Forms submitted without Manju clicking submit: /fill-form auto-submits (form_filled.submitted_by ==
+    // "fill-form-auto", see auto_submit_gate.py) and forms a third-party ATS submitted on its own (e.g. reactively on a file
+    // upload) before /fill-form's "never click submit" step ever got a chance to
+    // hand the form to Manju for review — see fill-form.md Step 5.5 and the Finland board's
+    // memory.md Teamtailor auto-submit incident. Tracked via form_filled.auto_submitted.
+    function renderAutoSubmitted() {
+        const container = document.getElementById('autosubmitted-content');
+        const items = [];
+        for (const [url, state] of Object.entries(sharedJobsState)) {
+            if (!state || !state.form_filled || !state.form_filled.auto_submitted) continue;
+            const job = allJobs.find(j => j.url === url) || deletedJobsData.find(j => j.url === url) || {};
+            items.push({ url, job, formFilled: state.form_filled });
+        }
+        items.sort((a, b) => {
+            const tsA = a.formFilled.auto_submitted_at || a.formFilled.filled_at || 0;
+            const tsB = b.formFilled.auto_submitted_at || b.formFilled.filled_at || 0;
+            return new Date(tsB) - new Date(tsA); // latest first
+        });
+
+        document.getElementById('autosubmitted-count').textContent = items.length ? `(${items.length})` : '';
+
+        if (items.length === 0) {
+            container.innerHTML = '<div class="empty-state">No auto-submitted forms — every filled form so far went through manual confirmation.</div>';
+            return;
+        }
+
+        const dailyCounts = new Map();
+        items.forEach(item => {
+            const ts = item.formFilled.auto_submitted_at || item.formFilled.filled_at;
+            if (!ts) return;
+            const day = ts.split('T')[0];
+            dailyCounts.set(day, (dailyCounts.get(day) || 0) + 1);
+        });
+        const chartData = Array.from(dailyCounts.keys()).sort().map(day => ({ date: day, count: dailyCounts.get(day) }));
+
+        container.innerHTML = `
+            <div class="chart-container">
+                <div class="chart-title" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
+                    <span id="autosubmitted-chart-title">Auto-Submitted Forms Per Day</span>
+                    <div class="chart-gran" role="group" aria-label="Aggregation"><button data-gran="day">Day</button><button data-gran="week">Week</button><button data-gran="month">Month</button></div>
+                </div>
+                <div id="autosubmitted-chart"></div>
+            </div>
+            <div class="table-container">
+                <div class="table-scroll-area">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="resizable-th"><div class="resizable-header" style="width: 80px">ID</div></th>
+                                <th class="resizable-th"><div class="resizable-header" style="width: 150px">Company</div></th>
+                                <th class="resizable-th"><div class="resizable-header" style="width: 250px">Job Title</div></th>
+                                <th class="resizable-th"><div class="resizable-header" style="width: 150px">Location</div></th>
+                                <th class="resizable-th"><div class="resizable-header" style="width: 180px">Submitted At</div></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${items.map(item => {
+                                const title = item.job.title || '(job no longer in jobs.json)';
+                                const titleHtml = item.job.url
+                                    ? `<a href="${escapeHtml(item.job.url)}" target="_blank" rel="noopener">${escapeHtml(title)}</a>`
+                                    : escapeHtml(title);
+                                const ts = item.formFilled.auto_submitted_at || item.formFilled.filled_at;
+                                const submittedStr = ts ? new Date(ts).toLocaleString() : '';
+                                return `
+                                    <tr data-url="${escapeHtml(item.url)}">
+                                        <td style="font-family: monospace;">${escapeHtml(item.job.id || '')}</td>
+                                        <td>${escapeHtml(item.job.company || '')}</td>
+                                        <td>${titleHtml}</td>
+                                        <td>${escapeHtml(item.job.location || '')}</td>
+                                        <td>${escapeHtml(submittedStr)}</td>
+                                    </tr>
+                                `;
+                            }).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        `;
+        _autoSubmittedDaily = chartData;
+        renderAutoSubmittedChart();
+        setupTableFilters(container.querySelector('table'));
+    }
+
+    // ── Bar-chart aggregation (Day / Week (Mon-start) / Month: counts are summed) ──
+    const BAR_GRANS = ['day', 'week', 'month'];
+    let _barChartGran = (() => {
+        try { const g = localStorage.getItem('barChartGranularity'); return BAR_GRANS.includes(g) ? g : 'day'; }
+        catch (e) { return 'day'; }
+    })();
+    let _autoSubmittedDaily = [];
+
+    function aggregateDailyCounts(daily, gran) {
+        if (gran === 'day') return daily;
+        const buckets = new Map();
+        daily.forEach(({ date, count }) => {
+            const dt = new Date(date + 'T00:00:00');
+            const start = new Date(dt.getFullYear(), dt.getMonth(), gran === 'month' ? 1 : dt.getDate());
+            if (gran === 'week') start.setDate(start.getDate() - ((start.getDay() + 6) % 7));
+            const key = localDateStr(start);
+            const b = buckets.get(key) || {
+                date: key,
+                count: 0,
+                label: gran === 'month'
+                    ? start.toLocaleDateString(undefined, { month: 'short', year: 'numeric' })
+                    : 'Wk ' + start.toLocaleDateString(undefined, { month: 'short', day: 'numeric' }),
+                fullLabel: gran === 'month'
+                    ? start.toLocaleDateString(undefined, { month: 'long', year: 'numeric' })
+                    : 'Week of ' + start.toLocaleDateString(),
+            };
+            b.count += count;
+            buckets.set(key, b);
+        });
+        return Array.from(buckets.keys()).sort().map(k => buckets.get(k));
+    }
+
+    function renderAutoSubmittedChart() {
+        const el = document.getElementById('autosubmitted-chart');
+        if (!el) return;
+        const title = document.getElementById('autosubmitted-chart-title');
+        if (title) title.textContent = 'Auto-Submitted Forms Per ' + { day: 'Day', week: 'Week', month: 'Month' }[_barChartGran];
+        document.querySelectorAll('.chart-gran button').forEach(b => b.classList.toggle('active', b.dataset.gran === _barChartGran));
+        renderDailyBarChart(el, aggregateDailyCounts(_autoSubmittedDaily, _barChartGran));
+    }
+
+    document.addEventListener('click', e => {
+        const btn = e.target.closest('.chart-gran button');
+        if (!btn || !BAR_GRANS.includes(btn.dataset.gran)) return;
+        _barChartGran = btn.dataset.gran;
+        try { localStorage.setItem('barChartGranularity', _barChartGran); } catch (err) {}
+        renderAutoSubmittedChart();
+    });
+
+    function renderDailyBarChart(el, data) {
+        if (!el || data.length === 0) return;
+        const width = Math.max(el.clientWidth || 600, data.length * 36 + 60);
+        const height = 220;
+        const padding = { top: 10, right: 20, bottom: 40, left: 36 };
+        const plotW = width - padding.left - padding.right;
+        const plotH = height - padding.top - padding.bottom;
+        const maxCount = Math.max(...data.map(d => d.count), 1);
+        const barGap = 8;
+        const slot = plotW / data.length;
+        const barWidth = Math.max(slot - barGap, 4);
+
+        const yTicks = 4;
+        let gridlines = '';
+        let yLabels = '';
+        for (let i = 0; i <= yTicks; i++) {
+            const val = Math.round((maxCount / yTicks) * i);
+            const y = padding.top + plotH - (val / maxCount) * plotH;
+            gridlines += `<line class="bar-chart-gridline" x1="${padding.left}" y1="${y}" x2="${width - padding.right}" y2="${y}" />`;
+            yLabels += `<text x="${padding.left - 8}" y="${y + 4}" text-anchor="end">${val}</text>`;
+        }
+
+        let bars = '';
+        let xLabels = '';
+        data.forEach((d, i) => {
+            const x = padding.left + i * slot + (slot - barWidth) / 2;
+            const barH = Math.max((d.count / maxCount) * plotH, 2);
+            const y = padding.top + plotH - barH;
+            const labelDate = new Date(d.date + 'T00:00:00');
+            const shortLabel = d.label || labelDate.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+            const fullLabel = d.fullLabel || labelDate.toLocaleDateString();
+            bars += `<rect class="bar-chart-bar" x="${x}" y="${y}" width="${barWidth}" height="${barH}" rx="3"
+                        onmousemove="showBarTooltip(event, '${escapeHtml(fullLabel)}', ${d.count})"
+                        onmouseleave="hideBarTooltip()" />`;
+            xLabels += `<text x="${x + barWidth / 2}" y="${height - padding.bottom + 16}" text-anchor="middle">${escapeHtml(shortLabel)}</text>`;
+        });
+
+        el.innerHTML = `
+            <svg class="bar-chart-svg" width="100%" height="${height}" viewBox="0 0 ${width} ${height}" preserveAspectRatio="xMinYMin meet" style="overflow: visible; min-width: ${width}px; display: block;">
+                ${gridlines}
+                ${yLabels}
+                ${bars}
+                ${xLabels}
+            </svg>
+            <div id="bar-chart-tooltip" class="bar-chart-tooltip"></div>
+        `;
+    }
+
+    function showBarTooltip(evt, dateLabel, count) {
+        const tip = document.getElementById('bar-chart-tooltip');
+        if (!tip) return;
+        tip.textContent = `${dateLabel}: ${count} auto-submitted`;
+        tip.style.left = (evt.clientX + 14) + 'px';
+        tip.style.top = (evt.clientY - 10) + 'px';
+        tip.style.display = 'block';
+    }
+</script>
+
+<script>
+    // ── Mobile app shell ───────────────────────────────────────────────────
+    // Attributes set here only have CSS rules below the mobile breakpoint, so
+    // on desktop none of this changes what is rendered.
+    const MOBILE_MQ = '(max-width: 768px), (max-height: 550px) and (orientation: landscape)';
+    const subnavEl = document.getElementById('mobile-subnav');
+    const CELL_ROLES = {
+        'Job Title': 'title', 'Company': 'company', 'ID': 'id',
+        'Reason': 'wide', 'Detail': 'wide', 'Actions': 'actions', 'Status': 'actions',
+    };
+
+    function isMobileLayout() { return window.matchMedia(MOBILE_MQ).matches; }
+
+    function updateMobileNavActive(key) {
+        document.querySelectorAll('.mobile-nav-item').forEach(b => b.classList.remove('active'));
+        const el = document.getElementById('mnav-' + key);
+        if (el) el.classList.add('active');
+    }
+
+    // Called from switchTab(), so the highlight follows the tab however it opened.
+    function onMobileTabChange(tab) {
+        updateMobileNavActive(tab);
+        document.querySelectorAll('.ms-dropdown.show').forEach(d => d.classList.remove('show'));
+        if (isMobileLayout()) window.scrollTo(0, 0);
+        buildSubnav();
+    }
+
+    // Card layout: label every cell (and filter chip) with its column header,
+    // and tag the cells that get a special position in the card.
+    function labelMobileCells() {
+        document.querySelectorAll('main table').forEach(table => {
+            const heads = Array.from(table.querySelectorAll('thead tr:first-child th')).map(th => th.textContent.trim());
+            table.querySelectorAll('tbody tr').forEach(tr => {
+                Array.from(tr.children).forEach((td, i) => {
+                    td.dataset.label = heads[i] || '';
+                    if (CELL_ROLES[heads[i]]) td.dataset.role = CELL_ROLES[heads[i]];
+                });
+            });
+            table.querySelectorAll('.filter-row th').forEach((th, i) => {
+                const btn = th.querySelector('.ms-btn');
+                if (btn) btn.dataset.label = heads[i] || 'Filter';
+            });
+        });
+        // Mirror the tab counts ("(12)") into the bottom-nav badges.
+        document.querySelectorAll('.mobile-nav-badge[data-count-from]').forEach(badge => {
+            const src = document.getElementById(badge.dataset.countFrom);
+            badge.textContent = src ? src.textContent.replace(/[()]/g, '').trim() : '';
+        });
+    }
+
+    // Contents-bar jump targets: section headings (Outstanding / Completed)
+    // and, on the Auto-Submitted tab, the chart and the forms list.
+    function markMobileSections() {
+        document.querySelectorAll('main .section-label').forEach(el => {
+            el.dataset.page = '';
+            el.dataset.pageLabel = el.textContent.trim();
+        });
+        document.querySelectorAll('main .chart-container').forEach(chart => {
+            chart.dataset.page = '';
+            chart.dataset.pageLabel = 'Chart';
+            const list = chart.nextElementSibling;
+            if (list && list.classList.contains('table-container')) {
+                list.dataset.page = '';
+                list.dataset.pageLabel = 'Forms';
+            }
+        });
+    }
+
+    function currentViewSections() {
+        return Array.from(document.querySelectorAll('.panel.active [data-page]'))
+            .filter(el => el.getClientRects().length)
+            .sort((a, b) => (parseInt(getComputedStyle(a).order, 10) || 0) - (parseInt(getComputedStyle(b).order, 10) || 0));
+    }
+
+    let _subnavActiveIdx = -1;
+    let _subnavRaf = 0;
+
+    function buildSubnav() {
+        markMobileSections();
+        const pages = isMobileLayout() ? currentViewSections() : [];
+        if (pages.length < 2) { subnavEl.innerHTML = ''; return; }
+        subnavEl.innerHTML = pages.map((el, i) =>
+            `<button class="subnav-chip" data-idx="${i}">${escapeHtml(el.dataset.pageLabel || 'Section ' + (i + 1))}</button>`
+        ).join('');
+        Array.from(subnavEl.children).forEach((chip, i) => {
+            chip.addEventListener('click', () => pages[i].scrollIntoView({ behavior: 'smooth', block: 'start' }));
+        });
+        _subnavActiveIdx = -1;
+        updateSubnavActive();
+    }
+
+    function updateSubnavActive() {
+        _subnavRaf = 0;
+        if (!subnavEl.children.length) return;
+        const pages = currentViewSections();
+        if (!pages.length) return;
+        const refLine = subnavEl.getBoundingClientRect().bottom + 8;
+        let idx = 0, best = Infinity;
+        pages.forEach((p, i) => {
+            const d = Math.abs(p.getBoundingClientRect().top - refLine);
+            if (d < best) { best = d; idx = i; }
+        });
+        if (idx === _subnavActiveIdx) return;
+        _subnavActiveIdx = idx;
+        Array.from(subnavEl.children).forEach((c, i) => c.classList.toggle('active', i === idx));
+        const chip = subnavEl.children[idx];
+        if (chip) subnavEl.scrollLeft = chip.offsetLeft - (subnavEl.clientWidth - chip.offsetWidth) / 2;
+    }
+    document.addEventListener('scroll', () => {
+        if (!_subnavRaf) _subnavRaf = requestAnimationFrame(updateSubnavActive);
+    }, true);
+    window.addEventListener('resize', buildSubnav);
+
+    // Every render*() call replaces a panel's innerHTML; relabel after each.
+    let _mobileRelabelTimer = null;
+    new MutationObserver(() => {
+        clearTimeout(_mobileRelabelTimer);
+        _mobileRelabelTimer = setTimeout(() => { labelMobileCells(); buildSubnav(); }, 50);
+    }).observe(document.querySelector('main'), { childList: true, subtree: true });
+</script>
+</body>
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Manju's UK Jobs - Light layout</title>
+<meta name="description" content="Light, modern layout of Manju's UK job board with the relocation and solicitor-qualification stepper.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+    // Remembered layout choice; ?layout=modern sets it, "Classic layout" (?layout=classic on index.html) clears it.
+    try { localStorage.setItem('uiLayout', 'modern'); } catch (e) {}
+</script>
+<style>
+:root {
+    --brand-primary: #2563eb; --brand-primary-hover: #1d4ed8; --brand-primary-light: #eff6ff;
+    --brand-dark: #111827; --brand-text: #1f2937; --brand-text-muted: #6b7280; --brand-border: #e5e7eb;
+    --bg-body: #f8fafc; --bg-card: #ffffff;
+    --ok: #16a34a; --ok-bg: #f0fdf4; --ok-border: #bbf7d0;
+    --maybe: #2563eb; --warn: #d97706; --warn-bg: #fffbeb; --bad: #dc2626; --bad-bg: #fef2f2;
+    --header-height: 60px; --sidebar-width: 224px; --stepper-width: 300px; --mnav-h: 58px;
+    --radius: 8px; --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-family); color: var(--brand-text); background: var(--bg-body); line-height: 1.5; font-size: 14px; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { color: var(--brand-primary); }
+button { font-family: inherit; touch-action: manipulation; }
+
+/* 1. top header */
+.top-header { position: fixed; inset: 0 0 auto 0; height: var(--header-height); background: #fff; border-bottom: 1px solid var(--brand-border); display: flex; align-items: center; justify-content: space-between; padding: 0 24px; z-index: 100; }
+.brand-section { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.menu-btn { display: none; background: none; border: none; cursor: pointer; color: var(--brand-text); font-size: 20px; padding: 6px; }
+.brand { font-weight: 800; font-size: 17px; color: var(--brand-dark); letter-spacing: -0.2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.brand .accent { color: var(--brand-primary); } .brand .sep { color: #9ca3af; font-weight: 300; margin: 0 6px; } .brand .module { font-weight: 600; }
+.header-actions { display: flex; align-items: center; gap: 12px; }
+.pill-btn { border: 1px solid var(--brand-border); background: #fff; color: var(--brand-text); border-radius: 99px; padding: 6px 14px; font-size: 13px; font-weight: 600; cursor: pointer; text-decoration: none; white-space: nowrap; }
+.pill-btn:hover { background: #f3f4f6; }
+.pill-btn.primary { background: var(--brand-primary); border-color: var(--brand-primary); color: #fff; } .pill-btn.primary:hover { background: var(--brand-primary-hover); }
+.avatar { width: 32px; height: 32px; border-radius: 50%; background: #0284c7; color: #fff; display: none; align-items: center; justify-content: center; font-weight: 700; font-size: 12.5px; }
+
+/* 2. layout */
+.app-layout { display: flex; margin-top: var(--header-height); min-height: calc(100vh - var(--header-height)); }
+.app-sidebar { width: var(--sidebar-width); background: #fff; border-right: 1px solid var(--brand-border); position: fixed; top: var(--header-height); bottom: 0; left: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 20px 0 16px; overflow-y: auto; z-index: 90; transition: transform .2s; }
+.nav-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+.nav-item a, .nav-item button { display: flex; align-items: center; gap: 12px; width: 100%; padding: 10px 24px; color: #4b5563; text-decoration: none; font-size: 13.5px; font-weight: 500; background: none; border: none; cursor: pointer; text-align: left; }
+.nav-item a:hover, .nav-item button:hover { color: var(--brand-dark); background: #f9fafb; }
+.nav-item.active a, .nav-item.active button { color: var(--brand-dark); font-weight: 600; background: #f3f4f6; box-shadow: inset 3px 0 0 var(--brand-primary); }
+.nav-ico { width: 18px; text-align: center; font-size: 15px; }
+.nav-sep { margin: 10px 24px 4px; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: #9ca3af; font-weight: 700; }
+.sidebar-footer { border-top: 1px solid var(--brand-border); padding-top: 10px; }
+.scrim { display: none; position: fixed; inset: var(--header-height) 0 0 0; background: rgba(17,24,39,.35); z-index: 85; }
+.app-main { margin-left: var(--sidebar-width); flex: 1; min-width: 0; padding: 24px 32px 60px; max-width: 1400px; }
+.breadcrumbs { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--brand-text-muted); margin-bottom: 10px; }
+.breadcrumbs .cur { color: var(--brand-dark); font-weight: 700; }
+.title-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 18px; flex-wrap: wrap; }
+.main-title { font-size: 20px; font-weight: 800; color: var(--brand-dark); letter-spacing: -.3px; }
+.status-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 12px; font-weight: 600; color: #334155; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: #9ca3af; } .dot.ok { background: var(--ok); } .dot.stale { background: var(--warn); }
+.notice { background: var(--warn-bg); border: 1px solid #fde68a; color: #92400e; border-radius: var(--radius); padding: 10px 14px; font-size: 12.5px; margin-bottom: 16px; }
+.view { display: none; } .view.active { display: block; }
+
+/* jobs view */
+.tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 16px; }
+.tile { background: var(--bg-card); border: 1px solid var(--brand-border); border-radius: var(--radius); padding: 12px 14px; box-shadow: var(--shadow-sm); cursor: pointer; text-align: left; }
+.tile:hover { border-color: var(--brand-primary); }
+.tile .v { font-size: 24px; font-weight: 800; color: var(--brand-dark); line-height: 1.15; } .tile .l { font-size: 12px; color: var(--brand-text-muted); font-weight: 500; }
+.tile .v.ok { color: var(--ok); } .tile .v.blue { color: var(--maybe); }
+.filters { background: var(--bg-card); border: 1px solid var(--brand-border); border-radius: var(--radius); padding: 12px 14px; margin-bottom: 14px; box-shadow: var(--shadow-sm); }
+.filter-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.filters input[type=search], .filters select { font-family: inherit; font-size: 13.5px; border: 1px solid #d1d5db; border-radius: 6px; padding: 7px 10px; background: #fff; color: var(--brand-text); }
+.filters input[type=search] { flex: 1 1 220px; min-width: 0; }
+.filters input:focus, .filters select:focus { outline: none; border-color: var(--brand-primary); box-shadow: 0 0 0 3px rgba(37,99,235,.15); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.chip { font-size: 12.5px; font-weight: 600; padding: 5px 11px; border-radius: 99px; border: 1px solid #d1d5db; background: #fff; color: #4b5563; cursor: pointer; }
+.chip:hover { border-color: var(--brand-primary); }
+.chip.on { background: var(--brand-primary-light); border-color: var(--brand-primary); color: var(--brand-primary); }
+.chip .n { opacity: .65; margin-left: 4px; font-variant-numeric: tabular-nums; }
+.result-line { font-size: 12.5px; color: var(--brand-text-muted); margin: 4px 2px 10px; }
+.job { background: var(--bg-card); border: 1px solid var(--brand-border); border-radius: var(--radius); padding: 14px 16px; margin-bottom: 10px; box-shadow: var(--shadow-sm); display: grid; grid-template-columns: auto 1fr auto; gap: 4px 12px; }
+.job.applied { border-left: 4px solid var(--ok); }
+.star { background: none; border: none; cursor: pointer; font-size: 20px; line-height: 1; color: #cbd5e1; padding: 2px; align-self: start; } .star.on { color: #f59e0b; } .star:hover { color: #f59e0b; }
+.job-title { font-size: 15px; font-weight: 700; color: var(--brand-dark); text-decoration: none; } .job-title:hover { color: var(--brand-primary); text-decoration: underline; }
+.job-sub { font-size: 13px; color: var(--brand-text-muted); margin-top: 1px; }
+.match { align-self: start; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 99px; border: 1px solid; text-transform: uppercase; letter-spacing: .03em; }
+.match.yes { color: var(--ok); background: var(--ok-bg); border-color: var(--ok-border); } .match.maybe { color: var(--maybe); background: var(--brand-primary-light); border-color: #bfdbfe; }
+.match.no { color: var(--bad); background: var(--bad-bg); border-color: #fecaca; } .match.pending, .match.error { color: #6b7280; background: #f3f4f6; border-color: var(--brand-border); }
+.badges { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 7px; }
+.badge { font-size: 11.5px; font-weight: 600; padding: 2px 8px; border-radius: 99px; border: 1px solid; }
+.badge.cam { color: #047857; background: #ecfdf5; border-color: #a7f3d0; } .badge.rem { color: #4338ca; background: #eef2ff; border-color: #c7d2fe; }
+.badge.pt { color: #b45309; background: var(--warn-bg); border-color: #fde68a; } .badge.ukq { color: #b91c1c; background: var(--bad-bg); border-color: #fecaca; }
+.badge.qwe { color: #0369a1; background: #f0f9ff; border-color: #bae6fd; } .badge.sal { color: #4b5563; background: #f3f4f6; border-color: var(--brand-border); }
+.reason { grid-column: 2 / 4; font-size: 13px; color: #374151; margin-top: 6px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; cursor: pointer; }
+.reason.exp { -webkit-line-clamp: unset; display: block; }
+.job-meta { grid-column: 2 / 4; display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12px; color: var(--brand-text-muted); margin-top: 6px; }
+.job-actions { grid-column: 2 / 4; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; align-items: center; }
+.act { font-size: 12.5px; font-weight: 600; padding: 6px 12px; border-radius: 6px; border: 1px solid #d1d5db; background: #fff; color: #374151; cursor: pointer; text-decoration: none; }
+.act:hover { background: #f3f4f6; } .act.go { background: var(--brand-primary); border-color: var(--brand-primary); color: #fff; } .act.go:hover { background: var(--brand-primary-hover); }
+.act.on { background: var(--ok-bg); border-color: var(--ok-border); color: var(--ok); }
+.empty { text-align: center; color: var(--brand-text-muted); padding: 48px 12px; }
+.more-btn { display: block; margin: 14px auto 0; }
+
+/* 3. stepper workspace (checklist) */
+.workspace { display: grid; grid-template-columns: 1fr var(--stepper-width); gap: 20px; align-items: start; }
+.form-card, .stepper-card { background: var(--bg-card); border: 1px solid var(--brand-border); border-radius: var(--radius); box-shadow: var(--shadow-sm); }
+.form-card { padding: 22px 24px; }
+.stepper-card { padding: 18px 16px; position: sticky; top: calc(var(--header-height) + 16px); background: #fdfdfd; }
+.form-card h2 { font-size: 18px; font-weight: 800; color: var(--brand-dark); } .form-card .sub { color: var(--brand-text-muted); font-size: 13px; margin: 2px 0 14px; }
+.stage { margin: 16px 0 6px; font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--brand-text-muted); font-weight: 700; }
+.ck { border: 1px solid var(--brand-border); border-radius: var(--radius); padding: 12px 14px; margin-bottom: 8px; }
+.ck.done { background: #f9fafb; } .ck.done .ck-title { text-decoration: line-through; color: var(--brand-text-muted); }
+.ck-row { display: flex; gap: 12px; align-items: flex-start; }
+.ck-status { flex: none; width: 24px; height: 24px; border-radius: 50%; border: 2px solid #cbd5e1; background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #fff; margin-top: 1px; }
+.ck-status.doing { border-color: var(--warn); background: var(--warn-bg); color: var(--warn); } .ck-status.done { border-color: var(--ok); background: var(--ok); }
+.ck-title { font-weight: 600; color: var(--brand-dark); } .ck-when { font-size: 12px; color: var(--brand-primary); font-weight: 600; margin-top: 1px; }
+.ck-open { margin-left: auto; background: none; border: none; cursor: pointer; color: var(--brand-text-muted); font-size: 14px; padding: 2px 6px; }
+.ck-more { margin-top: 10px; font-size: 13px; color: #374151; } .ck-more p { margin-bottom: 8px; }
+.ck-links { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; } .ck-links a { font-size: 12px; font-weight: 600; text-decoration: none; padding: 3px 10px; border-radius: 99px; background: var(--brand-primary-light); border: 1px solid #bfdbfe; }
+.ck-fields { display: grid; grid-template-columns: 1fr 150px; gap: 8px; }
+.ck-fields textarea, .ck-fields input { font-family: inherit; font-size: 13.5px; border: 1px solid #d1d5db; border-radius: 6px; padding: 7px 9px; width: 100%; }
+.ck-fields textarea { min-height: 2.6rem; resize: vertical; }
+.nav-buttons { display: flex; justify-content: space-between; margin-top: 18px; gap: 10px; }
+.stepper-title { font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--brand-text-muted); font-weight: 700; margin-bottom: 10px; }
+.step { display: flex; gap: 12px; align-items: flex-start; width: 100%; background: none; border: none; text-align: left; padding: 9px 4px 9px 10px; cursor: pointer; border-radius: 6px; position: relative; }
+.step:hover { background: #f3f4f6; } .step.active { background: #f3f4f6; box-shadow: inset 3.5px 0 0 var(--brand-primary); }
+.step-dot { flex: none; width: 26px; height: 26px; border-radius: 50%; border: 2px solid #cbd5e1; background: #fff; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #94a3b8; }
+.step.active .step-dot { background: var(--brand-dark); border-color: var(--brand-dark); color: #fff; } .step.completed .step-dot { background: var(--ok); border-color: var(--ok); color: #fff; }
+.step-label { font-weight: 600; color: var(--brand-dark); font-size: 13.5px; } .step.pending:not(.active) .step-label { font-weight: 500; color: #4b5563; }
+.step-sub { font-size: 12px; color: var(--brand-text-muted); }
+.progress { height: 8px; background: #e5e7eb; border-radius: 99px; overflow: hidden; margin: 14px 0 4px; } .progress > i { display: block; height: 100%; background: var(--ok); width: 0; transition: width .3s; }
+.progress-text { font-size: 12px; color: var(--brand-text-muted); }
+
+.mobile-bottom { display: none; }
+@media (max-width: 1024px) {
+    .workspace { grid-template-columns: 1fr; } .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    /* stepper becomes a compact row of steps above the form instead of a tall card */
+    .stepper-card { position: static; order: -1; padding: 8px 10px; }
+    .stepper-card .stepper-title, .stepper-card .progress { display: none; }
+    #stepper { display: flex; flex-wrap: wrap; gap: 4px; }
+    .step { flex: 1 1 140px; width: auto; padding: 6px 8px; align-items: center; }
+    .step-sub { display: none; } .step-dot { width: 22px; height: 22px; }
+    .step.active { box-shadow: inset 0 -3px 0 var(--brand-primary); }
+}
+@media (max-width: 768px), (max-height: 550px) and (orientation: landscape) {
+    :root { --header-height: 52px; }
+    .top-header { padding: 0 12px; } .menu-btn { display: block; }
+    .brand .module, .brand .sep, .hide-sm { display: none; }
+    .app-sidebar { transform: translateX(-100%); box-shadow: 4px 0 18px rgba(0,0,0,.12); width: min(280px, 82vw); }
+    body.drawer-open .app-sidebar { transform: none; } body.drawer-open .scrim { display: block; }
+    body { padding-bottom: calc(var(--mnav-h) + env(safe-area-inset-bottom, 0px)); }
+    .app-main { margin-left: 0; padding: 14px 12px 28px; }
+    .menu-btn, .pill-btn, .act, .star { min-height: 44px; min-width: 44px; }
+    .chip { min-height: 36px; }
+    .ck-status { width: 32px; height: 32px; } .ck-open { min-width: 44px; min-height: 44px; }
+    .tile { min-height: 44px; }
+    .main-title { font-size: 18px; }
+    .filters { display: none; } body.show-filters .filters { display: block; }
+    .job { grid-template-columns: auto 1fr; } .match { grid-column: 2; justify-self: start; }
+    .reason, .job-meta, .job-actions { grid-column: 1 / 3; }
+    .ck-fields { grid-template-columns: 1fr; } .form-card { padding: 16px 14px; }
+    .mobile-bottom { display: flex; position: fixed; inset: auto 0 0 0; z-index: 95; height: calc(var(--mnav-h) + env(safe-area-inset-bottom, 0px)); padding-bottom: env(safe-area-inset-bottom, 0px); background: rgba(255,255,255,.97); backdrop-filter: blur(10px); border-top: 1px solid var(--brand-border); }
+    .mb { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; background: none; border: none; color: #6b7280; font-size: 10.5px; font-weight: 700; min-height: 44px; cursor: pointer; text-decoration: none; }
+    .mb .ico { font-size: 18px; line-height: 1; } .mb.active { color: var(--brand-primary); } .mb.has-filters .ico { position: relative; } .mb.has-filters .ico::after { content: ''; position: absolute; width: 8px; height: 8px; border-radius: 50%; background: #f59e0b; top: -2px; right: -7px; }
+    input, select, textarea { font-size: 16px !important; }
+}
+@media (max-height: 550px) and (orientation: landscape) { :root { --mnav-h: 46px; } .mb { flex-direction: row; gap: 6px; } .tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+</style>
+<script src="/__/firebase/10.7.1/firebase-app-compat.js"></script>
+<script src="/__/firebase/10.7.1/firebase-auth-compat.js"></script>
+<script src="/__/firebase/10.7.1/firebase-firestore-compat.js"></script>
+<script src="uk-checklist-data.js"></script>
+</head>
+<body>
+<header class="top-header">
+    <div class="brand-section">
+        <button class="menu-btn" id="menu-btn" aria-label="Menu">&#9776;</button>
+        <div class="brand"><span class="accent">Manju</span> UK<span class="sep">|</span><span class="module">Job board</span></div>
+    </div>
+    <div class="header-actions">
+        <span class="status-badge hide-sm"><span class="dot" id="data-dot"></span><span id="data-text">Connecting...</span></span>
+        <a class="pill-btn hide-sm" href="index.html?layout=classic">Classic layout</a>
+        <button class="pill-btn primary" id="login-btn">Sign in</button>
+        <div class="avatar" id="avatar" title="Sign out"></div>
+    </div>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="app-layout">
+    <aside class="app-sidebar" id="sidebar">
+        <ul class="nav-list">
+            <li class="nav-item active" data-nav="jobs"><button type="button"><span class="nav-ico">&#128188;</span> Jobs</button></li>
+            <li class="nav-item" data-nav="checklist"><button type="button"><span class="nav-ico">&#9989;</span> Relocate &amp; qualify</button></li>
+            <li class="nav-item"><a href="review.html"><span class="nav-ico">&#128221;</span> Review</a></li>
+            <li class="nav-sep">Other</li>
+            <li class="nav-item"><a href="index.html?layout=classic"><span class="nav-ico">&#9638;</span> Classic layout</a></li>
+            <li class="nav-item"><a href="https://manju-jobs-dashboard.web.app"><span class="nav-ico">&#128230;</span> Finland (archive)</a></li>
+        </ul>
+        <div class="sidebar-footer"><ul class="nav-list"><li class="nav-item"><button type="button" id="logout-btn"><span class="nav-ico">&#8617;</span> Sign out</button></li></ul></div>
+    </aside>
+
+    <main class="app-main">
+        <!-- JOBS -->
+        <section class="view active" id="view-jobs">
+            <div class="breadcrumbs"><span>Home</span><span>/</span><span class="cur">Jobs</span></div>
+            <div class="title-row"><h1 class="main-title">Jobs for Cambridge &amp; the UK</h1><span class="status-badge"><span class="dot ok"></span> Full-time &amp; part-time · start Jan 2027</span></div>
+            <div class="tiles" id="tiles"></div>
+            <div class="filters" id="filters">
+                <div class="filter-row">
+                    <input type="search" id="q" placeholder="Search title, company, location, reason" aria-label="Search">
+                    <select id="f-match" aria-label="Match"><option value="ym">Yes + Maybe</option><option value="yes">Yes only</option><option value="maybe">Maybe only</option><option value="pending">Pending review</option><option value="all">Everything (incl. No)</option></select>
+                    <select id="f-added" aria-label="Added"><option value="">Any date</option><option value="0">Added today</option><option value="3">Last 3 days</option><option value="7">Last 7 days</option><option value="14">Last 14 days</option><option value="30">Last 30 days</option></select>
+                    <select id="f-sort" aria-label="Sort"><option value="added">Newest first</option><option value="match">Best match first</option><option value="deadline">Deadline soonest</option></select>
+                </div>
+                <div class="chips" id="chips"></div>
+            </div>
+            <div class="result-line" id="result-line"></div>
+            <div id="job-list"></div>
+            <button class="pill-btn more-btn" id="more-btn" style="display:none">Show more</button>
+        </section>
+
+        <!-- CHECKLIST (stepper) -->
+        <section class="view" id="view-checklist">
+            <div class="breadcrumbs"><span>Home</span><span>/</span><span>Relocate &amp; qualify</span><span>/</span><span class="cur" id="crumb-step"></span></div>
+            <div class="title-row"><h1 class="main-title">Relocate to Cambridge &amp; qualify as a solicitor</h1><span class="status-badge" id="save-badge">Progress saved when signed in</span></div>
+            <div class="notice"><strong>Check before you act.</strong> Written from general knowledge of the rules, with a link to the official source for each step. Fees, dates and policies change: confirm on the linked page before paying or booking. Her visa decision letter overrides anything here.</div>
+            <div class="workspace">
+                <div class="form-card" id="ck-form"></div>
+                <aside class="stepper-card"><div class="stepper-title">Progress</div><div id="stepper"></div><div class="progress"><i id="ck-bar"></i></div><div class="progress-text" id="ck-text"></div></aside>
+            </div>
+        </section>
+    </main>
+</div>
+<nav class="mobile-bottom" aria-label="Main">
+    <button class="mb active" id="mb-jobs" type="button"><span class="ico">&#128188;</span><span>Jobs</span></button>
+    <button class="mb" id="mb-filters" type="button"><span class="ico">&#9776;</span><span id="mb-filters-l">Filters</span></button>
+    <button class="mb" id="mb-checklist" type="button"><span class="ico">&#9989;</span><span>Checklist</span></button>
+    <button class="mb" id="mb-menu" type="button"><span class="ico">&#8942;</span><span>More</span></button>
+</nav>
+
+<script>
+firebase.initializeApp({
+    apiKey: "AIzaSyDPOUS4idXHAxQuijO0ghi7ucRgZadkujw", authDomain: "manju-uk-jobs.firebaseapp.com", projectId: "manju-uk-jobs",
+    storageBucket: "manju-uk-jobs.firebasestorage.app", messagingSenderId: "759293601676", appId: "1:759293601676:web:db93b4183a5182e57c18a9"
+});
+const auth = firebase.auth(), db = firebase.firestore();
+const ALLOWED_EMAILS = ['munchnambiar@gmail.com', 'vineethkaimal1989@gmail.com'];
+const DATA_BASE = 'https://vinchess1989.github.io/manju-uk-jobs-dashboard/';
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const localDateStr = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+let user = null, canWrite = false, allJobs = [], jobState = {}, ckState = {}, shown = 40, unsubs = [];
+const PAGE = 40;
+
+/* ---------- filters (same quick filters as the classic layout) ---------- */
+const LEGAL_RE = /legal|paralegal|solicitor|lawyer|counsel|compliance|contract|conveyanc|litigation|governance|regulatory|company secretar/i;
+function ukTier(j) {
+    if (j.uk_tier && j.uk_tier !== 'unknown') return j.uk_tier;
+    const s = j.source || '';
+    if (/^(linkedin_cam|reed_cam|cvlib_cam|indeed_cam|nhs_cam|charityjob_cam)/.test(s)) return 'cambridge';
+    if (/^(linkedin_ukrem|reed_remote)/.test(s)) return 'uk_remote';
+    return 'unknown';
+}
+const CHIPS = [
+    ['cam', 'Cambridgeshire', j => ukTier(j) === 'cambridge'],
+    ['remote', 'Remote / hybrid UK', j => ['uk_remote', 'uk_hybrid'].includes(ukTier(j))],
+    ['pt', 'Part-time', j => j.job_type === 'part-time'],
+    ['legal', 'Legal & compliance', j => LEGAL_RE.test(j.title || '')],
+    ['ukq', 'Need UK qualification', j => j.needs_uk_qualification === true],
+    ['qwe', 'Counts toward SQE (QWE)', j => j.counts_toward_qwe === true],
+    ['fav', 'Favourites', j => !!(jobState[j.url] || {}).favorite],
+    ['hideapp', 'Hide applied', j => applied(j) !== 'yes'],
+    ['appl', 'Applied only', j => applied(j) === 'yes'],
+];
+const F = { q: '', match: 'ym', added: '', sort: 'added', chips: [] };
+try { Object.assign(F, JSON.parse(localStorage.getItem('modernFilters') || '{}')); } catch (e) {}
+const saveF = () => { try { localStorage.setItem('modernFilters', JSON.stringify(F)); } catch (e) {} };
+const matchOf = j => (jobState[j.url] || {}).matches_requirements || j.matches_requirements || 'pending';
+const applied = j => (jobState[j.url] || {}).applied || j.applied || 'no';
+const addedDays = j => j.added_at ? Math.round((new Date(localDateStr(new Date())) - new Date(localDateStr(new Date(j.added_at)))) / 86400000) : null;
+
+function visibleJobs() {
+    const q = F.q.trim().toLowerCase();
+    let out = allJobs.filter(j => {
+        const m = matchOf(j);
+        if (F.match === 'ym' && !(m === 'yes' || m === 'maybe')) return false;
+        if (F.match === 'yes' && m !== 'yes') return false;
+        if (F.match === 'maybe' && m !== 'maybe') return false;
+        if (F.match === 'pending' && !(m === 'pending' || m === 'error')) return false;
+        if (F.match !== 'all' && m === 'no' && applied(j) !== 'yes') return false;
+        if (q && !`${j.title} ${j.company} ${j.location} ${j.reason}`.toLowerCase().includes(q)) return false;
+        if (F.added !== '') { const d = addedDays(j); if (d === null || d < 0 || d > +F.added) return false; }
+        for (const [k, , test] of CHIPS) if (F.chips.includes(k) && !test(j)) return false;
+        return true;
+    });
+    const rank = { yes: 0, maybe: 1, pending: 2, error: 3, no: 4 };
+    if (F.sort === 'match') out.sort((a, b) => (rank[matchOf(a)] - rank[matchOf(b)]) || String(b.added_at || '').localeCompare(String(a.added_at || '')));
+    else if (F.sort === 'deadline') out.sort((a, b) => String(/^\d{4}/.test(a.deadline) ? a.deadline : '9999').localeCompare(/^\d{4}/.test(b.deadline) ? b.deadline : '9999'));
+    else out.sort((a, b) => String(b.added_at || '').localeCompare(String(a.added_at || '')));
+    return out;
+}
+
+function badges(j) {
+    const b = [], jt = j.job_type || '', t = ukTier(j);
+    if (jt === 'part-time') b.push(['pt', 'Part-time' + (j.hours ? ' · ' + j.hours : '')]);
+    else if (['contract', 'temporary', 'flexible', 'apprenticeship', 'internship'].includes(jt)) b.push(['pt', jt]);
+    if (t === 'cambridge') b.push(['cam', 'Cambridgeshire']); else if (t === 'uk_remote') b.push(['rem', 'Remote UK']); else if (t === 'uk_hybrid') b.push(['rem', 'Hybrid UK']);
+    if (j.needs_uk_qualification) b.push(['ukq', 'Need UK qualification']);
+    if (j.counts_toward_qwe) b.push(['qwe', 'Counts toward SQE']);
+    if (j.salary) b.push(['sal', j.salary]);
+    if (j.start_date && j.start_date !== 'N/A') b.push(['sal', 'Start: ' + j.start_date]);
+    return b.length ? `<div class="badges">${b.map(([c, l]) => `<span class="badge ${c}">${esc(l)}</span>`).join('')}</div>` : '';
+}
+
+function renderJobs() {
+    const list = visibleJobs();
+    const ym = allJobs.filter(j => ['yes', 'maybe'].includes(matchOf(j)));
+    const today = allJobs.filter(j => addedDays(j) === 0 && ['yes', 'maybe'].includes(matchOf(j))).length;
+    const appliedN = allJobs.filter(j => applied(j) === 'yes').length;
+    document.getElementById('tiles').innerHTML =
+        `<button class="tile" data-tile="ym"><div class="v ok">${ym.length}</div><div class="l">Matching jobs (yes + maybe)</div></button>
+         <button class="tile" data-tile="today"><div class="v blue">${today}</div><div class="l">New matches today</div></button>
+         <button class="tile" data-tile="cam"><div class="v">${ym.filter(CHIPS[0][2]).length}</div><div class="l">In Cambridgeshire</div></button>
+         <button class="tile" data-tile="applied"><div class="v">${appliedN}</div><div class="l">Applied</div></button>`;
+    document.getElementById('chips').innerHTML = CHIPS.map(([k, label, test]) =>
+        `<button type="button" class="chip ${F.chips.includes(k) ? 'on' : ''}" data-chip="${k}">${esc(label)}<span class="n">${ym.filter(test).length}</span></button>`).join('');
+    document.getElementById('q').value = F.q; document.getElementById('f-match').value = F.match;
+    document.getElementById('f-added').value = F.added; document.getElementById('f-sort').value = F.sort;
+    document.getElementById('result-line').textContent = `${list.length} of ${allJobs.length} jobs`;
+    const anyFilter = F.q || F.added !== '' || F.chips.length || F.match !== 'ym';
+    const mbf = document.getElementById('mb-filters'); mbf.classList.toggle('has-filters', !!anyFilter);
+    document.getElementById('mb-filters-l').textContent = anyFilter ? `${list.length}/${allJobs.length}` : 'Filters';
+    const page = list.slice(0, shown);
+    document.getElementById('job-list').innerHTML = page.length ? page.map(j => {
+        const m = matchOf(j), fav = !!(jobState[j.url] || {}).favorite, ap = applied(j) === 'yes', u = esc(j.url);
+        const d = j.description_file ? DATA_BASE + (j.description_file.startsWith('job_descriptions/') ? j.description_file : 'job_descriptions/' + j.description_file) : '';
+        return `<article class="job ${ap ? 'applied' : ''}" data-url="${u}">
+            <button class="star ${fav ? 'on' : ''}" data-act="fav" aria-pressed="${fav}" title="Favourite">${fav ? '&#9733;' : '&#9734;'}</button>
+            <div><a class="job-title" href="${u}" target="_blank" rel="noopener">${esc(j.title || 'Untitled')}</a>
+                <div class="job-sub">${esc(j.company || 'Unknown company')} · ${esc(j.location || 'Unknown location')}</div>${badges(j)}</div>
+            <span class="match ${esc(m)}">${esc(m)}</span>
+            ${j.reason ? `<div class="reason" data-act="expand">${esc(j.reason)}</div>` : ''}
+            <div class="job-meta"><span>Added ${esc(j.added_at ? localDateStr(new Date(j.added_at)) : 'n/a')}</span>${/^\d{4}/.test(j.posted_date || '') ? `<span>Posted ${esc(j.posted_date)}</span>` : ''}${j.deadline && j.deadline !== 'N/A' ? `<span>Deadline ${esc(j.deadline)}</span>` : ''}<span>${esc(j.source || '')}</span></div>
+            <div class="job-actions">
+                <a class="act go" href="${u}" target="_blank" rel="noopener">Open job</a>
+                <button class="act ${ap ? 'on' : ''}" data-act="applied">${ap ? 'Applied &#10003;' : 'Mark applied'}</button>
+                ${canWrite && m !== 'yes' ? '<button class="act" data-act="yes">Should be yes</button>' : ''}${canWrite && m !== 'no' ? '<button class="act" data-act="no">Should be no</button>' : ''}
+                ${d ? `<a class="act" href="${esc(d)}" target="_blank" rel="noopener">Description</a>` : ''}
+            </div></article>`;
+    }).join('') : '<div class="empty">No jobs match these filters.</div>';
+    document.getElementById('more-btn').style.display = list.length > shown ? 'block' : 'none';
+}
+
+/* ---------- job actions: same Firestore writes as the classic layout ---------- */
+function needWrite() { if (!canWrite) { alert('Sign in with an allowed account to change this.'); return false; } return true; }
+document.getElementById('job-list').addEventListener('click', async e => {
+    const el = e.target.closest('[data-act]'); if (!el) return;
+    const url = el.closest('.job').dataset.url, act = el.dataset.act, ref = db.collection('shared_state').doc('job_status');
+    if (act === 'expand') { el.classList.toggle('exp'); return; }
+    if (!needWrite()) return;
+    try {
+        if (act === 'fav') {
+            const next = !(jobState[url] || {}).favorite;
+            await ref.set({ [url]: { favorite: next, favorited_at: next ? new Date().toISOString() : firebase.firestore.FieldValue.delete() } }, { merge: true });
+        } else if (act === 'applied') {
+            const next = applied({ url }) === 'yes' ? 'no' : 'yes';
+            await db.collection('user_feedback').add({ url, type: 'applied_update', applied: next, status: 'unread', timestamp: firebase.firestore.FieldValue.serverTimestamp() });
+            await ref.set({ [url]: { applied: next, applied_date: next === 'yes' ? localDateStr(new Date()) : firebase.firestore.FieldValue.delete() } }, { merge: true });
+        } else if (act === 'yes' || act === 'no') {
+            const reason = prompt(`Why should this job be a '${act}'? (This trains the AI. Max 100 words; leave blank to skip training)`);
+            if (reason === null) return;
+            if (reason.split(' ').length > 100) { alert('Reason must be under 100 words.'); return; }
+            await db.collection('user_feedback').add({ url, reason, type: act === 'yes' ? 'positive' : 'negative', status: 'unread', timestamp: firebase.firestore.FieldValue.serverTimestamp() });
+            await ref.set({ [url]: { matches_requirements: act, user_reason: reason } }, { merge: true });
+        }
+    } catch (err) { console.error(err); alert('Could not save: ' + err.message); }
+});
+document.getElementById('chips').addEventListener('click', e => {
+    const c = e.target.closest('[data-chip]'); if (!c) return;
+    const k = c.dataset.chip, i = F.chips.indexOf(k); i >= 0 ? F.chips.splice(i, 1) : F.chips.push(k);
+    shown = PAGE; saveF(); renderJobs();
+});
+document.getElementById('tiles').addEventListener('click', e => {
+    const t = e.target.closest('[data-tile]'); if (!t) return;
+    F.q = ''; F.chips = []; F.added = ''; F.match = 'ym';
+    if (t.dataset.tile === 'today') F.added = '0'; else if (t.dataset.tile === 'cam') F.chips = ['cam']; else if (t.dataset.tile === 'applied') { F.match = 'all'; F.chips = ['appl']; }
+    shown = PAGE; saveF(); renderJobs();
+});
+[['q', 'q', 'input'], ['f-match', 'match', 'change'], ['f-added', 'added', 'change'], ['f-sort', 'sort', 'change']].forEach(([id, key, ev]) =>
+    document.getElementById(id).addEventListener(ev, e => { F[key] = e.target.value; shown = PAGE; saveF(); renderJobs(); }));
+document.getElementById('more-btn').onclick = () => { shown += PAGE; renderJobs(); };
+
+/* ---------- checklist as stepper ---------- */
+const C = window.UK_CHECKLIST;
+let curPhase = 0; const openCk = new Set();
+const ckStatus = id => (ckState[id] && ckState[id].status) || 'todo';
+function renderChecklist() {
+    const total = C.items.length, done = C.items.filter(i => ckStatus(i.id) === 'done').length;
+    document.getElementById('ck-bar').style.width = Math.round(100 * done / total) + '%';
+    document.getElementById('ck-text').textContent = `${done} of ${total} steps done`;
+    document.getElementById('stepper').innerHTML = C.phases.map((p, idx) => {
+        const its = C.items.filter(i => i.phase === p.id), d = its.filter(i => ckStatus(i.id) === 'done').length;
+        const cls = d === its.length ? 'completed' : 'pending';
+        return `<button type="button" class="step ${cls} ${idx === curPhase ? 'active' : ''}" data-step="${idx}">
+            <span class="step-dot">${d === its.length ? '&#10003;' : idx + 1}</span><span><div class="step-label">${esc(p.title)}</div><div class="step-sub">${esc(p.when)} · ${d}/${its.length}</div></span></button>`;
+    }).join('');
+    const p = C.phases[curPhase], its = C.items.filter(i => i.phase === p.id);
+    document.getElementById('crumb-step').textContent = p.title;
+    let last = null;
+    document.getElementById('ck-form').innerHTML = `<h2>${esc(p.title)}</h2><div class="sub">${esc(p.when)} · ${esc(p.blurb)}</div>` + its.map(i => {
+        let stage = ''; if (i.stage && i.stage !== last) { stage = `<div class="stage">${esc(i.stage)}</div>`; last = i.stage; }
+        const s = ckStatus(i.id), x = ckState[i.id] || {}, open = openCk.has(i.id);
+        return stage + `<div class="ck ${s === 'done' ? 'done' : ''}" data-id="${i.id}"><div class="ck-row">
+            <button type="button" class="ck-status ${s}" data-ck="cycle" aria-label="Status ${s}; tap to change">${s === 'done' ? '&#10003;' : s === 'doing' ? '&hellip;' : ''}</button>
+            <div style="min-width:0;flex:1"><div class="ck-title">${esc(i.title)}</div><div class="ck-when">${esc(i.when || '')}${i.cost ? ' · ' + esc(i.cost) : ''}${x.due ? ' · due ' + esc(x.due) : ''}</div></div>
+            <button type="button" class="ck-open" data-ck="open" aria-expanded="${open}">${open ? '&#9650;' : '&#9660;'}</button></div>
+            ${open ? `<div class="ck-more"><p>${esc(i.detail)}</p>${i.links && i.links.length ? `<div class="ck-links">${i.links.map(l => `<a href="${esc(l[1])}" target="_blank" rel="noopener">${esc(l[0])} &#8599;</a>`).join('')}</div>` : ''}
+            <div class="ck-fields"><textarea data-f="note" placeholder="Notes" ${canWrite ? '' : 'disabled'}>${esc(x.note || '')}</textarea><input type="date" data-f="due" value="${esc(x.due || '')}" ${canWrite ? '' : 'disabled'} aria-label="Due date"></div></div>` : ''}</div>`;
+    }).join('') + `<div class="nav-buttons"><button type="button" class="pill-btn" data-step-nav="-1" ${curPhase === 0 ? 'disabled style="opacity:.4"' : ''}>&larr; Back</button><button type="button" class="pill-btn primary" data-step-nav="1" ${curPhase === C.phases.length - 1 ? 'disabled style="opacity:.4"' : ''}>Continue &rarr;</button></div>`;
+}
+function saveCk(id, patch) {
+    ckState[id] = Object.assign({}, ckState[id], patch); renderChecklist();
+    if (!canWrite) return;
+    db.collection('shared_state').doc('uk_checklist').set({ items: { [id]: Object.assign({}, patch, { updated: new Date().toISOString() }) } }, { merge: true })
+        .then(() => { const b = document.getElementById('save-badge'); b.textContent = 'Progress saved'; }).catch(e => alert('Could not save: ' + e.message));
+}
+document.getElementById('view-checklist').addEventListener('click', e => {
+    const step = e.target.closest('[data-step]'); if (step) { curPhase = +step.dataset.step; renderChecklist(); window.scrollTo(0, 0); return; }
+    const nav = e.target.closest('[data-step-nav]'); if (nav && !nav.disabled) { curPhase = Math.max(0, Math.min(C.phases.length - 1, curPhase + +nav.dataset.stepNav)); renderChecklist(); window.scrollTo(0, 0); return; }
+    const ck = e.target.closest('[data-ck]'); if (!ck) return;
+    const id = ck.closest('.ck').dataset.id;
+    if (ck.dataset.ck === 'cycle') { if (!needWrite()) return; saveCk(id, { status: { todo: 'doing', doing: 'done', done: 'todo' }[ckStatus(id)] }); }
+    else { openCk.has(id) ? openCk.delete(id) : openCk.add(id); renderChecklist(); }
+});
+document.getElementById('view-checklist').addEventListener('change', e => {
+    const f = e.target.dataset && e.target.dataset.f, ck = e.target.closest('.ck'); if (f && ck) saveCk(ck.dataset.id, { [f]: e.target.value });
+});
+
+/* ---------- navigation (sidebar + phone bottom bar) ---------- */
+function show(view) {
+    document.querySelectorAll('.view').forEach(v => v.classList.toggle('active', v.id === 'view-' + view));
+    document.querySelectorAll('[data-nav]').forEach(n => n.classList.toggle('active', n.dataset.nav === view));
+    document.getElementById('mb-jobs').classList.toggle('active', view === 'jobs');
+    document.getElementById('mb-checklist').classList.toggle('active', view === 'checklist');
+    document.body.classList.remove('drawer-open', 'show-filters');
+    if (location.hash !== '#' + view) history.replaceState(null, '', '#' + view);
+    window.scrollTo(0, 0);
+}
+document.querySelectorAll('[data-nav]').forEach(n => n.querySelector('button') && (n.querySelector('button').onclick = () => show(n.dataset.nav)));
+document.getElementById('mb-jobs').onclick = () => show('jobs');
+document.getElementById('mb-checklist').onclick = () => show('checklist');
+document.getElementById('mb-filters').onclick = () => { show('jobs'); document.body.classList.add('show-filters'); document.getElementById('filters').scrollIntoView({ block: 'start' }); };
+const toggleDrawer = () => document.body.classList.toggle('drawer-open');
+document.getElementById('menu-btn').onclick = toggleDrawer; document.getElementById('mb-menu').onclick = toggleDrawer; document.getElementById('scrim').onclick = toggleDrawer;
+
+/* ---------- auth + data ---------- */
+function setStatus(ok, text) { document.getElementById('data-dot').className = 'dot ' + (ok ? 'ok' : 'stale'); document.getElementById('data-text').textContent = text; }
+function loadJobs() {
+    fetch(DATA_BASE + 'jobs.json?nocache=' + Date.now()).then(r => { const lm = r.headers.get('Last-Modified'); return r.json().then(d => ({ d, lm })); })
+        .then(({ d, lm }) => {
+            allJobs = d; renderJobs();
+            const hrs = lm ? (Date.now() - new Date(lm)) / 36e5 : 0;
+            setStatus(hrs <= 24, hrs > 24 ? 'Stale data (older than 24 h)' : `${d.length} jobs · live`);
+        }).catch(err => { console.error(err); setStatus(false, 'Could not load jobs'); document.getElementById('job-list').innerHTML = '<div class="empty">Could not load jobs.json.</div>'; });
+}
+auth.onAuthStateChanged(u => {
+    unsubs.forEach(f => f()); unsubs = []; user = u;
+    const login = document.getElementById('login-btn'), av = document.getElementById('avatar');
+    if (u) {
+        canWrite = ALLOWED_EMAILS.includes(u.email);
+        login.style.display = 'none'; av.style.display = 'flex'; av.textContent = (u.email || '?').slice(0, 2).toUpperCase(); av.title = u.email + ' (click to sign out)';
+        unsubs.push(db.collection('shared_state').doc('job_status').onSnapshot(d => { jobState = d.exists ? d.data() : {}; renderJobs(); }, console.error));
+        unsubs.push(db.collection('shared_state').doc('uk_checklist').onSnapshot(d => { ckState = (d.exists && d.data().items) || {}; renderChecklist(); }, console.error));
+        loadJobs();
+    } else {
+        canWrite = false; jobState = {}; ckState = {}; allJobs = [];
+        login.style.display = 'inline-block'; av.style.display = 'none';
+        document.getElementById('job-list').innerHTML = '<div class="empty">Sign in with Google to view the board.</div>';
+        document.getElementById('result-line').textContent = ''; setStatus(false, 'Signed out'); renderChecklist();
+    }
+});
+document.getElementById('login-btn').onclick = () => auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(e => alert('Login error: ' + e.message));
+document.getElementById('avatar').onclick = () => auth.signOut();
+document.getElementById('logout-btn').onclick = () => auth.signOut();
+renderChecklist();
+show(location.hash === '#checklist' ? 'checklist' : 'jobs');
+</script>
+</body>
+</html>

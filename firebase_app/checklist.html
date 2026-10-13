@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Manju's UK Checklist</title>
+    <meta name="description" content="Relocation, job-search and solicitor-qualification checklist for Manju's move to Cambridge.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: #0a0d16; --bg-secondary: #111524; --bg-card: rgba(17, 21, 37, 0.7);
+            --border-color: rgba(255, 255, 255, 0.08); --text-primary: #f3f4f6; --text-secondary: #9ca3af;
+            --color-yes: #10b981; --color-maybe: #60a5fa; --color-pending: #f59e0b; --color-no: #ef4444;
+            --hdr-h: 56px; --subnav-h: 44px; --mnav-h: 58px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-padding-top: calc(var(--hdr-h) + var(--subnav-h) + 8px); }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg-primary); color: var(--text-primary);
+               min-height: 100vh; overflow-x: hidden; line-height: 1.5;
+               background-image: radial-gradient(circle at 10% 20%, rgba(99,102,241,0.05) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(139,92,246,0.05) 0%, transparent 40%); }
+        a { color: #a5b4fc; }
+        header { position: sticky; top: 0; z-index: 50; height: var(--hdr-h); display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+                 padding: 0 1.25rem; background: rgba(10,13,22,0.94); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); }
+        .logo-area { display: flex; align-items: center; gap: 0.6rem; min-width: 0; }
+        .logo-icon { width: 2.1rem; height: 2.1rem; flex: none; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 0.55rem; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; }
+        .logo-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .hdr-links { display: flex; align-items: center; gap: 0.5rem; }
+        .hdr-link { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; padding: 0.4rem 0.7rem; border-radius: 2rem; border: 1px solid var(--border-color); white-space: nowrap; }
+        .hdr-link:hover { color: var(--text-primary); border-color: rgba(255,255,255,0.25); }
+        .btn { font-family: inherit; font-weight: 600; font-size: 0.85rem; border: none; border-radius: 2rem; padding: 0.45rem 0.95rem; cursor: pointer; color: #fff; }
+        .btn.login { background: #6366f1; } .btn.logout { background: #ef4444; display: none; }
+        #user-email { font-size: 0.78rem; color: var(--text-secondary); display: none; max-width: 14ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+        .subnav { position: sticky; top: var(--hdr-h); z-index: 40; height: var(--subnav-h); display: flex; align-items: center; gap: 0.5rem; padding: 0 1.25rem;
+                  background: rgba(10,13,22,0.94); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); overflow-x: auto; scrollbar-width: none; }
+        .subnav::-webkit-scrollbar { display: none; }
+        .chip { flex: none; font-family: inherit; font-size: 0.78rem; font-weight: 600; padding: 0.35rem 0.8rem; border-radius: 2rem; border: 1px solid var(--border-color);
+                background: rgba(255,255,255,0.03); color: var(--text-secondary); cursor: pointer; white-space: nowrap; }
+        .chip.active { background: rgba(99,102,241,0.2); color: #c7d2fe; border-color: #6366f1; }
+        .chip .n { opacity: 0.7; margin-left: 4px; font-variant-numeric: tabular-nums; }
+
+        main { max-width: 920px; margin: 0 auto; padding: 1.25rem 1.25rem 3rem; }
+        .notice { background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.3); color: #fcd34d; border-radius: 0.8rem; padding: 0.8rem 1rem; font-size: 0.82rem; margin-bottom: 1rem; }
+        .summary { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 1rem; padding: 1rem 1.25rem; margin-bottom: 1.25rem; }
+        .summary-top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+        .summary h1 { font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; }
+        .summary .sub { color: var(--text-secondary); font-size: 0.85rem; }
+        .bar { height: 8px; background: rgba(255,255,255,0.08); border-radius: 99px; overflow: hidden; margin-top: 0.7rem; }
+        .bar > i { display: block; height: 100%; background: linear-gradient(90deg, #6366f1, #10b981); width: 0; transition: width .3s; }
+        .toggle { font-family: inherit; font-size: 0.78rem; color: var(--text-secondary); background: none; border: 1px solid var(--border-color); border-radius: 2rem; padding: 0.3rem 0.8rem; cursor: pointer; }
+        .toggle.on { color: #c7d2fe; border-color: #6366f1; background: rgba(99,102,241,0.15); }
+
+        section.phase { margin-bottom: 1.6rem; }
+        .phase-head { display: flex; justify-content: space-between; align-items: baseline; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 0.2rem; }
+        .phase-head h2 { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; }
+        .phase-head .when { color: #a5b4fc; font-size: 0.8rem; font-weight: 600; }
+        .phase .blurb { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 0.6rem; }
+        .stage { margin: 1rem 0 0.4rem; font-size: 0.74rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-secondary); font-weight: 700; }
+        .item { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 0.9rem; padding: 0.85rem 1rem; margin-bottom: 0.6rem; }
+        .item.done { opacity: 0.62; }
+        .item-row { display: flex; gap: 0.75rem; align-items: flex-start; }
+        .status { flex: none; width: 1.7rem; height: 1.7rem; border-radius: 50%; border: 2px solid rgba(255,255,255,0.28); background: transparent; color: #fff; cursor: pointer; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+        .status.doing { border-color: var(--color-pending); background: rgba(245,158,11,0.2); }
+        .status.done { border-color: var(--color-yes); background: var(--color-yes); }
+        .item-title { font-weight: 600; font-size: 0.95rem; }
+        .item.done .item-title { text-decoration: line-through; }
+        .meta { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.3rem; }
+        .tag { font-size: 0.68rem; font-weight: 600; padding: 2px 8px; border-radius: 99px; background: rgba(255,255,255,0.06); color: var(--text-secondary); border: 1px solid var(--border-color); }
+        .tag.when { color: #a5b4fc; border-color: rgba(99,102,241,0.35); }
+        .tag.cost { color: #fcd34d; border-color: rgba(245,158,11,0.35); }
+        .more { margin-top: 0.6rem; font-size: 0.85rem; color: #d1d5db; }
+        .more p { margin-bottom: 0.5rem; }
+        .links { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.6rem; }
+        .links a { font-size: 0.78rem; text-decoration: none; padding: 0.25rem 0.7rem; border-radius: 99px; border: 1px solid rgba(99,102,241,0.4); background: rgba(99,102,241,0.1); }
+        .fields { display: grid; grid-template-columns: 1fr 150px; gap: 0.6rem; }
+        .fields textarea, .fields input { font-family: inherit; font-size: 16px; color: var(--text-primary); background: rgba(255,255,255,0.04); border: 1px solid var(--border-color); border-radius: 0.5rem; padding: 0.45rem 0.6rem; width: 100%; }
+        .fields textarea { min-height: 2.6rem; resize: vertical; }
+        .expand { margin-left: auto; flex: none; background: none; border: none; color: var(--text-secondary); cursor: pointer; font-size: 0.85rem; padding: 0.2rem 0.4rem; }
+        .empty { color: var(--text-secondary); text-align: center; padding: 3rem 1rem; }
+
+        .mobile-app-bottom-nav { display: none; }
+        @media (max-width: 768px), (max-height: 550px) and (orientation: landscape) {
+            :root { --hdr-h: 48px; }
+            header { padding: 0 0.75rem; }
+            .logo-title { font-size: 1rem; }
+            .hdr-link.optional, #user-email { display: none !important; }
+            .subnav { padding: 0 0.75rem; }
+            body { padding-bottom: calc(var(--mnav-h) + env(safe-area-inset-bottom, 0px)); }
+            main { padding: 0.9rem 0.75rem 1.5rem; }
+            .hdr-link, .btn, .toggle { min-height: 44px; display: inline-flex; align-items: center; }
+            .chip { min-height: 36px; }
+            .status { width: 2.2rem; height: 2.2rem; } .expand { min-width: 44px; min-height: 44px; }
+            .fields { grid-template-columns: 1fr; }
+            .mobile-app-bottom-nav { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; height: calc(var(--mnav-h) + env(safe-area-inset-bottom, 0px));
+                padding-bottom: env(safe-area-inset-bottom, 0px); background: rgba(10,13,22,0.96); backdrop-filter: blur(12px); border-top: 1px solid var(--border-color); }
+            .mnav { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: var(--text-secondary); text-decoration: none; font-size: 0.66rem; font-weight: 700; min-height: 44px; }
+            .mnav.active { color: #c7d2fe; }
+            .mnav i { font-size: 1.1rem; }
+            input, select, textarea { font-size: 16px !important; }
+        }
+        @media (max-height: 550px) and (orientation: landscape) {
+            :root { --hdr-h: 44px; --subnav-h: 38px; --mnav-h: 46px; }
+            .mnav { flex-direction: row; gap: 6px; font-size: 0.72rem; }
+        }
+    </style>
+    <script src="/__/firebase/10.7.1/firebase-app-compat.js"></script>
+    <script src="/__/firebase/10.7.1/firebase-auth-compat.js"></script>
+    <script src="/__/firebase/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="uk-checklist-data.js"></script>
+</head>
+<body>
+<header>
+    <div class="logo-area"><div class="logo-icon">UK</div><div class="logo-title">UK Checklist</div></div>
+    <div class="hdr-links">
+        <a class="hdr-link" href="index.html"><i class="fas fa-briefcase"></i> Jobs</a>
+        <a class="hdr-link optional" href="modern.html?layout=modern" title="Switch to the light, modern layout"><i class="fas fa-table-columns"></i> Light layout</a>
+        <span id="user-email"></span>
+        <button class="btn login" id="login-btn">Sign in</button>
+        <button class="btn logout" id="logout-btn">Sign out</button>
+    </div>
+</header>
+<nav class="subnav" id="subnav" aria-label="Phases"></nav>
+<main>
+    <div class="notice"><strong>Check before you act.</strong> This list was written from general knowledge of the rules and links to the official source for each step. Fees, dates and policies change: confirm on the linked page before paying or booking. Her visa decision letter overrides anything here.</div>
+    <div class="summary">
+        <div class="summary-top">
+            <div><h1>Moving to Cambridge and qualifying as a solicitor</h1><div class="sub" id="countdown"></div></div>
+            <button class="toggle" id="hide-done" type="button">Hide completed</button>
+        </div>
+        <div class="bar"><i id="overall-bar"></i></div>
+        <div class="sub" id="overall-text" style="margin-top:.4rem"></div>
+    </div>
+    <div id="phases"></div>
+    <div class="empty" id="signin-note" style="display:none">Sign in with Google to load and save your progress.</div>
+</main>
+<nav class="mobile-app-bottom-nav" aria-label="Main">
+    <a class="mnav" href="index.html"><i class="fas fa-briefcase"></i><span>Jobs</span></a>
+    <a class="mnav" href="review.html"><i class="fas fa-list-check"></i><span>Review</span></a>
+    <a class="mnav active" href="checklist.html"><i class="fas fa-clipboard-check"></i><span>Checklist</span></a>
+</nav>
+<script>
+    firebase.initializeApp({
+        apiKey: "AIzaSyDPOUS4idXHAxQuijO0ghi7ucRgZadkujw", authDomain: "manju-uk-jobs.firebaseapp.com", projectId: "manju-uk-jobs",
+        storageBucket: "manju-uk-jobs.firebasestorage.app", messagingSenderId: "759293601676", appId: "1:759293601676:web:db93b4183a5182e57c18a9"
+    });
+    const auth = firebase.auth(), db = firebase.firestore();
+    const ALLOWED_EMAILS = ['munchnambiar@gmail.com', 'vineethkaimal1989@gmail.com'];
+    const DOC = () => db.collection('shared_state').doc('uk_checklist');
+    const C = window.UK_CHECKLIST;
+    let state = {};            // item id -> { status: 'todo'|'doing'|'done', note, due }
+    let canWrite = false;
+    let hideDone = false;
+    try { hideDone = localStorage.getItem('ukChecklistHideDone') === '1'; } catch (e) {}
+    const openItems = new Set();
+    const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const st = id => (state[id] && state[id].status) || 'todo';
+
+    function render() {
+        const done = C.items.filter(i => st(i.id) === 'done').length;
+        const pct = Math.round(100 * done / C.items.length);
+        document.getElementById('overall-bar').style.width = pct + '%';
+        document.getElementById('overall-text').textContent = `${done} of ${C.items.length} steps done (${pct}%)`;
+        const days = Math.ceil((new Date(C.moveDate + 'T00:00:00') - new Date()) / 86400000);
+        document.getElementById('countdown').textContent = days > 0 ? `${days} days until the move on 30 November 2026 · work from January 2027`
+            : days === 0 ? 'Moving today' : 'In the UK since 30 November 2026';
+        document.getElementById('hide-done').classList.toggle('on', hideDone);
+
+        const subnav = document.getElementById('subnav');
+        subnav.innerHTML = C.phases.map(p => {
+            const its = C.items.filter(i => i.phase === p.id), d = its.filter(i => st(i.id) === 'done').length;
+            return `<button type="button" class="chip" data-p="${p.id}">${esc(p.title)}<span class="n">${d}/${its.length}</span></button>`;
+        }).join('');
+        subnav.querySelectorAll('.chip').forEach(b => b.onclick = () => document.getElementById(b.dataset.p).scrollIntoView({ behavior: 'smooth', block: 'start' }));
+
+        document.getElementById('phases').innerHTML = C.phases.map(p => {
+            const all = C.items.filter(i => i.phase === p.id);
+            const its = all.filter(i => !(hideDone && st(i.id) === 'done'));
+            let lastStage = null;
+            const body = its.map(i => {
+                let stage = '';
+                if (i.stage && i.stage !== lastStage) { stage = `<div class="stage">${esc(i.stage)}</div>`; lastStage = i.stage; }
+                const s = st(i.id), open = openItems.has(i.id), x = state[i.id] || {};
+                return stage + `<div class="item ${s === 'done' ? 'done' : ''}" data-id="${i.id}">
+                    <div class="item-row">
+                        <button type="button" class="status ${s}" data-act="cycle" aria-label="Status: ${s}. Tap to change" title="${s}">${s === 'done' ? '<i class="fas fa-check"></i>' : s === 'doing' ? '<i class="fas fa-ellipsis"></i>' : ''}</button>
+                        <div style="min-width:0;flex:1">
+                            <div class="item-title">${esc(i.title)}</div>
+                            <div class="meta">${i.when ? `<span class="tag when">${esc(i.when)}</span>` : ''}${i.cost ? `<span class="tag cost">${esc(i.cost)}</span>` : ''}${x.due ? `<span class="tag">Due ${esc(x.due)}</span>` : ''}${x.note ? '<span class="tag"><i class="fas fa-note-sticky"></i> note</span>' : ''}</div>
+                        </div>
+                        <button type="button" class="expand" data-act="open" aria-label="Details" aria-expanded="${open}"><i class="fas fa-chevron-${open ? 'up' : 'down'}"></i></button>
+                    </div>
+                    ${open ? `<div class="more"><p>${esc(i.detail)}</p>
+                        ${i.links && i.links.length ? `<div class="links">${i.links.map(l => `<a href="${esc(l[1])}" target="_blank" rel="noopener">${esc(l[0])} <i class="fas fa-arrow-up-right-from-square" style="font-size:.65rem"></i></a>`).join('')}</div>` : ''}
+                        <div class="fields"><textarea data-f="note" placeholder="Notes" ${canWrite ? '' : 'disabled'}>${esc(x.note || '')}</textarea><input type="date" data-f="due" value="${esc(x.due || '')}" ${canWrite ? '' : 'disabled'} aria-label="Due date"></div></div>` : ''}
+                </div>`;
+            }).join('');
+            return `<section class="phase" id="${p.id}"><div class="phase-head"><h2>${esc(p.title)}</h2><span class="when">${esc(p.when)}</span></div><div class="blurb">${esc(p.blurb)}</div>${body || '<div class="empty" style="padding:1rem">All done here.</div>'}</section>`;
+        }).join('');
+    }
+
+    function save(id, patch) {
+        state[id] = Object.assign({}, state[id], patch);
+        render();
+        if (!canWrite) return;
+        DOC().set({ items: { [id]: Object.assign({}, patch, { updated: new Date().toISOString() }) } }, { merge: true })
+            .catch(e => alert('Could not save: ' + e.message));
+    }
+
+    document.addEventListener('click', e => {
+        const itemEl = e.target.closest('.item');
+        if (!itemEl) return;
+        const id = itemEl.dataset.id, act = (e.target.closest('[data-act]') || {}).dataset;
+        if (!act) return;
+        if (act.act === 'cycle') {
+            if (!canWrite) { alert('Sign in with an allowed account to save progress.'); return; }
+            save(id, { status: { todo: 'doing', doing: 'done', done: 'todo' }[st(id)] });
+        } else if (act.act === 'open') {
+            openItems.has(id) ? openItems.delete(id) : openItems.add(id);
+            render();
+        }
+    });
+    document.addEventListener('change', e => {
+        const f = e.target.dataset && e.target.dataset.f, itemEl = e.target.closest('.item');
+        if (f && itemEl) save(itemEl.dataset.id, { [f]: e.target.value });
+    });
+    document.getElementById('hide-done').onclick = () => {
+        hideDone = !hideDone;
+        try { localStorage.setItem('ukChecklistHideDone', hideDone ? '1' : '0'); } catch (e) {}
+        render();
+    };
+
+    // Highlight the phase chip nearest the top while scrolling.
+    let raf = 0;
+    document.addEventListener('scroll', () => { if (raf) return; raf = requestAnimationFrame(() => {
+        raf = 0;
+        const line = document.getElementById('subnav').getBoundingClientRect().bottom + 12;
+        let best = null, bd = Infinity;
+        document.querySelectorAll('section.phase').forEach(s => { const d = Math.abs(s.getBoundingClientRect().top - line); if (d < bd) { bd = d; best = s.id; } });
+        document.querySelectorAll('#subnav .chip').forEach(c => c.classList.toggle('active', c.dataset.p === best));
+    }); }, true);
+
+    let unsub = null;
+    auth.onAuthStateChanged(user => {
+        const login = document.getElementById('login-btn'), logout = document.getElementById('logout-btn'), em = document.getElementById('user-email');
+        if (unsub) { unsub(); unsub = null; }
+        if (user) {
+            canWrite = ALLOWED_EMAILS.includes(user.email);
+            login.style.display = 'none'; logout.style.display = 'block'; em.style.display = 'block'; em.textContent = user.email + (canWrite ? '' : ' (read-only)');
+            document.getElementById('signin-note').style.display = 'none';
+            unsub = DOC().onSnapshot(d => { state = (d.exists && d.data().items) || {}; render(); }, err => console.error(err));
+        } else {
+            canWrite = false; state = {};
+            login.style.display = 'block'; logout.style.display = 'none'; em.style.display = 'none';
+            document.getElementById('signin-note').style.display = 'block';
+            render();
+        }
+    });
+    document.getElementById('login-btn').onclick = () => auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(e => alert('Login error: ' + e.message));
+    document.getElementById('logout-btn').onclick = () => auth.signOut();
+    render();
+</script>
+</body>
+</html>

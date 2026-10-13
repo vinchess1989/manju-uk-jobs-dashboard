@@ -1,0 +1,58 @@
+# Virtual environment
+venv/
+
+# Environment files with credentials
+.env
+.env.local
+
+# Backups
+backups/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# OS/Editor configs
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Node
+node_modules/
+
+# Scratch
+scratch/
+
+# Firebase local cache (not part of the project, changes on every deploy)
+firebase_app/.firebase/
+logs/
+*.log
+*.corrupt*
+
+# Runtime lock files
+*.lock
+
+# Personal resume files — never publish to a public repo
+originial resumes/
+
+# Firebase service-account keys (live in ~/.secrets, never in the repo)
+*firebase-adminsdk*.json
+*-sa.json
+
+# Personal resumes/CVs - local only, never in this public repo (tailored resumes live in the private repo)
+Resume/
+
+tests/_shots/
+__pycache__/
+.pytest_cache/
+.firebase/
+
+
+# Candidate profile + relocation/visa details: local only (this repo is public). The reviewer reads it from disk.
+job_requirements.md
+

@@ -1,0 +1,29 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Since 2026-09-28 every collection is allow-listed accounts only. Before that,
+    // shared_state / user_feedback (and application_answers in manju_jobs) were readable
+    // and updatable by anyone, because the Python scripts wrote without signing in. The
+    // scripts now authenticate as the project's service account (firestore_auth.py), which
+    // IAM authorizes directly - service-account requests don't go through these rules.
+
+    function isAuthorized() {
+      return request.auth != null && (
+        request.auth.token.email == "munchnambiar@gmail.com"
+        || request.auth.token.email == "vineethkaimal1989@gmail.com"
+      );
+    }
+
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId && isAuthorized();
+    }
+
+    match /shared_state/{docId} {
+      allow read, write: if isAuthorized();
+    }
+
+    match /user_feedback/{docId} {
+      allow read, write: if isAuthorized();
+    }
+  }
+}
