@@ -70,8 +70,10 @@ auto-submit gate, error-retry cap, deletion polling) and rebuilt for the UK:
 - **Google sign-in must be enabled by hand** (Firebase console -> Authentication -> Sign-in method -> Google, with the support email); and
   the **service-account key** (`~/.secrets/manju-uk-jobs-sa.json`, Firebase console -> Project settings -> Service accounts -> Generate
   new private key) is also manual. Without the key `firestore_auth.session()` raises and the scraper's Firestore polling just logs an error.
-- **GitHub Pages feeds the dashboard** (`https://vinchess1989.github.io/manju-uk-jobs-dashboard/jobs.json`), exactly like the other boards,
-  and Pages on a private repo needs a paid GitHub plan. If this repo is private and Pages is off, the dashboard shows "Could not load jobs".
-  **Before ever making the repo public:** remove `job_requirements.md` from it (it holds her profile and visa/relocation details).
+- **Public repo, by decision (2026-10-13):** the dashboard reads `https://vinchess1989.github.io/manju-uk-jobs-dashboard/jobs.json` (GitHub Pages),
+  like the Finland / Priya / Vineeth boards, and Pages on a private repo needs a paid plan. The repo was first created private, then recreated public
+  with a clean single-commit history so `job_requirements.md` (profile, relocation date, visa status) never appeared in public history: that file is
+  **gitignored and local only** - back it up, the reviewer reads it from disk. The first private repo was renamed `manju-uk-jobs-dashboard-old` (still
+  private, can be deleted: `gh auth refresh -s delete_repo` then `gh repo delete`). Local branch `old-history` keeps the pre-rewrite commits.
 - The test harness (`tests/harness.py`) fulfils `/__/firebase/*` with a ~40-line stub; icons/fonts are not loaded in it, so header
   link buttons look empty in its screenshots (real FontAwesome renders them).
