@@ -143,5 +143,30 @@
     "eval_model": "local/qwen/qwen3-14b",
     "description_file": null,
     "deletion_reason": "Deadline (2026-10-11) passed by more than 2 days and unreviewed"
+  },
+  {
+    "title": "Programme & Business Support Coordinator",
+    "company": "Cumbria Cricket ltd",
+    "location": "Barrow-in-Furness, Cumbria, UK",
+    "url": "https://www.reed.co.uk/jobs/programme-business-support-coordinator/57383045",
+    "visited": "yes",
+    "matches_requirements": "no",
+    "reason": "The job is located in Cumbria, which is outside Cambridgeshire and not within the acceptable commuting areas for the candidate relocating to Cambridge, UK.",
+    "id": "e1ac9220",
+    "source": "reed_remote_events_coordinator",
+    "added_at": "2026-10-13T17:42:52+03:00",
+    "job_type": "full-time",
+    "work_model": "remote",
+    "uk_tier": "uk_remote",
+    "hours": "40 hours per week",
+    "salary": "\u00a326,440 per annum",
+    "needs_uk_qualification": false,
+    "counts_toward_qwe": false,
+    "start_date": "23 November 2026",
+    "posted_date": "23 september",
+    "deadline": "2026-10-12",
+    "eval_model": "local/qwen/qwen3-14b",
+    "description_file": null,
+    "deletion_reason": "Deadline (2026-10-12) passed by more than 2 days and unreviewed"
   }
 ]
