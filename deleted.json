@@ -752,5 +752,29 @@
     "eval_model": "local/qwen/qwen3-14b",
     "description_file": null,
     "deletion_reason": "Deadline (2026-10-13) passed by more than 2 days and unreviewed"
+  },
+  {
+    "title": "Accounts Payable Assistant",
+    "company": "G\u00c9ANT",
+    "location": "Cambridge, England, United Kingdom",
+    "url": "https://uk.linkedin.com/jobs/view/accounts-payable-assistant-at-g%C3%A9ant-4476366410",
+    "visited": "yes",
+    "matches_requirements": "no",
+    "reason": "The application deadline for the role has already passed (13th October 2026), which is before today\u2019s date of 2026-10-15, making it a closed application.",
+    "id": "2fe91bd1",
+    "source": "linkedin_cam_office_administrator",
+    "added_at": "2026-10-15T01:38:44+03:00",
+    "job_type": "full-time",
+    "work_model": "hybrid",
+    "uk_tier": "cambridge",
+    "hours": "37.5 hours per week",
+    "needs_uk_qualification": false,
+    "counts_toward_qwe": false,
+    "start_date": "N/A",
+    "posted_date": "2026-10-08",
+    "deadline": "2026-10-13",
+    "eval_model": "local/qwen/qwen3-14b",
+    "description_file": null,
+    "deletion_reason": "Deadline (2026-10-13) passed by more than 2 days and unreviewed"
   }
 ]
