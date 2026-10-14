@@ -509,5 +509,30 @@
     "eval_model": "local/qwen/qwen3-14b",
     "description_file": null,
     "deletion_reason": "Deadline (2026-10-02) passed by more than 2 days and unreviewed"
+  },
+  {
+    "title": "HR Administrator - Chellow Heights Special School",
+    "company": "Kirklees Council",
+    "location": "West Bradford, England, United Kingdom",
+    "url": "https://uk.linkedin.com/jobs/view/hr-administrator-chellow-heights-special-school-at-kirklees-council-4474540543",
+    "visited": "yes",
+    "matches_requirements": "no",
+    "reason": "The job location (West Bradford, England) is outside Cambridgeshire and not a remote/hybrid role open to UK residents, which disqualifies it under the 'Wrong place' hard rejection rule.",
+    "id": "284b4193",
+    "source": "linkedin_ukrem_hr_assistant",
+    "added_at": "2026-10-14T20:46:01+03:00",
+    "job_type": "full-time",
+    "work_model": "onsite",
+    "uk_tier": "uk_onsite_other",
+    "hours": "37 hours - Monday to Thursday 8am -4pm and Friday 8am - 3:30",
+    "salary": "\u00a325,256 - \u00a326,919",
+    "needs_uk_qualification": false,
+    "counts_toward_qwe": false,
+    "start_date": "N/A",
+    "posted_date": "2026-10-07",
+    "deadline": "2026-10-12",
+    "eval_model": "local/qwen/qwen3-14b",
+    "description_file": null,
+    "deletion_reason": "Deadline (2026-10-12) passed by more than 2 days and unreviewed"
   }
 ]
