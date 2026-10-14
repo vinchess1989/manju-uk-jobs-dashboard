@@ -461,5 +461,29 @@
     "eval_model": "local/qwen/qwen3-14b",
     "description_file": null,
     "deletion_reason": "Requires UK citizenship / security clearance"
+  },
+  {
+    "title": "Administrative Officers",
+    "company": "Foreign, Commonwealth and Development Office",
+    "location": "London, England, United Kingdom",
+    "url": "https://uk.linkedin.com/jobs/view/administrative-officers-at-foreign-commonwealth-and-development-office-4470086843",
+    "visited": "yes",
+    "matches_requirements": "no",
+    "reason": "The role requires British citizenship and a DV security clearance, which Manju does not hold as she has a dependant visa and is not a UK national.",
+    "id": "7c8d0b07",
+    "source": "linkedin_ukrem_administrative_assistant",
+    "added_at": "2026-10-14T15:17:03+03:00",
+    "job_type": "full-time",
+    "work_model": "hybrid",
+    "uk_tier": "uk_hybrid",
+    "salary": "\u00a330,600 per year",
+    "needs_uk_qualification": false,
+    "counts_toward_qwe": false,
+    "start_date": "N/A",
+    "posted_date": "2026-09-30",
+    "deadline": "N/A",
+    "eval_model": "local/qwen/qwen3-14b",
+    "description_file": null,
+    "deletion_reason": "Requires UK citizenship / security clearance"
   }
 ]
