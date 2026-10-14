@@ -192,5 +192,29 @@
     "eval_model": "local/qwen/qwen3-14b",
     "description_file": null,
     "deletion_reason": "Deadline (2026-10-11) passed by more than 2 days and unreviewed"
+  },
+  {
+    "title": "Domestic Abuse Safety Officer",
+    "company": "Ministry of Justice",
+    "location": "Huntingdon, Cambridgeshire, UK",
+    "url": "https://www.reed.co.uk/jobs/domestic-abuse-safety-officer/57351084",
+    "visited": "yes",
+    "matches_requirements": "no",
+    "reason": "The application deadline (28-Sep-2026) has already passed, making it a closed application.",
+    "id": "7790854e",
+    "source": "reed_cam_pt_compliance_officer",
+    "added_at": "2026-10-14T02:53:01+03:00",
+    "job_type": "full-time",
+    "work_model": "onsite",
+    "uk_tier": "cambridge",
+    "salary": "\u00a337,238 - \u00a344,520 per annum",
+    "needs_uk_qualification": false,
+    "counts_toward_qwe": false,
+    "start_date": "N/A",
+    "posted_date": "16 september by ministry of justice",
+    "deadline": "2026-09-28",
+    "eval_model": "local/qwen/qwen3-14b",
+    "description_file": null,
+    "deletion_reason": "Deadline (2026-09-28) passed by more than 2 days and unreviewed"
   }
 ]
