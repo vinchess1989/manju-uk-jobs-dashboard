@@ -412,5 +412,30 @@
     "eval_model": "local/qwen/qwen3-14b",
     "description_file": null,
     "deletion_reason": "Requires UK citizenship / security clearance"
+  },
+  {
+    "title": "Contractor Compliance & CDM Advisor",
+    "company": "MBDA",
+    "location": "Stevenage, England, United Kingdom",
+    "url": "https://uk.linkedin.com/jobs/view/contractor-compliance-cdm-advisor-at-mbda-4425272914",
+    "visited": "yes",
+    "matches_requirements": "no",
+    "reason": "The job requires British Citizenship and security clearance, which the candidate does not hold (she has a dependant visa, not British nationality).",
+    "id": "04f2b94d",
+    "source": "linkedin_cam_compliance_officer",
+    "added_at": "2026-10-14T12:52:32+03:00",
+    "job_type": "contract",
+    "work_model": "onsite",
+    "uk_tier": "uk_onsite_other",
+    "hours": "3-4 days per week on-site",
+    "salary": "Circa \u00a352,000 dependent on experience + bonus + benefits",
+    "needs_uk_qualification": false,
+    "counts_toward_qwe": false,
+    "start_date": "N/A",
+    "posted_date": "2026-09-30",
+    "deadline": "N/A",
+    "eval_model": "local/qwen/qwen3-14b",
+    "description_file": null,
+    "deletion_reason": "Requires UK citizenship / security clearance"
   }
 ]
