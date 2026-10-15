@@ -919,5 +919,28 @@
     "eval_model": "local/qwen/qwen3-14b",
     "description_file": null,
     "deletion_reason": "Deadline (2026-10-13) passed by more than 2 days and unreviewed"
+  },
+  {
+    "title": "Document Controller - Defence",
+    "company": "Turner & Townsend",
+    "location": "Derby, England, United Kingdom",
+    "url": "https://uk.linkedin.com/jobs/view/document-controller-defence-at-turner-townsend-4447132917",
+    "visited": "yes",
+    "matches_requirements": "no",
+    "reason": "The job title contains 'Senior' and requires British citizenship with security clearance, both of which are hard rejections.",
+    "id": "9bd6454b",
+    "source": "linkedin_ukrem_document_controller",
+    "added_at": "2026-10-15T12:12:05+03:00",
+    "job_type": "full-time",
+    "work_model": "onsite",
+    "uk_tier": "uk_onsite_other",
+    "needs_uk_qualification": false,
+    "counts_toward_qwe": false,
+    "start_date": "N/A",
+    "posted_date": "2026-10-08",
+    "deadline": "N/A",
+    "eval_model": "local/qwen/qwen3-14b",
+    "description_file": null,
+    "deletion_reason": "Requires UK citizenship / security clearance"
   }
 ]
