@@ -822,5 +822,29 @@
     "eval_model": "local/qwen/qwen3-14b",
     "description_file": null,
     "deletion_reason": "Deadline (2026-10-12) passed by more than 2 days and unreviewed"
+  },
+  {
+    "title": "Policy Legal Assistant",
+    "company": "Financial Reporting Council",
+    "location": "London Area, United Kingdom",
+    "url": "https://uk.linkedin.com/jobs/view/policy-legal-assistant-at-financial-reporting-council-4472948112",
+    "visited": "yes",
+    "matches_requirements": "no",
+    "reason": "The job location is in London, which is outside Cambridgeshire and not part of the accepted remote/hybrid UK-only work model, making it incompatible with the candidate's relocation plans.",
+    "id": "23ed225e",
+    "source": "linkedin_ukrem_legal_assistant",
+    "added_at": "2026-10-15T06:02:40+03:00",
+    "job_type": "full-time",
+    "work_model": "hybrid",
+    "uk_tier": "uk_hybrid",
+    "salary": "\u00a338,300 (non-negotiable)",
+    "needs_uk_qualification": false,
+    "counts_toward_qwe": true,
+    "start_date": "N/A",
+    "posted_date": "2026-10-08",
+    "deadline": "2026-10-09",
+    "eval_model": "local/qwen/qwen3-14b",
+    "description_file": null,
+    "deletion_reason": "Deadline (2026-10-09) passed by more than 2 days and unreviewed"
   }
 ]
