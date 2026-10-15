@@ -1,9 +1,9 @@
 {
   "pid": 70152,
   "started_at": "2026-10-15T13:18:47+03:00",
-  "heartbeat_at": "2026-10-15T22:39:53+03:00",
+  "heartbeat_at": "2026-10-15T23:43:10+03:00",
   "phase": "reviewing",
-  "detail": "Business Administrator FULLTIME - HMP Littlehey",
-  "last_scrape_ok_at": "2026-10-15T21:55:52+03:00",
+  "detail": "Administrator",
+  "last_scrape_ok_at": "2026-10-15T22:41:18+03:00",
   "last_error": null
 }
