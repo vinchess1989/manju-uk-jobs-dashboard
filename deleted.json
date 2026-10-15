@@ -942,5 +942,29 @@
     "eval_model": "local/qwen/qwen3-14b",
     "description_file": null,
     "deletion_reason": "Requires UK citizenship / security clearance"
+  },
+  {
+    "title": "Operations Administrator",
+    "company": "Job details",
+    "location": "Remote (UK)",
+    "url": "https://www.reed.co.uk/jobs/operations-administrator/57346983",
+    "visited": "yes",
+    "matches_requirements": "no",
+    "reason": "The job posting's application deadline (15 September 2026) has already passed, making it a 'closed applications' hard rejection.",
+    "id": "b7afec7a",
+    "source": "reed_remote_administrator",
+    "added_at": "2026-10-15T20:36:10+03:00",
+    "job_type": "full-time",
+    "work_model": "remote",
+    "uk_tier": "uk_remote",
+    "salary": "\u00a332,500 - \u00a335,000 per annum, inc benefits",
+    "needs_uk_qualification": false,
+    "counts_toward_qwe": false,
+    "start_date": "Immediate",
+    "posted_date": "15 september",
+    "deadline": "2026-09-15",
+    "eval_model": "local/qwen/qwen3-14b",
+    "description_file": null,
+    "deletion_reason": "Deadline (2026-09-15) passed by more than 2 days and unreviewed"
   }
 ]
