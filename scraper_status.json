@@ -1,0 +1,9 @@
+{
+  "pid": 70152,
+  "started_at": "2026-10-15T13:18:47+03:00",
+  "heartbeat_at": "2026-10-15T14:01:27+03:00",
+  "phase": "reviewing",
+  "detail": "Secretary",
+  "last_scrape_ok_at": "2026-10-15T13:21:12+03:00",
+  "last_error": null
+}
