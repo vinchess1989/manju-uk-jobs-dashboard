@@ -1,9 +1,9 @@
 {
   "pid": 62532,
   "started_at": "2026-10-16T05:08:31+03:00",
-  "heartbeat_at": "2026-10-16T21:15:43+03:00",
+  "heartbeat_at": "2026-10-16T22:09:45+03:00",
   "phase": "reviewing",
-  "detail": "NUVIA UK Document Control Supervisor",
-  "last_scrape_ok_at": "2026-10-16T21:03:51+03:00",
+  "detail": "Assistant Press Officer",
+  "last_scrape_ok_at": "2026-10-16T21:57:49+03:00",
   "last_error": null
 }
