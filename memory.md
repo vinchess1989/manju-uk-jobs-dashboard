@@ -25,6 +25,10 @@ Manju's UK job board: a Playwright scraper plus an LLM reviewer finds jobs in Ca
   (classic `index.html`, light layout `modern.html`, `checklist.html`, `review.html`) - **Firebase project:** `manju-uk-jobs`
   - **Private resumes repo:** `vinchess1989/manju-uk-jobs-private` (`..\Manju_uk_jobs_private`)
   - **Scheduled Task:** `ManjuUkJobsOrchestrator` (runs `venv\Scripts\python.exe orchestrator.py`).
+    **Disabled 2026-10-20:** now run third in the shared `JobScrapersSequentialMorning` task (daily
+    08:00, `~\.claude\run_scrapers_sequential.ps1`: priya_jobs → priya_global_jobs → manju_uk_jobs, then
+    the LM Studio model is unloaded). `orchestrator.py` passes `scraper.py --once` (one full scrape
+    pass, drain the review queue, exit). Details in priya_jobs/memory.md.
 - **Replaces the Finland board** `..\manju_jobs` (archived 2026-10-13: its Scheduled Task `ManjuJobsLocalLLMOrchestrator` is
   Disabled, the site shows an "archived" banner and links here). Its `jobs.json` / history are kept as they were.
 
