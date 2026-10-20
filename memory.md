@@ -29,6 +29,9 @@ Manju's UK job board: a Playwright scraper plus an LLM reviewer finds jobs in Ca
     08:00, `~\.claude\run_scrapers_sequential.ps1`: priya_jobs → priya_global_jobs → manju_uk_jobs, then
     the LM Studio model is unloaded). `orchestrator.py` passes `scraper.py --once` (one full scrape
     pass, drain the review queue, exit). Details in priya_jobs/memory.md.
+    **2026-10-20:** a `job_requirements.md` edit now re-queues only jobs whose title/company/location
+    matches keywords from the changed lines (diffed against `requirements_snapshot.md`, gitignored
+    because it copies the personal requirements file), not every job.
 - **Replaces the Finland board** `..\manju_jobs` (archived 2026-10-13: its Scheduled Task `ManjuJobsLocalLLMOrchestrator` is
   Disabled, the site shows an "archived" banner and links here). Its `jobs.json` / history are kept as they were.
 
