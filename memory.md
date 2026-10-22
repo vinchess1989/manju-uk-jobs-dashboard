@@ -32,6 +32,10 @@ Manju's UK job board: a Playwright scraper plus an LLM reviewer finds jobs in Ca
     **2026-10-20:** a `job_requirements.md` edit now re-queues only jobs whose title/company/location
     matches keywords from the changed lines (diffed against `requirements_snapshot.md`, gitignored
     because it copies the personal requirements file), not every job.
+    **2026-10-22:** LLM order is now Gemini (`MANJU_UK_GEMINI_API_KEY` if ever set →
+    `GEMINI_API_KEY_VINEETH_BITS` → `GEMINI_API_KEY`) → Groq → local; before, Groq mostly 429'd and the
+    unset Gemini key sent nearly every job to the local model. The morning run gives each dashboard a
+    60-min budget (`SCRAPER_DEADLINE`). Details in priya_jobs/memory.md.
 - **Replaces the Finland board** `..\manju_jobs` (archived 2026-10-13: its Scheduled Task `ManjuJobsLocalLLMOrchestrator` is
   Disabled, the site shows an "archived" banner and links here). Its `jobs.json` / history are kept as they were.
 

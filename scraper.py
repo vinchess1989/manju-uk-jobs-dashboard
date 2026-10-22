@@ -1560,8 +1560,8 @@ GROQ_ENDPOINT = "https://api.groq.com/openai/v1/chat/completions"
 # 413 Payload Too Large on every job (2026-10-13), wasting one request each. Re-add via GROQ_MODELS if its limit changes.
 GROQ_MODELS = [m.strip() for m in os.environ.get("GROQ_MODELS", "openai/gpt-oss-120b,openai/gpt-oss-20b").split(",") if m.strip()]
 
-# Google Gemini via its OpenAI-compatible endpoint - second cloud provider, tried after
-# Groq and before local (key: MANJU_UK_GEMINI_API_KEY in this repo's .env; unset = skipped).
+# Google Gemini via its OpenAI-compatible endpoint - the first provider tried, before Groq and
+# local (keys: see _call_llm_with_fallback; unset ones are skipped).
 # Each model has its own free-tier quota, so they rotate like GROQ_MODELS. Validated
 # 2026-09-27 on 40 jobs with the real review prompt: gemini-3.1-flash-lite matched the
 # reference verdict 32/40 exactly (37/40 counting yes<->maybe as close), got all 11
@@ -1653,6 +1653,18 @@ def _call_llm_with_fallback(messages, llm_endpoint, llm_model, temperature=0.1, 
     Returns (response_json, provider_label) so callers can log/record which LLM actually
     produced the result - provider_label is e.g. 'groq/openai/gpt-oss-120b' or
     'local/<model>'."""
+    # Gemini first since 2026-10-22: MANJU_UK_GEMINI_API_KEY was never set, Groq mostly answered
+    # 429, so nearly every job fell through to the local model (~1 min/job), which kept the morning
+    # run and LM Studio busy all day. Each key is a separate account with its own quota; the label
+    # is what eval_model records and keeps each key's 429 cooldowns separate.
+    for label, key_name in (("gemini", "MANJU_UK_GEMINI_API_KEY"), ("gemini-vineeth-bits", "GEMINI_API_KEY_VINEETH_BITS"),
+                            ("gemini-shared", "GEMINI_API_KEY")):
+        gemini_api_key = os.environ.get(key_name)
+        if gemini_api_key:
+            result = _try_cloud_provider(messages, GEMINI_ENDPOINT, gemini_api_key, GEMINI_MODELS, temperature, max_tokens, timeout_groq, label)
+            if result:
+                return result
+
     # MANJU_UK_GROQ_API_KEY (this repo's .env) can be this board's own Groq account so its
     # free-tier quota isn't drained by the sibling scrapers. It has to be a separate
     # name: GROQ_API_KEY is a Windows User env var shared by all the scrapers, and
@@ -1660,12 +1672,6 @@ def _call_llm_with_fallback(messages, llm_endpoint, llm_model, temperature=0.1, 
     groq_api_key = os.environ.get("MANJU_UK_GROQ_API_KEY") or os.environ.get("GROQ_API_KEY")
     if groq_api_key:
         result = _try_cloud_provider(messages, GROQ_ENDPOINT, groq_api_key, GROQ_MODELS, temperature, max_tokens, timeout_groq, "groq")
-        if result:
-            return result
-
-    gemini_api_key = os.environ.get("MANJU_UK_GEMINI_API_KEY")
-    if gemini_api_key:
-        result = _try_cloud_provider(messages, GEMINI_ENDPOINT, gemini_api_key, GEMINI_MODELS, temperature, max_tokens, timeout_groq, "gemini")
         if result:
             return result
 
@@ -2744,6 +2750,9 @@ def main():
     # exiting when it is empty or a review round clears nothing (so it can't spin forever).
     scrape_pass_done = False
     last_pending_count = None
+    # Epoch seconds set by run_scrapers_sequential.ps1: past it, --once stops between batches and
+    # the next morning's run carries on from the checkpoint / review queue.
+    once_deadline = float(os.environ.get("SCRAPER_DEADLINE") or 0)
 
     while not stop_event.is_set():
         turn = _acquire_scraper_turn()
@@ -2785,6 +2794,10 @@ def main():
         # even while re-reviews are pending (before 2026-09-25, scraping waited for
         # an empty queue and no new jobs were found for a week).
         if args.once:
+            if once_deadline and time.time() >= once_deadline:
+                print(f"\nINFO: --once time budget used up ({len(pending_jobs)} jobs still need review). Exiting; the next run continues.")
+                turn.release()
+                break
             if scrape_pass_done and (not pending_jobs or (last_pending_count is not None and len(pending_jobs) >= last_pending_count)):
                 print(f"\nINFO: --once run finished ({len(pending_jobs)} jobs still need review). Exiting.")
                 turn.release()
