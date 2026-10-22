@@ -1,9 +1,9 @@
 {
-  "pid": 14596,
-  "started_at": "2026-10-17T17:59:03+03:00",
-  "heartbeat_at": "2026-10-17T19:26:50+03:00",
-  "phase": "scraped",
-  "detail": "0 new jobs",
-  "last_scrape_ok_at": "2026-10-17T19:26:50+03:00",
+  "pid": 75324,
+  "started_at": "2026-10-22T17:58:48+03:00",
+  "heartbeat_at": "2026-10-22T18:04:58+03:00",
+  "phase": "reviewing",
+  "detail": "HR Administrator",
+  "last_scrape_ok_at": "2026-10-22T17:59:35+03:00",
   "last_error": null
 }
