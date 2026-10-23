@@ -1,9 +1,9 @@
 {
   "pid": 77052,
   "started_at": "2026-10-23T04:40:08+03:00",
-  "heartbeat_at": "2026-10-23T04:46:58+03:00",
+  "heartbeat_at": "2026-10-23T04:47:06+03:00",
   "phase": "reviewing",
-  "detail": "Link Worker",
+  "detail": "Logistics Coordinator",
   "last_scrape_ok_at": "2026-10-23T04:42:43+03:00",
   "last_error": {
     "at": "2026-10-23T04:42:42+03:00",
