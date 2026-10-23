@@ -3,6 +3,15 @@
 Durable, cross-session knowledge about this project that isn't already in `CLAUDE.md` (read that first: scope, the
 `jobs.json` read-only rule, git hygiene, dashboard layouts, UK-specific rules). Reference, not a changelog: prune stale entries.
 
+## Time-capped runs: yield ranking + clean `--once` exit (ported from priya_jobs 2026-10-23)
+
+- Runs start 01:00 via `JobScrapersSequentialMorning` with a 120 min budget. `rank_targets()` orders targets by
+  yield from `jobs.json` (`target_stats.json`, gitignored, seeded from logs); scraping gets 60% of the budget
+  (`SCRAPE_TIME_SHARE`), the rest reviews. Full description in priya_jobs/memory.md.
+- `--once` ends with `os._exit(0)` (the stdin daemon thread crashed interpreter shutdown, 0xC0000005, and the
+  orchestrator retried until killed); the orchestrator no longer retries past `SCRAPER_DEADLINE`. A final
+  `run_finished` heartbeat is pushed, and the dashboard badge shows "Scraper idle" for it.
+
 ## System overview
 
 Manju's UK job board: a Playwright scraper plus an LLM reviewer finds jobs in Cambridgeshire first, then remote or hybrid roles anywhere in the UK (full-time and part-time, starting January 2027), and a Firebase-hosted dashboard shows them with her applied / favourite / review state. It also carries a relocation and solicitor-qualification checklist and two UK CVs (generic and legal). It replaced the archived Finland board and was built from the Finland, Vineeth and Priya dashboards' lessons.

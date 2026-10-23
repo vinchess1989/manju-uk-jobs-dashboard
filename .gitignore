@@ -59,3 +59,4 @@ __pycache__/
 # Candidate profile + relocation/visa details: local only (this repo is public). The reviewer reads it from disk.
 job_requirements.md
 
+target_stats.json
