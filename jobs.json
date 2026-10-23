@@ -74786,8 +74786,8 @@
     "posted_date": "N/A",
     "deadline": "N/A",
     "description_file": null,
-    "error_attempts": 1,
-    "last_error_at": "2026-10-16T23:28:23+03:00"
+    "error_attempts": 2,
+    "last_error_at": "2026-10-23T04:49:14+03:00"
   },
   {
     "title": "Legal Graduate",
@@ -74803,8 +74803,8 @@
     "posted_date": "N/A",
     "deadline": "N/A",
     "description_file": null,
-    "error_attempts": 1,
-    "last_error_at": "2026-10-16T23:28:24+03:00"
+    "error_attempts": 2,
+    "last_error_at": "2026-10-23T04:49:14+03:00"
   },
   {
     "title": "Payroll and Pension Officer",
@@ -74813,14 +74813,14 @@
     "url": "https://www.reed.co.uk/jobs/payroll-and-pension-officer/57450778",
     "visited": "yes",
     "matches_requirements": "error",
-    "reason": "Failed to get or parse LLM response: HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=900)",
+    "reason": "Page load or parsing error.",
     "id": "a76897bd",
     "source": "reed_remote_legal_assistant",
     "added_at": "2026-10-17T04:39:12+03:00",
     "posted_date": "N/A",
     "deadline": "N/A",
-    "error_attempts": 1,
-    "last_error_at": "2026-10-17T05:26:31+03:00",
+    "error_attempts": 2,
+    "last_error_at": "2026-10-23T04:49:14+03:00",
     "description_file": null
   },
   {
@@ -74996,28 +74996,34 @@
     "company": "Extract from page",
     "location": "Extract from page",
     "url": "https://www.charityjob.co.uk/jobs/providence-row-ha-/team-leader/1086430",
-    "visited": "no",
-    "matches_requirements": "pending",
-    "reason": "",
+    "visited": "yes",
+    "matches_requirements": "error",
+    "reason": "Page load or parsing error.",
     "id": "19aef849",
     "source": "charityjob_cam_legal_assistant",
     "added_at": "2026-10-17T04:40:17+03:00",
     "posted_date": "N/A",
-    "deadline": "N/A"
+    "deadline": "N/A",
+    "description_file": null,
+    "error_attempts": 1,
+    "last_error_at": "2026-10-23T04:49:14+03:00"
   },
   {
     "title": "Marketing, Communications & Campaigns Lead",
     "company": "Extract from page",
     "location": "Extract from page",
     "url": "https://www.charityjob.co.uk/jobs/muslim-aid/marketing-communications-campaigns-lead/1086297",
-    "visited": "no",
-    "matches_requirements": "pending",
-    "reason": "",
+    "visited": "yes",
+    "matches_requirements": "error",
+    "reason": "Page load or parsing error.",
     "id": "2f1c9fff",
     "source": "charityjob_cam_legal_assistant",
     "added_at": "2026-10-17T04:40:17+03:00",
     "posted_date": "N/A",
-    "deadline": "N/A"
+    "deadline": "N/A",
+    "description_file": null,
+    "error_attempts": 1,
+    "last_error_at": "2026-10-23T04:49:14+03:00"
   },
   {
     "title": "Paralegal",
