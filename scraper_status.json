@@ -1,9 +1,12 @@
 {
-  "pid": 75324,
-  "started_at": "2026-10-22T17:58:48+03:00",
-  "heartbeat_at": "2026-10-22T19:04:03+03:00",
-  "phase": "reviewing",
-  "detail": "Learning Support Assistant - Apprenticeships",
-  "last_scrape_ok_at": "2026-10-22T18:57:36+03:00",
-  "last_error": null
+  "pid": 77052,
+  "started_at": "2026-10-23T04:40:08+03:00",
+  "heartbeat_at": "2026-10-23T04:42:43+03:00",
+  "phase": "scraped",
+  "detail": "0 new jobs",
+  "last_scrape_ok_at": "2026-10-23T04:42:43+03:00",
+  "last_error": {
+    "at": "2026-10-23T04:42:42+03:00",
+    "message": "charityjob_cam_trainee_solicitor: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.charityjob.co.uk/jobs/trainee-solicitor/in-cambridge\nCall log:\n  - navigating to \"https://www.charityjob.co.uk/jobs/trainee-solicitor/in-cambridge\", waiting until \"load\"\n"
+  }
 }
