@@ -1,12 +1,12 @@
 {
-  "pid": 71020,
-  "started_at": "2026-10-23T06:11:03+03:00",
-  "heartbeat_at": "2026-10-23T06:17:32+03:00",
+  "pid": 26140,
+  "started_at": "2026-10-23T06:27:41+03:00",
+  "heartbeat_at": "2026-10-23T06:34:33+03:00",
   "phase": "scraped",
   "detail": "0 new jobs",
-  "last_scrape_ok_at": "2026-10-23T06:17:32+03:00",
+  "last_scrape_ok_at": "2026-10-23T06:34:33+03:00",
   "last_error": {
-    "at": "2026-10-23T06:17:31+03:00",
+    "at": "2026-10-23T06:34:33+03:00",
     "message": "charityjob_cam_trainee_solicitor: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.charityjob.co.uk/jobs/trainee-solicitor/in-cambridge\nCall log:\n  - navigating to \"https://www.charityjob.co.uk/jobs/trainee-solicitor/in-cambridge\", waiting until \"load\"\n"
   }
 }
