@@ -1,9 +1,9 @@
 {
   "pid": 36396,
   "started_at": "2026-10-24T03:07:57+03:00",
-  "heartbeat_at": "2026-10-24T04:08:04+03:00",
+  "heartbeat_at": "2026-10-24T04:10:53+03:00",
   "phase": "reviewing",
-  "detail": "Children\u2019s Support Worker",
-  "last_scrape_ok_at": "2026-10-24T04:06:21+03:00",
+  "detail": "Site & Facilities Supervisor",
+  "last_scrape_ok_at": "2026-10-24T04:09:35+03:00",
   "last_error": null
 }
