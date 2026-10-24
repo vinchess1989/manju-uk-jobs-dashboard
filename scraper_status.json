@@ -1,9 +1,9 @@
 {
   "pid": 36396,
   "started_at": "2026-10-24T03:07:57+03:00",
-  "heartbeat_at": "2026-10-24T04:45:52+03:00",
-  "phase": "reviewing",
-  "detail": "Marketing, Communications & Campaigns Lead",
+  "heartbeat_at": "2026-10-24T04:46:07+03:00",
+  "phase": "run_finished",
+  "detail": "38 lower-yield targets and 0 jobs left for the next run",
   "last_scrape_ok_at": "2026-10-24T04:19:16+03:00",
   "last_error": null
 }
