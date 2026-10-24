@@ -1,9 +1,9 @@
 {
   "pid": 36396,
   "started_at": "2026-10-24T03:07:57+03:00",
-  "heartbeat_at": "2026-10-24T04:29:59+03:00",
+  "heartbeat_at": "2026-10-24T04:32:02+03:00",
   "phase": "reviewing",
-  "detail": "Business Support Manager",
+  "detail": "Link Worker",
   "last_scrape_ok_at": "2026-10-24T04:19:16+03:00",
   "last_error": null
 }
