@@ -4424,5 +4424,29 @@
     "eval_model": "groq/openai/gpt-oss-20b",
     "description_file": null,
     "deletion_reason": "Deadline (2026-10-22) passed by more than 2 days and unreviewed"
+  },
+  {
+    "title": "Early Careers Coordinator",
+    "company": "Searchability NS&D",
+    "location": "Stevenage, England, United Kingdom",
+    "url": "https://uk.linkedin.com/jobs/view/early-careers-coordinator-at-searchability-ns-d-4482852179",
+    "visited": "yes",
+    "matches_requirements": "no",
+    "reason": "The role explicitly requires SC (Security Check) clearance eligibility, which is a hard rejection as it typically requires British citizenship or long-term UK residency.",
+    "id": "4debeb75",
+    "source": "linkedin_cam_hr_assistant",
+    "added_at": "2026-10-24T03:11:23+03:00",
+    "job_type": "contract",
+    "work_model": "hybrid",
+    "uk_tier": "uk_hybrid",
+    "salary": "\u00a322 per hour via Umbrella",
+    "needs_uk_qualification": false,
+    "counts_toward_qwe": false,
+    "start_date": "N/A",
+    "posted_date": "2026-10-24",
+    "deadline": "N/A",
+    "eval_model": "gemini-vineeth-bits/gemini-3.1-flash-lite",
+    "description_file": null,
+    "deletion_reason": "Requires UK citizenship / security clearance"
   }
 ]
