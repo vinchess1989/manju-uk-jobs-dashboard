@@ -1,9 +1,9 @@
 {
   "pid": 34668,
   "started_at": "2026-10-25T03:26:26+03:00",
-  "heartbeat_at": "2026-10-25T03:35:04+02:00",
+  "heartbeat_at": "2026-10-25T03:36:32+02:00",
   "phase": "reviewing",
-  "detail": "Customer Advisor",
-  "last_scrape_ok_at": "2026-10-25T03:33:49+02:00",
+  "detail": "Conveyancing Paralegal",
+  "last_scrape_ok_at": "2026-10-25T03:35:39+02:00",
   "last_error": null
 }
