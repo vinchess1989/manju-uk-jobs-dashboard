@@ -1,9 +1,9 @@
 {
   "pid": 30604,
   "started_at": "2026-10-26T02:29:27+02:00",
-  "heartbeat_at": "2026-10-26T03:37:39+02:00",
+  "heartbeat_at": "2026-10-26T03:39:36+02:00",
   "phase": "reviewing",
-  "detail": "Paralegal, Clinical Negligence",
-  "last_scrape_ok_at": "2026-10-26T03:34:51+02:00",
+  "detail": "Civil Litigation Solicitor",
+  "last_scrape_ok_at": "2026-10-26T03:38:25+02:00",
   "last_error": null
 }
