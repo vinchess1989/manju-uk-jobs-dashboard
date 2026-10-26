@@ -1,9 +1,9 @@
 {
   "pid": 30604,
   "started_at": "2026-10-26T02:29:27+02:00",
-  "heartbeat_at": "2026-10-26T03:39:36+02:00",
+  "heartbeat_at": "2026-10-26T03:42:42+02:00",
   "phase": "reviewing",
-  "detail": "Civil Litigation Solicitor",
-  "last_scrape_ok_at": "2026-10-26T03:38:25+02:00",
+  "detail": "Site Administrator",
+  "last_scrape_ok_at": "2026-10-26T03:40:12+02:00",
   "last_error": null
 }
