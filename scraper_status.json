@@ -1,9 +1,9 @@
 {
   "pid": 33932,
   "started_at": "2026-10-27T02:26:23+02:00",
-  "heartbeat_at": "2026-10-27T03:33:12+02:00",
+  "heartbeat_at": "2026-10-27T03:36:26+02:00",
   "phase": "reviewing",
-  "detail": "Administrative Assistant",
-  "last_scrape_ok_at": "2026-10-27T03:31:35+02:00",
+  "detail": "Deputy MLRO",
+  "last_scrape_ok_at": "2026-10-27T03:34:13+02:00",
   "last_error": null
 }
