@@ -1,9 +1,9 @@
 {
   "pid": 33932,
   "started_at": "2026-10-27T02:26:23+02:00",
-  "heartbeat_at": "2026-10-27T03:14:12+02:00",
+  "heartbeat_at": "2026-10-27T03:16:53+02:00",
   "phase": "reviewing",
-  "detail": "Communications Executive",
-  "last_scrape_ok_at": "2026-10-27T03:11:38+02:00",
+  "detail": "Project Coordinator",
+  "last_scrape_ok_at": "2026-10-27T03:15:18+02:00",
   "last_error": null
 }
