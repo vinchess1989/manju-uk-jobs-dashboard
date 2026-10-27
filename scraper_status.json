@@ -1,9 +1,9 @@
 {
   "pid": 33932,
   "started_at": "2026-10-27T02:26:23+02:00",
-  "heartbeat_at": "2026-10-27T02:39:40+02:00",
+  "heartbeat_at": "2026-10-27T02:46:32+02:00",
   "phase": "reviewing",
-  "detail": "Customer Service Specialist",
-  "last_scrape_ok_at": "2026-10-27T02:38:25+02:00",
+  "detail": "Part-Time HR Advisor",
+  "last_scrape_ok_at": "2026-10-27T02:44:53+02:00",
   "last_error": null
 }
