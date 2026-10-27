@@ -1,9 +1,9 @@
 {
   "pid": 33932,
   "started_at": "2026-10-27T02:26:23+02:00",
-  "heartbeat_at": "2026-10-27T03:09:38+02:00",
+  "heartbeat_at": "2026-10-27T03:14:12+02:00",
   "phase": "reviewing",
-  "detail": "Quantity Surveyor",
-  "last_scrape_ok_at": "2026-10-27T03:07:53+02:00",
+  "detail": "Communications Executive",
+  "last_scrape_ok_at": "2026-10-27T03:11:38+02:00",
   "last_error": null
 }
