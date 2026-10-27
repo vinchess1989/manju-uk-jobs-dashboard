@@ -1,9 +1,9 @@
 {
   "pid": 33932,
   "started_at": "2026-10-27T02:26:23+02:00",
-  "heartbeat_at": "2026-10-27T03:28:39+02:00",
+  "heartbeat_at": "2026-10-27T03:30:18+02:00",
   "phase": "reviewing",
-  "detail": "Events Coordinator (Weddings & Private Events)",
-  "last_scrape_ok_at": "2026-10-27T03:27:42+02:00",
+  "detail": "HR Officer",
+  "last_scrape_ok_at": "2026-10-27T03:29:13+02:00",
   "last_error": null
 }
