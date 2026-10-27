@@ -1,9 +1,9 @@
 {
   "pid": 33932,
   "started_at": "2026-10-27T02:26:23+02:00",
-  "heartbeat_at": "2026-10-27T02:31:07+02:00",
+  "heartbeat_at": "2026-10-27T02:39:40+02:00",
   "phase": "reviewing",
-  "detail": "Communications Officer",
-  "last_scrape_ok_at": "2026-10-27T02:29:21+02:00",
+  "detail": "Customer Service Specialist",
+  "last_scrape_ok_at": "2026-10-27T02:38:25+02:00",
   "last_error": null
 }
