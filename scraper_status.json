@@ -1,9 +1,12 @@
 {
   "pid": 30076,
   "started_at": "2026-10-29T02:26:24+02:00",
-  "heartbeat_at": "2026-10-29T02:31:54+02:00",
+  "heartbeat_at": "2026-10-29T02:38:45+02:00",
   "phase": "reviewing",
-  "detail": "Recruitment Consultant (Data Centres)",
-  "last_scrape_ok_at": "2026-10-29T02:30:33+02:00",
-  "last_error": null
+  "detail": "Account Support",
+  "last_scrape_ok_at": "2026-10-29T02:37:48+02:00",
+  "last_error": {
+    "at": "2026-10-29T02:35:18+02:00",
+    "message": "cvlib_cam_hr_assistant: Page.goto: Timeout 60000ms exceeded.\nCall log:\n  - navigating to \"https://www.cv-library.co.uk/hr-assistant-jobs-in-cambridge?distance=20\", waiting until \"load\"\n"
+  }
 }
