@@ -7558,5 +7558,29 @@
     "eval_model": "gemini-vineeth-bits/gemini-3.1-flash-lite",
     "description_file": null,
     "deletion_reason": "Requires UK citizenship / security clearance"
+  },
+  {
+    "title": "Best Start Inclusion Practitioner",
+    "company": "Buckinghamshire Council",
+    "location": "Aylesbury, Buckinghamshire, UK",
+    "url": "https://www.reed.co.uk/jobs/best-start-inclusion-practitioner/57419132",
+    "visited": "yes",
+    "matches_requirements": "no",
+    "reason": "The role is located in Aylesbury, Buckinghamshire, which is outside her target geography of Cambridgeshire, and it requires specific early years/SEND practitioner experience rather than general office, compliance, or legal support work.",
+    "id": "c18d6a6b",
+    "source": "reed_remote_community_coordinator",
+    "added_at": "2026-10-29T03:14:55+02:00",
+    "job_type": "contract",
+    "work_model": "hybrid",
+    "uk_tier": "uk_hybrid",
+    "salary": "\u00a345,430 - \u00a347,629 per annum",
+    "needs_uk_qualification": false,
+    "counts_toward_qwe": false,
+    "start_date": "N/A",
+    "posted_date": "3 october",
+    "deadline": "2026-10-21",
+    "eval_model": "gemini-vineeth-bits/gemini-3.5-flash-lite",
+    "description_file": null,
+    "deletion_reason": "Deadline (2026-10-21) passed by more than 2 days and unreviewed"
   }
 ]
