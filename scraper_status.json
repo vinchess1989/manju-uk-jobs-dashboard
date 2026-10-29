@@ -1,10 +1,10 @@
 {
   "pid": 30076,
   "started_at": "2026-10-29T02:26:24+02:00",
-  "heartbeat_at": "2026-10-29T03:36:23+02:00",
+  "heartbeat_at": "2026-10-29T03:37:53+02:00",
   "phase": "reviewing",
-  "detail": "Customer Service Advisor",
-  "last_scrape_ok_at": "2026-10-29T03:35:26+02:00",
+  "detail": "Global Financial Crimes Specialist \u2013 Governance & Reporting",
+  "last_scrape_ok_at": "2026-10-29T03:36:58+02:00",
   "last_error": {
     "at": "2026-10-29T02:39:58+02:00",
     "message": "cvlib_cam_legal_administrator: Page.goto: Timeout 60000ms exceeded.\nCall log:\n  - navigating to \"https://www.cv-library.co.uk/legal-administrator-jobs-in-cambridge?distance=20\", waiting until \"load\"\n"
