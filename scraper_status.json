@@ -1,10 +1,10 @@
 {
   "pid": 30076,
   "started_at": "2026-10-29T02:26:24+02:00",
-  "heartbeat_at": "2026-10-29T03:32:10+02:00",
+  "heartbeat_at": "2026-10-29T03:34:36+02:00",
   "phase": "reviewing",
-  "detail": "HR Graduate Trainee",
-  "last_scrape_ok_at": "2026-10-29T03:31:11+02:00",
+  "detail": "Paralegal, Real Estate (The Hub)",
+  "last_scrape_ok_at": "2026-10-29T03:33:27+02:00",
   "last_error": {
     "at": "2026-10-29T02:39:58+02:00",
     "message": "cvlib_cam_legal_administrator: Page.goto: Timeout 60000ms exceeded.\nCall log:\n  - navigating to \"https://www.cv-library.co.uk/legal-administrator-jobs-in-cambridge?distance=20\", waiting until \"load\"\n"
