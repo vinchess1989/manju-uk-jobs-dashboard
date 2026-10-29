@@ -1,10 +1,10 @@
 {
   "pid": 30076,
   "started_at": "2026-10-29T02:26:24+02:00",
-  "heartbeat_at": "2026-10-29T03:25:50+02:00",
+  "heartbeat_at": "2026-10-29T03:28:02+02:00",
   "phase": "reviewing",
-  "detail": "Activities Coordinator",
-  "last_scrape_ok_at": "2026-10-29T03:24:56+02:00",
+  "detail": "Employment Legal PA",
+  "last_scrape_ok_at": "2026-10-29T03:27:07+02:00",
   "last_error": {
     "at": "2026-10-29T02:39:58+02:00",
     "message": "cvlib_cam_legal_administrator: Page.goto: Timeout 60000ms exceeded.\nCall log:\n  - navigating to \"https://www.cv-library.co.uk/legal-administrator-jobs-in-cambridge?distance=20\", waiting until \"load\"\n"
