@@ -8410,5 +8410,30 @@
     "eval_model": "gemini-vineeth-bits/gemini-3.5-flash-lite",
     "description_file": null,
     "deletion_reason": "Requires UK citizenship / security clearance"
+  },
+  {
+    "title": "Disrepair Administrator- Legal Services",
+    "company": "Sanctuary",
+    "location": "Worcester, England, United Kingdom",
+    "url": "https://uk.linkedin.com/jobs/view/disrepair-administrator-legal-services-at-sanctuary-4479823490",
+    "visited": "yes",
+    "matches_requirements": "no",
+    "reason": "The job is located in Worcester, which is outside of Cambridgeshire and the UK remote criteria specified in the candidate's requirements.",
+    "id": "b63e2e4f",
+    "source": "linkedin_ukrem_legal_administrator",
+    "added_at": "2026-10-30T03:09:31+02:00",
+    "job_type": "full-time",
+    "work_model": "hybrid",
+    "uk_tier": "uk_hybrid",
+    "hours": "35 hours per week",
+    "salary": "\u00a325,844 - \u00a327,209 per year",
+    "needs_uk_qualification": false,
+    "counts_toward_qwe": true,
+    "start_date": "N/A",
+    "posted_date": "2026-10-16",
+    "deadline": "2026-10-26",
+    "eval_model": "gemini-vineeth-bits/gemini-3.5-flash-lite",
+    "description_file": null,
+    "deletion_reason": "Deadline (2026-10-26) passed by more than 2 days and unreviewed"
   }
 ]
