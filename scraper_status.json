@@ -1,9 +1,9 @@
 {
   "pid": 12712,
   "started_at": "2026-10-30T02:25:44+02:00",
-  "heartbeat_at": "2026-10-30T02:29:55+02:00",
+  "heartbeat_at": "2026-10-30T02:34:55+02:00",
   "phase": "reviewing",
-  "detail": "Reward Analyst",
-  "last_scrape_ok_at": "2026-10-30T02:28:57+02:00",
+  "detail": "Stores Person",
+  "last_scrape_ok_at": "2026-10-30T02:33:58+02:00",
   "last_error": null
 }
