@@ -1,9 +1,9 @@
 {
   "pid": 12712,
   "started_at": "2026-10-30T02:25:44+02:00",
-  "heartbeat_at": "2026-10-30T02:45:25+02:00",
+  "heartbeat_at": "2026-10-30T02:47:56+02:00",
   "phase": "reviewing",
-  "detail": "Finance Manager",
-  "last_scrape_ok_at": "2026-10-30T02:44:33+02:00",
+  "detail": "Family Activity Supervisor",
+  "last_scrape_ok_at": "2026-10-30T02:46:50+02:00",
   "last_error": null
 }
