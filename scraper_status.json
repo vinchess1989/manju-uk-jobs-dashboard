@@ -1,9 +1,9 @@
 {
   "pid": 12712,
   "started_at": "2026-10-30T02:25:44+02:00",
-  "heartbeat_at": "2026-10-30T03:22:55+02:00",
+  "heartbeat_at": "2026-10-30T03:25:10+02:00",
   "phase": "reviewing",
-  "detail": "Customer Service Advisor",
-  "last_scrape_ok_at": "2026-10-30T03:22:02+02:00",
+  "detail": "Compliance Officer",
+  "last_scrape_ok_at": "2026-10-30T03:24:16+02:00",
   "last_error": null
 }
