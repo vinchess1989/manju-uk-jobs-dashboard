@@ -1,9 +1,9 @@
 {
   "pid": 19272,
   "started_at": "2026-10-31T02:27:56+02:00",
-  "heartbeat_at": "2026-10-31T03:02:38+02:00",
+  "heartbeat_at": "2026-10-31T03:06:41+02:00",
   "phase": "reviewing",
-  "detail": "Contract Credit Controller",
-  "last_scrape_ok_at": "2026-10-31T03:00:57+02:00",
+  "detail": "Contract Assistant",
+  "last_scrape_ok_at": "2026-10-31T03:05:31+02:00",
   "last_error": null
 }
