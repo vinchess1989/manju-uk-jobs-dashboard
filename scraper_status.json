@@ -1,9 +1,9 @@
 {
   "pid": 19272,
   "started_at": "2026-10-31T02:27:56+02:00",
-  "heartbeat_at": "2026-10-31T03:31:09+02:00",
+  "heartbeat_at": "2026-10-31T03:33:41+02:00",
   "phase": "reviewing",
-  "detail": "People Administrator",
-  "last_scrape_ok_at": "2026-10-31T03:30:11+02:00",
+  "detail": "Compliance Officer - Conduct Risk",
+  "last_scrape_ok_at": "2026-10-31T03:32:47+02:00",
   "last_error": null
 }
