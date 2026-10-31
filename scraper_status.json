@@ -1,9 +1,9 @@
 {
   "pid": 19272,
   "started_at": "2026-10-31T02:27:56+02:00",
-  "heartbeat_at": "2026-10-31T02:54:12+02:00",
+  "heartbeat_at": "2026-10-31T03:02:38+02:00",
   "phase": "reviewing",
-  "detail": "Manager Residential and Respite Service",
-  "last_scrape_ok_at": "2026-10-31T02:53:12+02:00",
+  "detail": "Contract Credit Controller",
+  "last_scrape_ok_at": "2026-10-31T03:00:57+02:00",
   "last_error": null
 }
