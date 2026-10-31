@@ -1,9 +1,9 @@
 {
   "pid": 19272,
   "started_at": "2026-10-31T02:27:56+02:00",
-  "heartbeat_at": "2026-10-31T03:27:43+02:00",
+  "heartbeat_at": "2026-10-31T03:29:36+02:00",
   "phase": "reviewing",
-  "detail": "Event Coordinator",
-  "last_scrape_ok_at": "2026-10-31T03:25:09+02:00",
+  "detail": "Administrator (Japanese, Italian, English speaking)",
+  "last_scrape_ok_at": "2026-10-31T03:28:39+02:00",
   "last_error": null
 }
