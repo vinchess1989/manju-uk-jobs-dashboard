@@ -1,9 +1,9 @@
 {
   "pid": 27800,
   "started_at": "2026-11-01T02:26:06+02:00",
-  "heartbeat_at": "2026-11-01T03:03:05+02:00",
+  "heartbeat_at": "2026-11-01T03:05:20+02:00",
   "phase": "reviewing",
-  "detail": "Curriculum Manager",
-  "last_scrape_ok_at": "2026-11-01T03:01:19+02:00",
+  "detail": "Administration Operative",
+  "last_scrape_ok_at": "2026-11-01T03:03:57+02:00",
   "last_error": null
 }
