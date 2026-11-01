@@ -1,9 +1,9 @@
 {
   "pid": 27800,
   "started_at": "2026-11-01T02:26:06+02:00",
-  "heartbeat_at": "2026-11-01T03:11:52+02:00",
+  "heartbeat_at": "2026-11-01T03:16:28+02:00",
   "phase": "reviewing",
-  "detail": "Compliance Officer",
-  "last_scrape_ok_at": "2026-11-01T03:10:50+02:00",
+  "detail": "FLEET ADMINISTRATOR",
+  "last_scrape_ok_at": "2026-11-01T03:15:05+02:00",
   "last_error": null
 }
