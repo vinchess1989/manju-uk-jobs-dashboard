@@ -10895,5 +10895,28 @@
     "eval_model": "gemini-vineeth-bits/gemini-3.1-flash-lite",
     "description_file": null,
     "deletion_reason": "Deadline (2026-01-31) passed by more than 2 days and unreviewed"
+  },
+  {
+    "title": "People Data & HR Operations Assistant",
+    "company": "KeolisAmey Docklands",
+    "location": "London Area, United Kingdom",
+    "url": "https://uk.linkedin.com/jobs/view/people-data-hr-operations-assistant-at-keolisamey-docklands-4478794199",
+    "visited": "yes",
+    "matches_requirements": "no",
+    "reason": "The application deadline of 25th October 2026 has already passed relative to today's date of 2nd November 2026.",
+    "id": "af0444aa",
+    "source": "linkedin_ukrem_hr_assistant",
+    "added_at": "2026-11-02T03:15:32+02:00",
+    "job_type": "full-time",
+    "work_model": "unknown",
+    "uk_tier": "unknown",
+    "needs_uk_qualification": false,
+    "counts_toward_qwe": false,
+    "start_date": "N/A",
+    "posted_date": "2026-10-19",
+    "deadline": "2026-10-25",
+    "eval_model": "gemini-vineeth-bits/gemini-3.1-flash-lite",
+    "description_file": null,
+    "deletion_reason": "Deadline (2026-10-25) passed by more than 2 days and unreviewed"
   }
 ]
