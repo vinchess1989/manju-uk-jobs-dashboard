@@ -10872,5 +10872,28 @@
     "eval_model": "gemini-vineeth-bits/gemini-3.5-flash-lite",
     "description_file": null,
     "deletion_reason": "Deadline (2026-10-31) passed by more than 2 days and unreviewed"
+  },
+  {
+    "title": "Solicitor Apprenticeship 2027",
+    "company": "Higgs LLP",
+    "location": "Brierley Hill, England, United Kingdom",
+    "url": "https://uk.linkedin.com/jobs/view/solicitor-apprenticeship-2027-at-higgs-llp-4485937893",
+    "visited": "yes",
+    "matches_requirements": "no",
+    "reason": "The candidate is overqualified as she already holds an LL.B. and LL.M., and the role explicitly states it is not the right pathway for those who have already completed an undergraduate law degree.",
+    "id": "b0b5d3ca",
+    "source": "linkedin_ukrem_trainee_solicitor",
+    "added_at": "2026-11-02T03:10:47+02:00",
+    "job_type": "apprenticeship",
+    "work_model": "hybrid",
+    "uk_tier": "uk_hybrid",
+    "needs_uk_qualification": false,
+    "counts_toward_qwe": true,
+    "start_date": "September 2027",
+    "posted_date": "2026-11-02",
+    "deadline": "2026-01-31",
+    "eval_model": "gemini-vineeth-bits/gemini-3.1-flash-lite",
+    "description_file": null,
+    "deletion_reason": "Deadline (2026-01-31) passed by more than 2 days and unreviewed"
   }
 ]
