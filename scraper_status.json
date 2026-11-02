@@ -1,9 +1,12 @@
 {
-  "pid": 27800,
-  "started_at": "2026-11-01T02:26:06+02:00",
-  "heartbeat_at": "2026-11-01T03:17:32+02:00",
-  "phase": "run_finished",
-  "detail": "0 lower-yield targets and 0 jobs left for the next run",
-  "last_scrape_ok_at": "2026-11-01T03:17:04+02:00",
-  "last_error": null
+  "pid": 13876,
+  "started_at": "2026-11-02T02:27:39+02:00",
+  "heartbeat_at": "2026-11-02T02:51:34+02:00",
+  "phase": "reviewing",
+  "detail": "Stewardship Manager \u2013 Mid-value",
+  "last_scrape_ok_at": "2026-11-02T02:49:31+02:00",
+  "last_error": {
+    "at": "2026-11-02T02:37:06+02:00",
+    "message": "cvlib_cam_communications_assistant: Page.goto: Timeout 60000ms exceeded.\nCall log:\n  - navigating to \"https://www.cv-library.co.uk/communications-assistant-jobs-in-cambridge?distance=20\", waiting until \"load\"\n"
+  }
 }
