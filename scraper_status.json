@@ -1,9 +1,9 @@
 {
   "pid": 56860,
   "started_at": "2026-11-03T02:26:53+02:00",
-  "heartbeat_at": "2026-11-03T03:10:50+02:00",
+  "heartbeat_at": "2026-11-03T03:20:39+02:00",
   "phase": "reviewing",
-  "detail": "Commercial Administrator",
-  "last_scrape_ok_at": "2026-11-03T03:08:07+02:00",
+  "detail": "Junior Network Admin",
+  "last_scrape_ok_at": "2026-11-03T03:17:49+02:00",
   "last_error": null
 }
