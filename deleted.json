@@ -12464,5 +12464,30 @@
     "eval_model": "gemini-vineeth-bits/gemini-3.5-flash-lite",
     "description_file": null,
     "deletion_reason": "Deadline (2026-11-01) passed by more than 2 days and unreviewed"
+  },
+  {
+    "title": "Change Capability Consultant",
+    "company": "The National Farmers Union Mutual Insurance Society Limited",
+    "location": "Stratford-upon-Avon, Warwickshire, UK",
+    "url": "https://www.reed.co.uk/jobs/change-capability-consultant/57468799",
+    "visited": "yes",
+    "matches_requirements": "no",
+    "reason": "The role is located in Stratford-upon-Avon, which is outside of the target location area (Cambridgeshire and immediate neighbours) and is not a fully remote role.",
+    "id": "aa5f078a",
+    "source": "reed_remote_community_coordinator",
+    "added_at": "2026-11-03T03:28:47+02:00",
+    "job_type": "full-time",
+    "work_model": "hybrid",
+    "uk_tier": "uk_hybrid",
+    "hours": "9am to 5pm",
+    "salary": "\u00a350,000 per annum",
+    "needs_uk_qualification": false,
+    "counts_toward_qwe": false,
+    "start_date": "N/A",
+    "posted_date": "17 october",
+    "deadline": "2026-10-29",
+    "eval_model": "gemini-vineeth-bits/gemini-3.1-flash-lite",
+    "description_file": null,
+    "deletion_reason": "Deadline (2026-10-29) passed by more than 2 days and unreviewed"
   }
 ]
