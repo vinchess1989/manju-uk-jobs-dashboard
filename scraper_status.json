@@ -1,9 +1,9 @@
 {
   "pid": 56860,
   "started_at": "2026-11-03T02:26:53+02:00",
-  "heartbeat_at": "2026-11-03T03:37:46+02:00",
+  "heartbeat_at": "2026-11-03T03:39:31+02:00",
   "phase": "reviewing",
-  "detail": "Office & Operations Coordinator",
-  "last_scrape_ok_at": "2026-11-03T03:35:25+02:00",
+  "detail": "Legal Administrator / PA",
+  "last_scrape_ok_at": "2026-11-03T03:39:03+02:00",
   "last_error": null
 }
