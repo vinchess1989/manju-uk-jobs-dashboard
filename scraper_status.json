@@ -1,9 +1,9 @@
 {
   "pid": 56860,
   "started_at": "2026-11-03T02:26:53+02:00",
-  "heartbeat_at": "2026-11-03T03:34:35+02:00",
+  "heartbeat_at": "2026-11-03T03:37:46+02:00",
   "phase": "reviewing",
-  "detail": "Project Support Officer (SC Cleared)",
-  "last_scrape_ok_at": "2026-11-03T03:32:45+02:00",
+  "detail": "Office & Operations Coordinator",
+  "last_scrape_ok_at": "2026-11-03T03:35:25+02:00",
   "last_error": null
 }
