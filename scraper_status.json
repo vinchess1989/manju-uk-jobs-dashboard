@@ -1,9 +1,9 @@
 {
   "pid": 56860,
   "started_at": "2026-11-03T02:26:53+02:00",
-  "heartbeat_at": "2026-11-03T02:41:43+02:00",
+  "heartbeat_at": "2026-11-03T02:49:56+02:00",
   "phase": "reviewing",
-  "detail": "Field Based Compliance and Account Manager",
-  "last_scrape_ok_at": "2026-11-03T02:40:11+02:00",
+  "detail": "Document Controller",
+  "last_scrape_ok_at": "2026-11-03T02:48:52+02:00",
   "last_error": null
 }
