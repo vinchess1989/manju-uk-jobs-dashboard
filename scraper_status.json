@@ -1,9 +1,9 @@
 {
   "pid": 50004,
   "started_at": "2026-11-04T02:27:53+02:00",
-  "heartbeat_at": "2026-11-04T03:40:32+02:00",
-  "phase": "reviewing",
-  "detail": "Human Resources Administrator (Bristol or Birmingham)",
-  "last_scrape_ok_at": "2026-11-04T03:39:32+02:00",
+  "heartbeat_at": "2026-11-04T03:40:49+02:00",
+  "phase": "scraped",
+  "detail": "0 new jobs",
+  "last_scrape_ok_at": "2026-11-04T03:40:49+02:00",
   "last_error": null
 }
