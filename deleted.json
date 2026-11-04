@@ -13834,5 +13834,29 @@
     "eval_model": "gemini-vineeth-bits/gemini-3.1-flash-lite",
     "description_file": null,
     "deletion_reason": "Deadline (2026-11-02) passed by more than 2 days and unreviewed"
+  },
+  {
+    "title": "Street Scene Protection Officer",
+    "company": "BRAINTREE DISTRICT COUNCIL",
+    "location": "Braintree, Essex, UK",
+    "url": "https://www.reed.co.uk/jobs/street-scene-protection-officer/57413583",
+    "visited": "yes",
+    "matches_requirements": "no",
+    "reason": "The role is located in Braintree, Essex, which is outside the specified Cambridgeshire/commuter area, and the application deadline has already passed.",
+    "id": "f078ce54",
+    "source": "reed_cam_compliance_officer",
+    "added_at": "2026-11-04T02:41:52+02:00",
+    "job_type": "full-time",
+    "work_model": "onsite",
+    "uk_tier": "uk_onsite_other",
+    "salary": "\u00a332,319 - \u00a336,900 per annum",
+    "needs_uk_qualification": false,
+    "counts_toward_qwe": false,
+    "start_date": "N/A",
+    "posted_date": "1 october",
+    "deadline": "2026-10-26",
+    "eval_model": "gemini-vineeth-bits/gemini-3.1-flash-lite",
+    "description_file": null,
+    "deletion_reason": "Deadline (2026-10-26) passed by more than 2 days and unreviewed"
   }
 ]
