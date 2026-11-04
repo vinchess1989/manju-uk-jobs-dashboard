@@ -1,9 +1,9 @@
 {
   "pid": 50004,
   "started_at": "2026-11-04T02:27:53+02:00",
-  "heartbeat_at": "2026-11-04T03:03:49+02:00",
+  "heartbeat_at": "2026-11-04T03:11:27+02:00",
   "phase": "reviewing",
-  "detail": "Change Project Manager",
-  "last_scrape_ok_at": "2026-11-04T03:02:29+02:00",
+  "detail": "Network Admin - job guarantee",
+  "last_scrape_ok_at": "2026-11-04T03:08:07+02:00",
   "last_error": null
 }

@@ -13858,5 +13858,29 @@
     "eval_model": "gemini-vineeth-bits/gemini-3.1-flash-lite",
     "description_file": null,
     "deletion_reason": "Deadline (2026-10-26) passed by more than 2 days and unreviewed"
+  },
+  {
+    "title": "Business Level 6 Degree Apprenticeship 2027",
+    "company": "targetjobs UK",
+    "location": "Stevenage, England, United Kingdom",
+    "url": "https://uk.linkedin.com/jobs/view/business-level-6-degree-apprenticeship-2027-at-targetjobs-uk-4486060179",
+    "visited": "yes",
+    "matches_requirements": "no",
+    "reason": "This role is an apprenticeship explicitly requiring British citizenship or dual British-UK citizenship and security clearance (BPSS), which violates hard rejections.",
+    "id": "5f5343f3",
+    "source": "linkedin_cam_trainee_solicitor",
+    "added_at": "2026-11-04T03:06:32+02:00",
+    "job_type": "apprenticeship",
+    "work_model": "onsite",
+    "uk_tier": "uk_onsite_other",
+    "salary": "\u00a323,000 plus a \u00a33000 joining bonus",
+    "needs_uk_qualification": false,
+    "counts_toward_qwe": false,
+    "start_date": "September 2027",
+    "posted_date": "2026-11-04",
+    "deadline": "2027-11-20",
+    "eval_model": "gemini-vineeth-bits/gemini-3.5-flash-lite",
+    "description_file": null,
+    "deletion_reason": "Requires UK citizenship / security clearance"
   }
 ]
