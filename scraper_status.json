@@ -1,9 +1,9 @@
 {
   "pid": 50004,
   "started_at": "2026-11-04T02:27:53+02:00",
-  "heartbeat_at": "2026-11-04T02:31:53+02:00",
+  "heartbeat_at": "2026-11-04T02:40:52+02:00",
   "phase": "reviewing",
-  "detail": "Commission Assistant",
-  "last_scrape_ok_at": "2026-11-04T02:30:00+02:00",
+  "detail": "Legal Cashier",
+  "last_scrape_ok_at": "2026-11-04T02:38:14+02:00",
   "last_error": null
 }
