@@ -1,9 +1,9 @@
 {
   "pid": 50004,
   "started_at": "2026-11-04T02:27:53+02:00",
-  "heartbeat_at": "2026-11-04T03:38:55+02:00",
+  "heartbeat_at": "2026-11-04T03:40:32+02:00",
   "phase": "reviewing",
-  "detail": "Service Administrator",
-  "last_scrape_ok_at": "2026-11-04T03:37:57+02:00",
+  "detail": "Human Resources Administrator (Bristol or Birmingham)",
+  "last_scrape_ok_at": "2026-11-04T03:39:32+02:00",
   "last_error": null
 }
