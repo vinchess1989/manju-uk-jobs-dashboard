@@ -1,9 +1,9 @@
 {
   "pid": 50004,
   "started_at": "2026-11-04T02:27:53+02:00",
-  "heartbeat_at": "2026-11-04T03:34:06+02:00",
+  "heartbeat_at": "2026-11-04T03:36:35+02:00",
   "phase": "reviewing",
-  "detail": "Conveyancing Assistant/Secretary",
-  "last_scrape_ok_at": "2026-11-04T03:33:09+02:00",
+  "detail": "Office Assistant",
+  "last_scrape_ok_at": "2026-11-04T03:35:36+02:00",
   "last_error": null
 }
