@@ -1,9 +1,9 @@
 {
   "pid": 24680,
   "started_at": "2026-11-05T02:26:01+02:00",
-  "heartbeat_at": "2026-11-05T03:36:35+02:00",
-  "phase": "reviewing",
-  "detail": "People & Culture Administrator",
-  "last_scrape_ok_at": "2026-11-05T03:34:22+02:00",
+  "heartbeat_at": "2026-11-05T03:38:05+02:00",
+  "phase": "scraped",
+  "detail": "0 new jobs",
+  "last_scrape_ok_at": "2026-11-05T03:38:05+02:00",
   "last_error": null
 }
