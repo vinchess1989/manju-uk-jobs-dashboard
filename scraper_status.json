@@ -1,9 +1,9 @@
 {
   "pid": 24680,
   "started_at": "2026-11-05T02:26:01+02:00",
-  "heartbeat_at": "2026-11-05T03:11:54+02:00",
+  "heartbeat_at": "2026-11-05T03:16:47+02:00",
   "phase": "reviewing",
-  "detail": "Communications Assistant",
-  "last_scrape_ok_at": "2026-11-05T03:10:07+02:00",
+  "detail": "Engagement and Operations Officer, Capacity Building",
+  "last_scrape_ok_at": "2026-11-05T03:13:23+02:00",
   "last_error": null
 }
