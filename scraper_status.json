@@ -1,9 +1,9 @@
 {
   "pid": 61104,
   "started_at": "2026-11-06T02:27:27+02:00",
-  "heartbeat_at": "2026-11-06T02:55:43+02:00",
+  "heartbeat_at": "2026-11-06T03:03:25+02:00",
   "phase": "reviewing",
-  "detail": "Grants Project Manager",
-  "last_scrape_ok_at": "2026-11-06T02:54:07+02:00",
+  "detail": "Event Manager",
+  "last_scrape_ok_at": "2026-11-06T03:02:02+02:00",
   "last_error": null
 }

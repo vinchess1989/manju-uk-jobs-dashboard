@@ -15200,5 +15200,29 @@
     "eval_model": "gemini-vineeth-bits/gemini-3.5-flash-lite",
     "description_file": null,
     "deletion_reason": "Deadline (2026-03-02) passed by more than 2 days and unreviewed"
+  },
+  {
+    "title": "Facilities Operations Assistant",
+    "company": "Haverhill Community Sports Association",
+    "location": "Haverhill, UK",
+    "url": "https://uk.indeed.com/viewjob?jk=26a30da53fae0a92",
+    "visited": "yes",
+    "matches_requirements": "no",
+    "reason": "The closing date for applications (4th November 2026) has already passed relative to today's date (6th November 2026).",
+    "id": "b5077e8f",
+    "source": "indeed_cam_operations_assistant",
+    "added_at": "2026-11-06T03:00:09+02:00",
+    "job_type": "part-time",
+    "work_model": "onsite",
+    "uk_tier": "cambridge",
+    "hours": "15-20 hours per week",
+    "needs_uk_qualification": false,
+    "counts_toward_qwe": false,
+    "start_date": "N/A",
+    "posted_date": "N/A",
+    "deadline": "2026-11-04",
+    "eval_model": "gemini-vineeth-bits/gemini-3.5-flash-lite",
+    "description_file": null,
+    "deletion_reason": "Deadline (2026-11-04) passed by more than 2 days and unreviewed"
   }
 ]
