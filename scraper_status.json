@@ -1,9 +1,9 @@
 {
   "pid": 61104,
   "started_at": "2026-11-06T02:27:27+02:00",
-  "heartbeat_at": "2026-11-06T02:49:48+02:00",
+  "heartbeat_at": "2026-11-06T02:55:43+02:00",
   "phase": "reviewing",
-  "detail": "Administrative Assistant",
-  "last_scrape_ok_at": "2026-11-06T02:48:39+02:00",
+  "detail": "Grants Project Manager",
+  "last_scrape_ok_at": "2026-11-06T02:54:07+02:00",
   "last_error": null
 }
