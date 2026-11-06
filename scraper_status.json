@@ -1,9 +1,9 @@
 {
   "pid": 61104,
   "started_at": "2026-11-06T02:27:27+02:00",
-  "heartbeat_at": "2026-11-06T03:33:30+02:00",
+  "heartbeat_at": "2026-11-06T03:35:42+02:00",
   "phase": "reviewing",
-  "detail": "Product Governance Lead",
-  "last_scrape_ok_at": "2026-11-06T03:32:34+02:00",
+  "detail": "Document Controller",
+  "last_scrape_ok_at": "2026-11-06T03:34:27+02:00",
   "last_error": null
 }
