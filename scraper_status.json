@@ -1,9 +1,9 @@
 {
   "pid": 61104,
   "started_at": "2026-11-06T02:27:27+02:00",
-  "heartbeat_at": "2026-11-06T03:08:56+02:00",
+  "heartbeat_at": "2026-11-06T03:13:55+02:00",
   "phase": "reviewing",
-  "detail": "Supporter Care Administrator (maternity cover)",
-  "last_scrape_ok_at": "2026-11-06T03:07:22+02:00",
+  "detail": "Trust and Probate Solicitor",
+  "last_scrape_ok_at": "2026-11-06T03:12:39+02:00",
   "last_error": null
 }
