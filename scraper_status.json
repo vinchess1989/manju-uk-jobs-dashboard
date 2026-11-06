@@ -1,9 +1,9 @@
 {
   "pid": 61104,
   "started_at": "2026-11-06T02:27:27+02:00",
-  "heartbeat_at": "2026-11-06T03:18:49+02:00",
+  "heartbeat_at": "2026-11-06T03:22:28+02:00",
   "phase": "reviewing",
-  "detail": "Operations Support Coordinator",
-  "last_scrape_ok_at": "2026-11-06T03:17:46+02:00",
+  "detail": "Legal Support Administration Assistant",
+  "last_scrape_ok_at": "2026-11-06T03:21:30+02:00",
   "last_error": null
 }
