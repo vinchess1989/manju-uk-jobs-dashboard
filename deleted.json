@@ -15249,5 +15249,29 @@
     "eval_model": "gemini-vineeth-bits/gemini-3.5-flash-lite",
     "description_file": null,
     "deletion_reason": "Requires UK citizenship / security clearance"
+  },
+  {
+    "title": "Social Media Advance Apprentice (Graduate)",
+    "company": "Worcester Bosch",
+    "location": "Worcester, England, United Kingdom",
+    "url": "https://uk.linkedin.com/jobs/view/social-media-advance-apprentice-graduate-at-worcester-bosch-4482864356",
+    "visited": "yes",
+    "matches_requirements": "no",
+    "reason": "The role is located in Worcester, which is outside Cambridgeshire and not remote.",
+    "id": "f249b1eb",
+    "source": "linkedin_ukrem_communications_assistant",
+    "added_at": "2026-11-06T03:15:46+02:00",
+    "job_type": "apprenticeship",
+    "work_model": "onsite",
+    "uk_tier": "uk_onsite_other",
+    "hours": "39 hours per week",
+    "needs_uk_qualification": false,
+    "counts_toward_qwe": false,
+    "start_date": "01/12/2026",
+    "posted_date": "2026-10-30",
+    "deadline": "2026-11-02",
+    "eval_model": "gemini-vineeth-bits/gemini-3.5-flash-lite",
+    "description_file": null,
+    "deletion_reason": "Deadline (2026-11-02) passed by more than 2 days and unreviewed"
   }
 ]
