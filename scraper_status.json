@@ -1,9 +1,9 @@
 {
   "pid": 61104,
   "started_at": "2026-11-06T02:27:27+02:00",
-  "heartbeat_at": "2026-11-06T02:47:44+02:00",
+  "heartbeat_at": "2026-11-06T02:49:48+02:00",
   "phase": "reviewing",
-  "detail": "Postgraduate Administrator",
-  "last_scrape_ok_at": "2026-11-06T02:46:21+02:00",
+  "detail": "Administrative Assistant",
+  "last_scrape_ok_at": "2026-11-06T02:48:39+02:00",
   "last_error": null
 }
