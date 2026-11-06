@@ -1,9 +1,9 @@
 {
-  "pid": 24680,
-  "started_at": "2026-11-05T02:26:01+02:00",
-  "heartbeat_at": "2026-11-05T03:38:24+02:00",
-  "phase": "run_finished",
-  "detail": "9 lower-yield targets and 0 jobs left for the next run",
-  "last_scrape_ok_at": "2026-11-05T03:38:15+02:00",
+  "pid": 61104,
+  "started_at": "2026-11-06T02:27:27+02:00",
+  "heartbeat_at": "2026-11-06T02:30:46+02:00",
+  "phase": "reviewing",
+  "detail": "Reward Assistant - 12 Month FTC",
+  "last_scrape_ok_at": "2026-11-06T02:29:32+02:00",
   "last_error": null
 }
