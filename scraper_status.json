@@ -1,9 +1,9 @@
 {
   "pid": 60480,
   "started_at": "2026-11-07T02:27:15+02:00",
-  "heartbeat_at": "2026-11-07T02:31:24+02:00",
+  "heartbeat_at": "2026-11-07T02:39:27+02:00",
   "phase": "reviewing",
-  "detail": "Assistant Psychologist - Dietetic Assistant",
-  "last_scrape_ok_at": "2026-11-07T02:29:44+02:00",
+  "detail": "Technical Services Administrator",
+  "last_scrape_ok_at": "2026-11-07T02:36:08+02:00",
   "last_error": null
 }
