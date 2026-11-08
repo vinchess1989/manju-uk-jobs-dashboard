@@ -1,9 +1,9 @@
 {
   "pid": 58724,
   "started_at": "2026-11-08T02:26:28+02:00",
-  "heartbeat_at": "2026-11-08T03:06:54+02:00",
+  "heartbeat_at": "2026-11-08T03:12:19+02:00",
   "phase": "reviewing",
-  "detail": "Legal Secretary",
-  "last_scrape_ok_at": "2026-11-08T03:05:53+02:00",
+  "detail": "Receptionist",
+  "last_scrape_ok_at": "2026-11-08T03:11:52+02:00",
   "last_error": null
 }
