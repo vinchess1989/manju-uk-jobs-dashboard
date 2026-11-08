@@ -1,9 +1,9 @@
 {
-  "pid": 60480,
-  "started_at": "2026-11-07T02:27:15+02:00",
-  "heartbeat_at": "2026-11-07T03:37:32+02:00",
-  "phase": "run_finished",
-  "detail": "0 lower-yield targets and 0 jobs left for the next run",
-  "last_scrape_ok_at": "2026-11-07T03:36:07+02:00",
+  "pid": 58724,
+  "started_at": "2026-11-08T02:26:28+02:00",
+  "heartbeat_at": "2026-11-08T02:40:32+02:00",
+  "phase": "reviewing",
+  "detail": "Employment Litigation Specialist (Qualified)",
+  "last_scrape_ok_at": "2026-11-08T02:39:24+02:00",
   "last_error": null
 }
