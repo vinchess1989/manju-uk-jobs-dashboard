@@ -1,9 +1,9 @@
 {
   "pid": 53300,
   "started_at": "2026-11-09T02:23:04+02:00",
-  "heartbeat_at": "2026-11-09T02:37:49+02:00",
+  "heartbeat_at": "2026-11-09T03:00:09+02:00",
   "phase": "reviewing",
-  "detail": "Customer Assistant - Operations - Biggleswade",
-  "last_scrape_ok_at": "2026-11-09T02:36:52+02:00",
+  "detail": "Internal Communications Officer",
+  "last_scrape_ok_at": "2026-11-09T02:58:33+02:00",
   "last_error": null
 }
