@@ -1,9 +1,9 @@
 {
   "pid": 53300,
   "started_at": "2026-11-09T02:23:04+02:00",
-  "heartbeat_at": "2026-11-09T03:09:48+02:00",
-  "phase": "reviewing",
-  "detail": "Guest Services Receptionist",
+  "heartbeat_at": "2026-11-09T03:10:03+02:00",
+  "phase": "run_finished",
+  "detail": "0 lower-yield targets and 0 jobs left for the next run",
   "last_scrape_ok_at": "2026-11-09T03:07:41+02:00",
   "last_error": null
 }
