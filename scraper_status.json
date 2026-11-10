@@ -1,9 +1,9 @@
 {
   "pid": 21400,
   "started_at": "2026-11-10T02:26:16+02:00",
-  "heartbeat_at": "2026-11-10T02:29:54+02:00",
+  "heartbeat_at": "2026-11-10T02:33:00+02:00",
   "phase": "reviewing",
-  "detail": "Bookkeeper",
-  "last_scrape_ok_at": "2026-11-10T02:28:44+02:00",
+  "detail": "Talent Acquisition Specialist - 6 Month FTC",
+  "last_scrape_ok_at": "2026-11-10T02:31:48+02:00",
   "last_error": null
 }
