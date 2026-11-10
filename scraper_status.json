@@ -1,9 +1,9 @@
 {
   "pid": 21400,
   "started_at": "2026-11-10T02:26:16+02:00",
-  "heartbeat_at": "2026-11-10T03:11:10+02:00",
+  "heartbeat_at": "2026-11-10T03:15:35+02:00",
   "phase": "reviewing",
-  "detail": "Administrative Assistant",
-  "last_scrape_ok_at": "2026-11-10T03:09:10+02:00",
+  "detail": "PR: Assistant Account Executive/Account Executive",
+  "last_scrape_ok_at": "2026-11-10T03:14:32+02:00",
   "last_error": null
 }
