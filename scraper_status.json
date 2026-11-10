@@ -1,9 +1,9 @@
 {
   "pid": 21400,
   "started_at": "2026-11-10T02:26:16+02:00",
-  "heartbeat_at": "2026-11-10T02:53:01+02:00",
+  "heartbeat_at": "2026-11-10T02:58:36+02:00",
   "phase": "reviewing",
-  "detail": "Finance Officer",
-  "last_scrape_ok_at": "2026-11-10T02:51:21+02:00",
+  "detail": "Functional Skills Learning Support Worker",
+  "last_scrape_ok_at": "2026-11-10T02:55:40+02:00",
   "last_error": null
 }
