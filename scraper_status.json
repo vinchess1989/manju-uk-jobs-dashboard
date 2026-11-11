@@ -1,9 +1,9 @@
 {
   "pid": 41404,
   "started_at": "2026-11-11T02:27:37+02:00",
-  "heartbeat_at": "2026-11-11T03:05:10+02:00",
+  "heartbeat_at": "2026-11-11T03:09:16+02:00",
   "phase": "reviewing",
-  "detail": "People Coordinator",
-  "last_scrape_ok_at": "2026-11-11T03:03:57+02:00",
+  "detail": "Communications Coordinator",
+  "last_scrape_ok_at": "2026-11-11T03:07:15+02:00",
   "last_error": null
 }
