@@ -1,9 +1,9 @@
 {
   "pid": 41404,
   "started_at": "2026-11-11T02:27:37+02:00",
-  "heartbeat_at": "2026-11-11T03:30:54+02:00",
-  "phase": "scraped",
-  "detail": "0 new jobs",
+  "heartbeat_at": "2026-11-11T03:31:12+02:00",
+  "phase": "run_finished",
+  "detail": "0 lower-yield targets and 0 jobs left for the next run",
   "last_scrape_ok_at": "2026-11-11T03:30:54+02:00",
   "last_error": null
 }
