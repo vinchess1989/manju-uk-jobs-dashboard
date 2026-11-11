@@ -1,9 +1,9 @@
 {
-  "pid": 21400,
-  "started_at": "2026-11-10T02:26:16+02:00",
-  "heartbeat_at": "2026-11-10T03:39:05+02:00",
-  "phase": "run_finished",
-  "detail": "1 lower-yield targets and 0 jobs left for the next run",
-  "last_scrape_ok_at": "2026-11-10T03:38:56+02:00",
+  "pid": 41404,
+  "started_at": "2026-11-11T02:27:37+02:00",
+  "heartbeat_at": "2026-11-11T02:34:19+02:00",
+  "phase": "reviewing",
+  "detail": "People Services Coordinator - 12 Month FTC",
+  "last_scrape_ok_at": "2026-11-11T02:31:23+02:00",
   "last_error": null
 }
