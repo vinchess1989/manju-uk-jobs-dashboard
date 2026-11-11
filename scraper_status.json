@@ -1,9 +1,9 @@
 {
   "pid": 41404,
   "started_at": "2026-11-11T02:27:37+02:00",
-  "heartbeat_at": "2026-11-11T03:30:19+02:00",
-  "phase": "reviewing",
-  "detail": "Information Coordinator",
-  "last_scrape_ok_at": "2026-11-11T03:29:10+02:00",
+  "heartbeat_at": "2026-11-11T03:30:54+02:00",
+  "phase": "scraped",
+  "detail": "0 new jobs",
+  "last_scrape_ok_at": "2026-11-11T03:30:54+02:00",
   "last_error": null
 }
