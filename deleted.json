@@ -19464,5 +19464,29 @@
     "eval_model": "gemini-vineeth-bits/gemini-3.1-flash-lite",
     "description_file": null,
     "deletion_reason": "Deadline (2026-11-09) passed by more than 2 days and unreviewed"
+  },
+  {
+    "title": "Community and Communications Associate",
+    "company": "Plexal",
+    "location": "Reading, England, United Kingdom",
+    "url": "https://uk.linkedin.com/jobs/view/community-and-communications-associate-at-plexal-4487489658",
+    "visited": "yes",
+    "matches_requirements": "no",
+    "reason": "The role requires SC security clearance, which mandates being a British Citizen or having resided in the UK for the last 5 years, which the candidate does not meet.",
+    "id": "e8ec91a0",
+    "source": "linkedin_ukrem_community_coordinator",
+    "added_at": "2026-11-11T03:14:29+02:00",
+    "job_type": "full-time",
+    "work_model": "onsite",
+    "uk_tier": "uk_onsite_other",
+    "salary": "Circa \u00a335,000 depending on skills and experience",
+    "needs_uk_qualification": false,
+    "counts_toward_qwe": false,
+    "start_date": "N/A",
+    "posted_date": "2026-11-11",
+    "deadline": "N/A",
+    "eval_model": "gemini-vineeth-bits/gemini-3.1-flash-lite",
+    "description_file": null,
+    "deletion_reason": "Requires UK citizenship / security clearance"
   }
 ]
