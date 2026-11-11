@@ -1,9 +1,9 @@
 {
   "pid": 41404,
   "started_at": "2026-11-11T02:27:37+02:00",
-  "heartbeat_at": "2026-11-11T03:25:05+02:00",
+  "heartbeat_at": "2026-11-11T03:30:19+02:00",
   "phase": "reviewing",
-  "detail": "IFA Administrator",
-  "last_scrape_ok_at": "2026-11-11T03:23:56+02:00",
+  "detail": "Information Coordinator",
+  "last_scrape_ok_at": "2026-11-11T03:29:10+02:00",
   "last_error": null
 }
