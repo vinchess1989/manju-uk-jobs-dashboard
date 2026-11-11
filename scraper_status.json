@@ -1,9 +1,9 @@
 {
   "pid": 41404,
   "started_at": "2026-11-11T02:27:37+02:00",
-  "heartbeat_at": "2026-11-11T02:51:52+02:00",
+  "heartbeat_at": "2026-11-11T02:58:28+02:00",
   "phase": "reviewing",
-  "detail": "Lead Youth Worker",
-  "last_scrape_ok_at": "2026-11-11T02:50:38+02:00",
+  "detail": "Operations Administrator",
+  "last_scrape_ok_at": "2026-11-11T02:56:27+02:00",
   "last_error": null
 }
