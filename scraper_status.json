@@ -1,9 +1,9 @@
 {
   "pid": 41404,
   "started_at": "2026-11-11T02:27:37+02:00",
-  "heartbeat_at": "2026-11-11T03:16:28+02:00",
+  "heartbeat_at": "2026-11-11T03:19:40+02:00",
   "phase": "reviewing",
-  "detail": "Administrative Assistant",
-  "last_scrape_ok_at": "2026-11-11T03:15:11+02:00",
+  "detail": "Quantity Surveyor",
+  "last_scrape_ok_at": "2026-11-11T03:18:08+02:00",
   "last_error": null
 }
