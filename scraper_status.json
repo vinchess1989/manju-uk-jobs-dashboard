@@ -1,9 +1,9 @@
 {
   "pid": 33040,
   "started_at": "2026-11-12T02:25:24+02:00",
-  "heartbeat_at": "2026-11-12T03:17:11+02:00",
+  "heartbeat_at": "2026-11-12T03:21:31+02:00",
   "phase": "reviewing",
-  "detail": "Wealth Administrator (RBC Brewin Dolphin)",
-  "last_scrape_ok_at": "2026-11-12T03:16:12+02:00",
+  "detail": "CC Voice Agent RBWM",
+  "last_scrape_ok_at": "2026-11-12T03:20:35+02:00",
   "last_error": null
 }
