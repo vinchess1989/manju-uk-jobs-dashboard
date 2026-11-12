@@ -1,9 +1,9 @@
 {
   "pid": 33040,
   "started_at": "2026-11-12T02:25:24+02:00",
-  "heartbeat_at": "2026-11-12T03:11:57+02:00",
+  "heartbeat_at": "2026-11-12T03:14:40+02:00",
   "phase": "reviewing",
-  "detail": "Event Coordinator",
-  "last_scrape_ok_at": "2026-11-12T03:10:54+02:00",
+  "detail": "Administrative Assistant",
+  "last_scrape_ok_at": "2026-11-12T03:13:43+02:00",
   "last_error": null
 }
