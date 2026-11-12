@@ -1,9 +1,9 @@
 {
   "pid": 33040,
   "started_at": "2026-11-12T02:25:24+02:00",
-  "heartbeat_at": "2026-11-12T03:05:51+02:00",
+  "heartbeat_at": "2026-11-12T03:09:09+02:00",
   "phase": "reviewing",
-  "detail": "Operations Assistant (Remote UK)",
-  "last_scrape_ok_at": "2026-11-12T03:04:50+02:00",
+  "detail": "Associate - Property Litigation",
+  "last_scrape_ok_at": "2026-11-12T03:08:00+02:00",
   "last_error": null
 }

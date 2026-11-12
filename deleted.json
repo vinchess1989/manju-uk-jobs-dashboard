@@ -20538,5 +20538,29 @@
     "eval_model": "gemini-vineeth-bits/gemini-3.1-flash-lite",
     "description_file": "job_descriptions/seetec_recruitment_consultant_d91fe3e4.txt",
     "deletion_reason": "Deadline (2026-11-10) passed by more than 2 days and unreviewed"
+  },
+  {
+    "title": "Commercial - Undergraduate Placement 2027",
+    "company": "targetjobs UK",
+    "location": "Stevenage, England, United Kingdom",
+    "url": "https://uk.linkedin.com/jobs/view/commercial-undergraduate-placement-2027-at-targetjobs-uk-4488696838",
+    "visited": "yes",
+    "matches_requirements": "no",
+    "reason": "The role is an undergraduate placement requiring current student status and British citizenship, neither of which the candidate meets.",
+    "id": "2f4f0565",
+    "source": "linkedin_cam_contracts_administrator",
+    "added_at": "2026-11-12T03:07:39+02:00",
+    "job_type": "internship",
+    "work_model": "hybrid",
+    "uk_tier": "uk_hybrid",
+    "salary": "\u00a324,460",
+    "needs_uk_qualification": false,
+    "counts_toward_qwe": true,
+    "start_date": "September 2027",
+    "posted_date": "2026-11-12",
+    "deadline": "2027-01-04",
+    "eval_model": "gemini-vineeth-bits/gemini-3.1-flash-lite",
+    "description_file": null,
+    "deletion_reason": "Requires UK citizenship / security clearance"
   }
 ]
