@@ -1,9 +1,9 @@
 {
-  "pid": 40916,
-  "started_at": "2026-11-13T02:26:55+02:00",
-  "heartbeat_at": "2026-11-13T03:35:28+02:00",
-  "phase": "run_finished",
-  "detail": "0 lower-yield targets and 0 jobs left for the next run",
-  "last_scrape_ok_at": "2026-11-13T03:34:16+02:00",
+  "pid": 9832,
+  "started_at": "2026-11-14T02:27:49+02:00",
+  "heartbeat_at": "2026-11-14T02:30:55+02:00",
+  "phase": "reviewing",
+  "detail": "Project Manager - Location Based Entertainment (LBE)",
+  "last_scrape_ok_at": "2026-11-14T02:30:01+02:00",
   "last_error": null
 }
