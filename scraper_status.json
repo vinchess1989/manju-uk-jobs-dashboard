@@ -1,9 +1,9 @@
 {
   "pid": 9832,
   "started_at": "2026-11-14T02:27:49+02:00",
-  "heartbeat_at": "2026-11-14T03:08:34+02:00",
+  "heartbeat_at": "2026-11-14T03:13:02+02:00",
   "phase": "reviewing",
-  "detail": "Fundraising Administrator",
-  "last_scrape_ok_at": "2026-11-14T03:07:12+02:00",
+  "detail": "Business Operations Coordinator",
+  "last_scrape_ok_at": "2026-11-14T03:11:25+02:00",
   "last_error": null
 }
