@@ -1,9 +1,9 @@
 {
   "pid": 9832,
   "started_at": "2026-11-14T02:27:49+02:00",
-  "heartbeat_at": "2026-11-14T02:58:19+02:00",
+  "heartbeat_at": "2026-11-14T03:02:54+02:00",
   "phase": "reviewing",
-  "detail": "Legal Secretary",
-  "last_scrape_ok_at": "2026-11-14T02:56:46+02:00",
+  "detail": "Social Care Lawyer",
+  "last_scrape_ok_at": "2026-11-14T03:01:27+02:00",
   "last_error": null
 }
