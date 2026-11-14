@@ -22315,5 +22315,29 @@
     "eval_model": "gemini-vineeth-bits/gemini-3.1-flash-lite",
     "description_file": null,
     "deletion_reason": "Deadline (2026-10-12) passed by more than 2 days and unreviewed"
+  },
+  {
+    "title": "Digital Excellence Business - Undergraduate Placement 2027",
+    "company": "targetjobs UK",
+    "location": "Stevenage, England, United Kingdom",
+    "url": "https://uk.linkedin.com/jobs/view/digital-excellence-business-undergraduate-placement-2027-at-targetjobs-uk-4485426803",
+    "visited": "yes",
+    "matches_requirements": "no",
+    "reason": "The role is an undergraduate placement requiring current student status and British citizenship, neither of which the candidate possesses.",
+    "id": "aadc6b50",
+    "source": "linkedin_cam_project_coordinator",
+    "added_at": "2026-11-14T03:13:37+02:00",
+    "job_type": "internship",
+    "work_model": "hybrid",
+    "uk_tier": "uk_hybrid",
+    "salary": "\u00a324,460",
+    "needs_uk_qualification": false,
+    "counts_toward_qwe": false,
+    "start_date": "September 2027",
+    "posted_date": "2026-11-07",
+    "deadline": "2027-01-04",
+    "eval_model": "gemini-vineeth-bits/gemini-3.1-flash-lite",
+    "description_file": null,
+    "deletion_reason": "Requires UK citizenship / security clearance"
   }
 ]
