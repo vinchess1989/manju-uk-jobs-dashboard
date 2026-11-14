@@ -1,9 +1,9 @@
 {
   "pid": 9832,
   "started_at": "2026-11-14T02:27:49+02:00",
-  "heartbeat_at": "2026-11-14T03:36:52+02:00",
+  "heartbeat_at": "2026-11-14T03:38:05+02:00",
   "phase": "reviewing",
-  "detail": "Document Controller",
-  "last_scrape_ok_at": "2026-11-14T03:35:21+02:00",
+  "detail": "Receptionist",
+  "last_scrape_ok_at": "2026-11-14T03:37:31+02:00",
   "last_error": null
 }
