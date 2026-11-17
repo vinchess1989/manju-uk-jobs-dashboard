@@ -1,9 +1,9 @@
 {
   "pid": 48680,
   "started_at": "2026-11-17T02:26:24+02:00",
-  "heartbeat_at": "2026-11-17T03:25:54+02:00",
+  "heartbeat_at": "2026-11-17T03:29:15+02:00",
   "phase": "reviewing",
-  "detail": "Kitchen Assistant",
-  "last_scrape_ok_at": "2026-11-17T03:24:44+02:00",
+  "detail": "Wellness and Fitness Receptionist",
+  "last_scrape_ok_at": "2026-11-17T03:28:28+02:00",
   "last_error": null
 }
