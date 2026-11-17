@@ -1,9 +1,9 @@
 {
   "pid": 48680,
   "started_at": "2026-11-17T02:26:24+02:00",
-  "heartbeat_at": "2026-11-17T03:29:15+02:00",
-  "phase": "reviewing",
-  "detail": "Wellness and Fitness Receptionist",
+  "heartbeat_at": "2026-11-17T03:29:29+02:00",
+  "phase": "run_finished",
+  "detail": "0 lower-yield targets and 0 jobs left for the next run",
   "last_scrape_ok_at": "2026-11-17T03:28:28+02:00",
   "last_error": null
 }
