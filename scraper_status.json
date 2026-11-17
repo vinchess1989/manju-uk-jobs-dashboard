@@ -1,9 +1,9 @@
 {
   "pid": 48680,
   "started_at": "2026-11-17T02:26:24+02:00",
-  "heartbeat_at": "2026-11-17T03:19:37+02:00",
+  "heartbeat_at": "2026-11-17T03:22:56+02:00",
   "phase": "reviewing",
-  "detail": "People Operations Assistant",
-  "last_scrape_ok_at": "2026-11-17T03:18:37+02:00",
+  "detail": "Fleet Administrator",
+  "last_scrape_ok_at": "2026-11-17T03:21:51+02:00",
   "last_error": null
 }
