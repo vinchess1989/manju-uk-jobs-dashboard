@@ -1,9 +1,9 @@
 {
   "pid": 37116,
   "started_at": "2026-11-18T02:28:30+02:00",
-  "heartbeat_at": "2026-11-18T03:28:27+02:00",
+  "heartbeat_at": "2026-11-18T03:31:21+02:00",
   "phase": "reviewing",
-  "detail": "Customer Service Representative UK",
-  "last_scrape_ok_at": "2026-11-18T03:26:58+02:00",
+  "detail": "Legal Delivery Centre Paralegal",
+  "last_scrape_ok_at": "2026-11-18T03:30:02+02:00",
   "last_error": null
 }
