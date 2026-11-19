@@ -1,9 +1,9 @@
 {
   "pid": 40536,
   "started_at": "2026-11-19T02:29:38+02:00",
-  "heartbeat_at": "2026-11-19T02:49:39+02:00",
+  "heartbeat_at": "2026-11-19T02:53:17+02:00",
   "phase": "reviewing",
-  "detail": "Hotel Receptionist",
-  "last_scrape_ok_at": "2026-11-19T02:48:39+02:00",
+  "detail": "50:50 ICU and Medical Education Fellow",
+  "last_scrape_ok_at": "2026-11-19T02:52:26+02:00",
   "last_error": null
 }
