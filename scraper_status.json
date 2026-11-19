@@ -1,9 +1,9 @@
 {
   "pid": 40536,
   "started_at": "2026-11-19T02:29:38+02:00",
-  "heartbeat_at": "2026-11-19T02:38:24+02:00",
+  "heartbeat_at": "2026-11-19T02:44:59+02:00",
   "phase": "reviewing",
-  "detail": "Practitioner Psychologist - Gender Service",
-  "last_scrape_ok_at": "2026-11-19T02:36:58+02:00",
+  "detail": "HGV Workshop Controller",
+  "last_scrape_ok_at": "2026-11-19T02:44:00+02:00",
   "last_error": null
 }
