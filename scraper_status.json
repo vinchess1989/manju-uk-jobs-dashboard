@@ -1,9 +1,9 @@
 {
   "pid": 40536,
   "started_at": "2026-11-19T02:29:38+02:00",
-  "heartbeat_at": "2026-11-19T03:23:44+02:00",
+  "heartbeat_at": "2026-11-19T03:26:07+02:00",
   "phase": "reviewing",
-  "detail": "HR Administrator",
-  "last_scrape_ok_at": "2026-11-19T03:22:50+02:00",
+  "detail": "Customer Support Advisor",
+  "last_scrape_ok_at": "2026-11-19T03:25:15+02:00",
   "last_error": null
 }
