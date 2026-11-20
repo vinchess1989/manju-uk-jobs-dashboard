@@ -1,9 +1,9 @@
 {
   "pid": 36656,
   "started_at": "2026-11-20T02:26:08+02:00",
-  "heartbeat_at": "2026-11-20T03:04:08+02:00",
+  "heartbeat_at": "2026-11-20T03:07:02+02:00",
   "phase": "reviewing",
-  "detail": "Marketing Executive",
-  "last_scrape_ok_at": "2026-11-20T03:03:00+02:00",
+  "detail": "Hospitality Supervisor",
+  "last_scrape_ok_at": "2026-11-20T03:06:02+02:00",
   "last_error": null
 }
