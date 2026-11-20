@@ -1,9 +1,9 @@
 {
   "pid": 36656,
   "started_at": "2026-11-20T02:26:08+02:00",
-  "heartbeat_at": "2026-11-20T02:33:54+02:00",
+  "heartbeat_at": "2026-11-20T02:41:35+02:00",
   "phase": "reviewing",
-  "detail": "Sales Support Coordinator",
-  "last_scrape_ok_at": "2026-11-20T02:32:26+02:00",
+  "detail": "Service Coordinator",
+  "last_scrape_ok_at": "2026-11-20T02:40:23+02:00",
   "last_error": null
 }
