@@ -1,9 +1,9 @@
 {
   "pid": 36656,
   "started_at": "2026-11-20T02:26:08+02:00",
-  "heartbeat_at": "2026-11-20T02:48:36+02:00",
+  "heartbeat_at": "2026-11-20T02:56:37+02:00",
   "phase": "reviewing",
-  "detail": "Caseworker (South & Central)",
-  "last_scrape_ok_at": "2026-11-20T02:47:31+02:00",
+  "detail": "Buildings Project Co-Ordinator - Capital Projects",
+  "last_scrape_ok_at": "2026-11-20T02:55:33+02:00",
   "last_error": null
 }
