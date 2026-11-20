@@ -1,9 +1,9 @@
 {
-  "pid": 40536,
-  "started_at": "2026-11-19T02:29:38+02:00",
-  "heartbeat_at": "2026-11-19T03:34:22+02:00",
-  "phase": "run_finished",
-  "detail": "0 lower-yield targets and 0 jobs left for the next run",
-  "last_scrape_ok_at": "2026-11-19T03:33:01+02:00",
+  "pid": 36656,
+  "started_at": "2026-11-20T02:26:08+02:00",
+  "heartbeat_at": "2026-11-20T02:29:16+02:00",
+  "phase": "reviewing",
+  "detail": "Research Project Coordinator (Fixed Term)",
+  "last_scrape_ok_at": "2026-11-20T02:27:59+02:00",
   "last_error": null
 }
