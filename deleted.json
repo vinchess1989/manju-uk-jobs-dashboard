@@ -27616,5 +27616,30 @@
     "eval_model": "gemini-vineeth-bits/gemini-3.5-flash-lite",
     "description_file": null,
     "deletion_reason": "Deadline (2026-11-18) passed by more than 2 days and unreviewed"
+  },
+  {
+    "title": "Occupational Health Administrator",
+    "company": "Anglian Water Services",
+    "location": "Huntingdon, England, United Kingdom",
+    "url": "https://uk.linkedin.com/jobs/view/occupational-health-administrator-at-anglian-water-services-4491656545",
+    "visited": "yes",
+    "matches_requirements": "no",
+    "reason": "The application deadline of 03/12/2025 has already passed.",
+    "id": "07886d81",
+    "source": "linkedin_cam_hr_assistant",
+    "added_at": "2026-11-20T02:31:02+02:00",
+    "job_type": "part-time",
+    "work_model": "hybrid",
+    "uk_tier": "cambridge",
+    "hours": "15 hrs a week",
+    "salary": "Circa \u00a310,764",
+    "needs_uk_qualification": false,
+    "counts_toward_qwe": false,
+    "start_date": "N/A",
+    "posted_date": "2026-11-20",
+    "deadline": "2025-12-03",
+    "eval_model": "gemini-vineeth-bits/gemini-3.1-flash-lite",
+    "description_file": null,
+    "deletion_reason": "Deadline (2025-12-03) passed by more than 2 days and unreviewed"
   }
 ]
