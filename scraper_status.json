@@ -1,9 +1,9 @@
 {
-  "pid": 36656,
-  "started_at": "2026-11-20T02:26:08+02:00",
-  "heartbeat_at": "2026-11-20T03:27:09+02:00",
-  "phase": "run_finished",
-  "detail": "0 lower-yield targets and 0 jobs left for the next run",
-  "last_scrape_ok_at": "2026-11-20T03:25:20+02:00",
+  "pid": 61468,
+  "started_at": "2026-11-21T02:27:26+02:00",
+  "heartbeat_at": "2026-11-21T02:31:54+02:00",
+  "phase": "reviewing",
+  "detail": "Clinical Trial Coordinator UK",
+  "last_scrape_ok_at": "2026-11-21T02:30:19+02:00",
   "last_error": null
 }
