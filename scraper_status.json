@@ -1,9 +1,9 @@
 {
   "pid": 61468,
   "started_at": "2026-11-21T02:27:26+02:00",
-  "heartbeat_at": "2026-11-21T03:02:33+02:00",
+  "heartbeat_at": "2026-11-21T03:05:41+02:00",
   "phase": "reviewing",
-  "detail": "Logistics Co-ordinator",
-  "last_scrape_ok_at": "2026-11-21T03:01:14+02:00",
+  "detail": "Communications Officer, Corporate and Strategic",
+  "last_scrape_ok_at": "2026-11-21T03:04:31+02:00",
   "last_error": null
 }
