@@ -29055,5 +29055,29 @@
     "eval_model": "gemini-vineeth-bits/gemini-3.1-flash-lite",
     "description_file": null,
     "deletion_reason": "Requires UK citizenship / security clearance"
+  },
+  {
+    "title": "Digital Excellence Governance Manager",
+    "company": "MBDA",
+    "location": "Stevenage, England, United Kingdom",
+    "url": "https://uk.linkedin.com/jobs/view/digital-excellence-governance-manager-at-mbda-4479384919",
+    "visited": "yes",
+    "matches_requirements": "no",
+    "reason": "The role is a senior management position requiring 10+ years of experience and demands British citizenship for security clearance, both of which violate the candidate's hard rejection criteria.",
+    "id": "5cf98a6b",
+    "source": "linkedin_cam_compliance_officer",
+    "added_at": "2026-11-22T03:00:24+02:00",
+    "job_type": "full-time",
+    "work_model": "hybrid",
+    "uk_tier": "uk_hybrid",
+    "salary": "Circa \u00a380,000 depending on experience",
+    "needs_uk_qualification": false,
+    "counts_toward_qwe": false,
+    "start_date": "N/A",
+    "posted_date": "2 viikkoa sitten",
+    "deadline": "N/A",
+    "eval_model": "gemini-vineeth-bits/gemini-3.1-flash-lite",
+    "description_file": null,
+    "deletion_reason": "Requires UK citizenship / security clearance"
   }
 ]
