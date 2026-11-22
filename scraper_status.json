@@ -1,9 +1,9 @@
 {
   "pid": 65424,
   "started_at": "2026-11-22T02:21:21+02:00",
-  "heartbeat_at": "2026-11-22T03:08:41+02:00",
-  "phase": "reviewing",
-  "detail": "Compliance & Account Manager",
+  "heartbeat_at": "2026-11-22T03:08:55+02:00",
+  "phase": "run_finished",
+  "detail": "0 lower-yield targets and 0 jobs left for the next run",
   "last_scrape_ok_at": "2026-11-22T03:07:52+02:00",
   "last_error": null
 }
