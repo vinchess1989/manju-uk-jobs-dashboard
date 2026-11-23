@@ -1,9 +1,9 @@
 {
   "pid": 19324,
   "started_at": "2026-11-23T02:20:45+02:00",
-  "heartbeat_at": "2026-11-23T03:02:37+02:00",
+  "heartbeat_at": "2026-11-23T03:07:45+02:00",
   "phase": "reviewing",
-  "detail": "Administration Assistant (Chemistry Practice Group)",
-  "last_scrape_ok_at": "2026-11-23T03:00:37+02:00",
+  "detail": "Receptionist",
+  "last_scrape_ok_at": "2026-11-23T03:07:32+02:00",
   "last_error": null
 }
