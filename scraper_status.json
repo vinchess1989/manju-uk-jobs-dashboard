@@ -1,9 +1,9 @@
 {
   "pid": 49436,
   "started_at": "2026-11-25T02:26:24+02:00",
-  "heartbeat_at": "2026-11-25T03:22:50+02:00",
+  "heartbeat_at": "2026-11-25T03:26:36+02:00",
   "phase": "reviewing",
-  "detail": "Client Relationship Administrator",
-  "last_scrape_ok_at": "2026-11-25T03:21:28+02:00",
+  "detail": "Receptionist",
+  "last_scrape_ok_at": "2026-11-25T03:25:35+02:00",
   "last_error": null
 }
