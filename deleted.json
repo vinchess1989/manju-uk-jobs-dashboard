@@ -31219,5 +31219,29 @@
     "eval_model": "gemini-vineeth-bits/gemini-3.1-flash-lite",
     "description_file": null,
     "deletion_reason": "Deadline (2026-11-23) passed by more than 2 days and unreviewed"
+  },
+  {
+    "title": "Employment Adviser",
+    "company": "Reed in Partnership",
+    "location": "Stevenage, Hertfordshire, UK",
+    "url": "https://www.reed.co.uk/jobs/employment-adviser/57557546",
+    "visited": "yes",
+    "matches_requirements": "no",
+    "reason": "On-site outside Cambridgeshire (Stevenage, Hertfordshire, UK); only Cambridgeshire on-site, or remote/hybrid UK-wide, is acceptable. The role is located in Stevenage, which is outside the preferred Cambridgeshire area, but it is a suitable generalist/advisory role that she is qualified for.",
+    "id": "26a09ceb",
+    "source": "reed_cam_customer_service_advisor",
+    "added_at": "2026-11-26T02:46:46+02:00",
+    "job_type": "full-time",
+    "work_model": "onsite",
+    "uk_tier": "uk_onsite_other",
+    "salary": "\u00a330,000 per annum",
+    "needs_uk_qualification": false,
+    "counts_toward_qwe": false,
+    "start_date": "N/A",
+    "posted_date": "11 november",
+    "deadline": "2026-11-18",
+    "eval_model": "gemini-vineeth-bits/gemini-3.1-flash-lite",
+    "description_file": null,
+    "deletion_reason": "Deadline (2026-11-18) passed by more than 2 days and unreviewed"
   }
 ]
