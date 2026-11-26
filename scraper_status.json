@@ -1,9 +1,9 @@
 {
   "pid": 51480,
   "started_at": "2026-11-26T02:26:54+02:00",
-  "heartbeat_at": "2026-11-26T02:31:09+02:00",
+  "heartbeat_at": "2026-11-26T02:36:58+02:00",
   "phase": "reviewing",
-  "detail": "Wellbeing and Activities Coordinator",
-  "last_scrape_ok_at": "2026-11-26T02:29:57+02:00",
+  "detail": "Team Member",
+  "last_scrape_ok_at": "2026-11-26T02:35:37+02:00",
   "last_error": null
 }
