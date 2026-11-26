@@ -1,9 +1,9 @@
 {
   "pid": 51480,
   "started_at": "2026-11-26T02:26:54+02:00",
-  "heartbeat_at": "2026-11-26T03:20:11+02:00",
+  "heartbeat_at": "2026-11-26T03:22:08+02:00",
   "phase": "reviewing",
-  "detail": "Legal Assistant",
-  "last_scrape_ok_at": "2026-11-26T03:17:53+02:00",
+  "detail": "HR Administrator",
+  "last_scrape_ok_at": "2026-11-26T03:21:01+02:00",
   "last_error": null
 }
