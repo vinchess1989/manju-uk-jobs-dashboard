@@ -1,9 +1,9 @@
 {
   "pid": 46132,
   "started_at": "2026-11-27T02:25:20+02:00",
-  "heartbeat_at": "2026-11-27T03:14:15+02:00",
+  "heartbeat_at": "2026-11-27T03:17:01+02:00",
   "phase": "reviewing",
-  "detail": "Communications Workflow Coordinator",
-  "last_scrape_ok_at": "2026-11-27T03:12:23+02:00",
+  "detail": "Legal Assistant - Litigation (Criminal)",
+  "last_scrape_ok_at": "2026-11-27T03:16:00+02:00",
   "last_error": null
 }
