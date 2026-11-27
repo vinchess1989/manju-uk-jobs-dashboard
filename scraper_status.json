@@ -1,9 +1,9 @@
 {
   "pid": 46132,
   "started_at": "2026-11-27T02:25:20+02:00",
-  "heartbeat_at": "2026-11-27T02:55:38+02:00",
+  "heartbeat_at": "2026-11-27T03:02:28+02:00",
   "phase": "reviewing",
-  "detail": "Acquisition and Programme Manager",
-  "last_scrape_ok_at": "2026-11-27T02:54:41+02:00",
+  "detail": "Assistant Manager",
+  "last_scrape_ok_at": "2026-11-27T03:01:26+02:00",
   "last_error": null
 }
