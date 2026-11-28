@@ -1,9 +1,9 @@
 {
   "pid": 8124,
   "started_at": "2026-11-28T02:27:14+02:00",
-  "heartbeat_at": "2026-11-28T02:32:05+02:00",
+  "heartbeat_at": "2026-11-28T02:44:20+02:00",
   "phase": "reviewing",
-  "detail": "Administrator",
-  "last_scrape_ok_at": "2026-11-28T02:30:28+02:00",
+  "detail": "ATTENDANCE OFFICER at King James Academy Royston",
+  "last_scrape_ok_at": "2026-11-28T02:42:17+02:00",
   "last_error": null
 }
