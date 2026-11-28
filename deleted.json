@@ -32106,5 +32106,29 @@
     "eval_model": "gemini-vineeth-bits/gemini-3.1-flash-lite",
     "description_file": null,
     "deletion_reason": "Deadline (2026-11-26) passed by more than 2 days and unreviewed"
+  },
+  {
+    "title": "Trainee Recruitment Consultant",
+    "company": "Gap Technical Ltd",
+    "location": "Huntingdon, Cambridgeshire, UK",
+    "url": "https://www.cv-library.co.uk/job/225799243/trainee-recruitment-consultant",
+    "visited": "yes",
+    "matches_requirements": "no",
+    "reason": "The application deadline of 10/10/2026 has already passed, and the role is a quota-driven recruitment agency position which falls under the hard rejection for commission-only/sales-driven roles.",
+    "id": "03351e75",
+    "source": "cvlib_cam_trainee_solicitor",
+    "added_at": "2026-11-28T02:52:24+02:00",
+    "job_type": "full-time",
+    "work_model": "hybrid",
+    "uk_tier": "cambridge",
+    "salary": "\u00a328,000 - \u00a335,000 per annum",
+    "needs_uk_qualification": false,
+    "counts_toward_qwe": false,
+    "start_date": "N/A",
+    "posted_date": "4th nov",
+    "deadline": "2026-10-10",
+    "eval_model": "gemini-vineeth-bits/gemini-3.1-flash-lite",
+    "description_file": null,
+    "deletion_reason": "Deadline (2026-10-10) passed by more than 2 days and unreviewed"
   }
 ]
