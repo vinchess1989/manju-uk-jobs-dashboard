@@ -1,9 +1,9 @@
 {
   "pid": 8124,
   "started_at": "2026-11-28T02:27:14+02:00",
-  "heartbeat_at": "2026-11-28T03:21:21+02:00",
+  "heartbeat_at": "2026-11-28T03:28:23+02:00",
   "phase": "reviewing",
-  "detail": "Administrative Assistant Alaw Unit",
-  "last_scrape_ok_at": "2026-11-28T03:19:50+02:00",
+  "detail": "Document Controller",
+  "last_scrape_ok_at": "2026-11-28T03:25:27+02:00",
   "last_error": null
 }
