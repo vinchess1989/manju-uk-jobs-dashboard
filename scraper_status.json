@@ -1,9 +1,9 @@
 {
   "pid": 8124,
   "started_at": "2026-11-28T02:27:14+02:00",
-  "heartbeat_at": "2026-11-28T03:28:23+02:00",
-  "phase": "reviewing",
-  "detail": "Document Controller",
-  "last_scrape_ok_at": "2026-11-28T03:25:27+02:00",
+  "heartbeat_at": "2026-11-28T03:29:00+02:00",
+  "phase": "scraped",
+  "detail": "0 new jobs",
+  "last_scrape_ok_at": "2026-11-28T03:29:00+02:00",
   "last_error": null
 }
